@@ -1,0 +1,15 @@
+This project, which has had several versions as drafts, was first started in 2016, when I took up some freelancing projects. I had designed a couple of websites by then, and wanted one for myself, where I could showcase my work; the website itself being exemplary. But being an excellent procrastinator and a trying-to-be perfectionist, I designed and redesigned this site almost thrice. So this is the 4th iteration you are currently using, and the final one.
+
+![First design](https://i.imgur.com/DTL6HNt.png)
+![Second design](https://i.imgur.com/G5BsuyK.gif)
+![Third design](https://i.imgur.com/Kks1wlc.gif)<p style="text-align: center;font-size: 1rem">Images of previous designs (Yes, they are very raw. Did not ever get past this stage.)</p>
+
+When in college, I had made a poster with Steve Job's iconic thinking face and a quote, which was made up by me, but I more or less believed what Jobs must have had to say about work. It read 'If you are making something, make it fucking perfect'. It remained stuck opposite to my working desk, as if Jobs was looking over me throughout. This project isn't the only one I skipped and postponed, rather this is the only one which I ever completed, (other than the ones which were meant for others). 
+
+One day, I saw a video and unfortunately I don't recall the source, but it changed my outlook towards perfectionism. I wanted everything I made to be perfect. This always kept me unsatisfied with my own work, I would make something, and after a week I would find some flaws and try to correct it and in the end would entirely give up on it. The video which I mentioned, spoke of nothing new; it said that chase for perfection is a never ending one. Instead, one must start working. Make whatever and however anything is possible to be made. You might not end up with the best website, or the best prototype, but atleast you'll have a product. You'll free yourself from the neverending loop of perfection. It was true. You get a lot of projects done, and spend considerably less time on each one. So, the next day I decided to remove the poster from my room. Fortunately enough, I found a willing owner for it. Stating my reason to abandon the poster, I handed over the poster to a friend of mine, who had loved the design. After almost a year, I finally have a website. It feels good to complete something, and I hope I do the same for other 'drafts' in my to-do list. Keep reading! 
+
+##### Technology
+This is the simplest website you would have ever seen. It uses React, an open-source JavaScript library for writing UIs. And I absolutely love it. It is statically hosted on Netlify. ~~These posts are shown from a static json file, the worst way to manage blog posts~~. But yeah, remember of perfection? You don't want it. Obviously I'll write a better one soon and have a backend.
+
+##### ***Update*** 👨‍💻
+I recently improved the way blog posts are shown on my website. I feel it can be useful for others too, who wish to have a simple CMS but do not want the trouble of a database or a backend. I'm planning to make this as an open-source module.
