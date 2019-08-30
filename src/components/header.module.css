@@ -1,0 +1,75 @@
+.Header {
+    margin: auto;
+    margin-top: 72px;
+    padding: 0 40px;
+    width: 700px;
+    font-family: 'Inter', sans-serif;
+    color: #16161d;
+}
+
+.topRow {
+    display: flex;
+    align-items: center;
+}
+
+.profileImage {
+    height: 85px;
+    width: 85px;
+    background-image: url('/assets/images/mohit.jpg');
+    background-size: contain;
+    border-radius: 50%;
+    margin-right: 23px;
+}
+
+.name {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 36px;
+}
+
+.shortBio {
+    margin: 0;
+}
+
+.bio {
+    margin: 0;
+    margin-top: 18px;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    transition: all 200ms ease-in-out;
+    margin-top: 18px;
+}
+
+.tab {
+    margin: 0;
+    text-decoration: none;
+    color: #16161d;
+}
+
+.active {
+    color: #F37777;
+}
+
+.tab p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.tab:hover {
+    color: #F37777;
+    cursor: pointer;
+}
+
+.bullet {
+    margin: 0 6px;
+}
+
+.hrule {
+    height: 2px;
+    background: #ebebeb;
+    border: 0;
+}

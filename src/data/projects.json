@@ -1,0 +1,64 @@
+{
+    "projects": [
+        {
+            "title": "Shaai",
+            "description": "A highly customisable, open source blogging framework",
+            "link": "https://github.com/shaaijs/core"
+        },
+        {
+            "title": "react-insta-stories",
+            "description": "A React component for Instagram/Snapchat like stories",
+            "link": "https://github.com/mohitk05/react-insta-stories"
+        },
+        {
+            "title": "upGrad.com",
+            "description": "upGrad’s marketing website",
+            "link": "https://upgrad.com"
+        },
+        {
+            "title": "Play This",
+            "description": "Multi-member music playlist platform",
+            "link": "https://playthis.netlify.com"
+        },
+        {
+            "title": "Sync",
+            "description": "A webapp to share your content across multiple devices instantly",
+            "link": "https://syncapp.xyz"
+        },
+        {
+            "title": "TicToe",
+            "description": "A mobile game which is an alternate version of Tic Tac Toe",
+            "link": "https://play.google.com/store/apps/details?id=com.tictactoe.tictoe"
+        },
+        {
+            "title": "html-element-to-react",
+            "description": "A module to generate React elements from HTMLElement objects",
+            "link": "https://github.com/shaaijs/html-element-to-react"
+        },
+        {
+            "title": "react-router-fuzzy",
+            "description": "A React component for fuzzy route matching",
+            "link": "https://github.com/mohitk05/react-router-fuzzy"
+        },
+        {
+            "title": "TTT - Tribe",
+            "description": "Platform for collecting writer submissions and curation at Terribly Tiny Tales",
+            "link": "https://terriblytinytales.com"
+        },
+        {
+            "title": "TTT - Videomaker",
+            "description": "HTML5 Canvas chat-style video generator",
+            "link": "https://terriblytinytales.com"
+        },
+        {
+            "title": "TTT - Social App",
+            "description": "Social writing app for Terribly Tiny Tales",
+            "link": "https://play.google.com/store/apps/details?id=com.terriblytinytales.ttt"
+        },
+        {
+            "title": "Hawkeye",
+            "description": "An internal dashboard for HSBC Core Banking",
+            "link": "https://hsbc.com"
+        }
+    ]
+}

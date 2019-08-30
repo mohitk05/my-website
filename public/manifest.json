@@ -1,0 +1,20 @@
+{
+  "short_name": "Mohit 👨‍💻",
+  "name": "Mohit Karekar - Web Developer",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/mohit_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/mohit.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
