@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 export default class Header extends React.Component {
 
     render() {
-        console.log(this.props.location)
         let currentPath = this.props.location.pathname
+        console.log(currentPath)
         return (
             <div className={styles.Header}>
                 <div className={styles.topRow}>
@@ -20,7 +20,7 @@ export default class Header extends React.Component {
                 <div className={styles.tabs}>
                     <Link to="/" className={`${styles.tab}${currentPath === '/' ? ` ${styles.active}` : ''}`}><p>Projects</p></Link>
                     <p className={styles.bullet}>•</p>
-                    <Link to="/blog" className={`${styles.tab}${currentPath === '/blog' ? ` ${styles.active}` : ''}`}><p>Blog</p></Link>
+                    <Link to="/blog" className={`${styles.tab}${/^\/blog.*$/.test(currentPath) ? ` ${styles.active}` : ''}`}><p>Blog</p></Link>
                     <p className={styles.bullet}>•</p>
                     <Link to="/life" className={`${styles.tab}${currentPath === '/life' ? ` ${styles.active}` : ''}`}><p>Life</p></Link>
                 </div>

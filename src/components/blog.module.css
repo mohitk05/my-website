@@ -7,3 +7,11 @@
     margin-top: 20px;
     margin-bottom: 40px;
 }
+
+@media only screen and (max-width: 740px) {
+    .Blog {
+        width: 90%;
+        padding: 0 20px;
+        margin-top: 10px;
+    }
+}

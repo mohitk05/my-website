@@ -16,7 +16,7 @@ class Main extends React.Component {
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     {/* <Route exact path="/work" component={Home} /> */}
-                    <Route exact path="/blog" component={Blog}/>
+                    <Route path="/blog" component={Blog}/>
                     <Route path="/life" component={Life}/>
                 </Switch>
             </Suspense>
