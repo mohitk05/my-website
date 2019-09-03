@@ -6,7 +6,6 @@ export default class Header extends React.Component {
 
     render() {
         let currentPath = this.props.location.pathname
-        console.log(currentPath)
         return (
             <div className={styles.Header}>
                 <div className={styles.topRow}>

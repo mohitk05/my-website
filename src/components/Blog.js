@@ -12,6 +12,7 @@ export default class Blog extends React.Component {
         return (
             <div className={styles.Blog}>
                 <Shaai match={this.props.match} config={config}/>
+                <p className={styles.footerBlog}>This blog is built with <a href="https://github.com/shaaijs/core">Shaai</a>.</p>
             </div>
         )
     }

@@ -60,6 +60,7 @@
 
 .post-content p {
     margin: 0;
+    line-height: 1.5;
 }
 
 .post-content figure {
@@ -85,6 +86,7 @@
 .post-content code {
     font-size: var(--code-text-size);
     color: var(--primary-red);
+    font-family: 'Source Code Pro', monospace;
 }
 
 @media only screen and (max-width: 740px) {

@@ -3,3 +3,4 @@ html { font-family: 'Inter', sans-serif; }
 @supports (font-variation-settings: normal) {
   html { font-family: 'Inter var', sans-serif; }
 }
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');

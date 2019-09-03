@@ -13,7 +13,7 @@
     margin-bottom: 15px;
 }
 
-a {
+.project a {
     color: #161616;
     text-decoration: none;
     display: block;
@@ -41,6 +41,7 @@ a {
     .Home {
         width: 90%;
         padding: 0 20px;
+        margin: auto;
         margin-top: 10px;
     }
 }

@@ -8,10 +8,18 @@
     margin-bottom: 40px;
 }
 
+.footerBlog {
+    opacity: 0.6;
+    font-size: 0.8em;
+    margin: 30px 0;
+    text-align: center;
+}
+
 @media only screen and (max-width: 740px) {
     .Blog {
         width: 90%;
         padding: 0 20px;
+        margin: auto;
         margin-top: 10px;
     }
 }
