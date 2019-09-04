@@ -8,6 +8,15 @@
     margin-bottom: 40px;
 }
 
+.back {
+    
+}
+
+.back:hover {
+    cursor: pointer;
+    color: #F37777;
+}
+
 .footerBlog {
     opacity: 0.6;
     font-size: 0.8em;

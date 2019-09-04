@@ -5,7 +5,7 @@
   "homepage": "https://mohitkarekar.com",
   "dependencies": {
     "@shaai/react": "^1.1.5",
-    "@shaai/scroll-ink": "^1.1.10",
+    "@shaai/scroll-ink": "^1.1.14",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
