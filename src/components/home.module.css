@@ -1,47 +1,47 @@
 .Home {
-    width: 700px;
-    margin: auto;
-    font-family: 'Inter', sans-serif;
-    color: #161616;
-    padding: 0 40px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+	width: 700px;
+	margin: auto;
+	font-family: 'Inter', sans-serif;
+	color: #161616;
+	padding: 0 40px;
+	margin-top: 20px;
+	margin-bottom: 40px;
 }
 
 .project {
-    margin: 0;
-    margin-bottom: 15px;
+	margin: 0;
+	margin-bottom: 15px;
 }
 
 .project a {
-    color: #161616;
-    text-decoration: none;
-    display: block;
+	color: #161616;
+	text-decoration: none;
+	display: block;
 }
 
 .title {
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 22px;
-    margin: 0;
-    margin-bottom: 1px;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 22px;
+	margin: 0;
+	margin-bottom: 1px;
 }
 
 .title:hover {
-    color: #F37777;
+	color: #f37777;
 }
 
 .description {
-    font-size: 18px;
-    line-height: 22px;
-    margin: 0;
+	font-size: 18px;
+	line-height: 22px;
+	margin: 0;
 }
 
 @media only screen and (max-width: 740px) {
-    .Home {
-        width: 90%;
-        padding: 0 20px;
-        margin: auto;
-        margin-top: 10px;
-    }
+	.Home {
+		width: 90%;
+		padding: 0 20px;
+		margin: auto;
+		margin-top: 10px;
+	}
 }

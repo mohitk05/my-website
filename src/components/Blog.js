@@ -10,13 +10,25 @@ const Shaai = withShaai(ScrollInk)
 
 export default class Blog extends React.Component {
 
+    state = {
+        loading: true
+    }
+
+    componentDidMount() {
+        this.shaai.subscribe((dom, str) => {
+            if (document.getElementById('backButton')) window.scrollTo(0, document.getElementById('backButton').offsetTop - 8)
+            if (this.state.loading) this.setState({ loading: false })
+        })
+    }
+
     render() {
         return (
             <div className={styles.Blog}>
                 <Route path="/blog/post/" render={props => {
-                    return <div className={styles.back} onClick={() => props.history.goBack()}>← Back</div>
+                    return <div id="backButton" className={styles.back} onClick={() => props.history.goBack()}>← Back</div>
                 }} />
-                <Shaai match={this.props.match} config={config}/>
+                {this.state.loading && <p>Loading...</p>}
+                <Shaai ref={r => this.shaai = r} match={this.props.match} config={config} />
                 <p className={styles.footerBlog}>This blog is built with <a href="https://github.com/shaaijs/core">Shaai</a>.</p>
             </div>
         )

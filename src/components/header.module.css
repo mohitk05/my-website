@@ -1,96 +1,115 @@
 .Header {
-    margin: auto;
-    margin-top: 72px;
-    padding: 0 40px;
-    width: 700px;
-    font-family: 'Inter', sans-serif;
-    color: #16161d;
+	margin: auto;
+	margin-top: 72px;
+	padding: 0 40px;
+	width: 700px;
+	font-family: 'Inter', sans-serif;
+	color: #16161d;
 }
 
 .topRow {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .profileImage {
-    height: 85px;
-    width: 85px;
-    background-image: url('/assets/images/mohit.jpg');
-    background-size: contain;
-    border-radius: 50%;
-    margin-right: 23px;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
+	height: 85px;
+	width: 85px;
+	background-image: url('/assets/images/mohit.jpg');
+	background-size: contain;
+	border-radius: 50%;
+	margin-right: 23px;
+	background-repeat: no-repeat;
+	flex-shrink: 0;
 }
 
 .name {
-    margin: 0;
-    margin-bottom: 5px;
-    font-size: 36px;
+	margin: 0;
+	margin-bottom: 5px;
+	font-size: 36px;
+	font-weight: 600;
 }
 
 .shortBio {
-    margin: 0;
+	margin: 0;
 }
 
 .bio {
-    margin: 0;
-    margin-top: 18px;
+	margin: 0;
+	margin-top: 18px;
+}
+
+.socialIcons {
+	display: flex;
+	margin: 0;
+	margin-top: 12px;
+	font-size: 1.8em;
+}
+
+.socialIcon {
+	margin-right: 15px;
+	color: #16161d;
+	transition: all 200ms ease-in-out;
+}
+
+.socialIcon:hover {
+	color: #f37777;
+	cursor: pointer;
 }
 
 .tabs {
-    display: flex;
-    align-items: center;
-    transition: all 200ms ease-in-out;
-    margin-top: 18px;
+	display: flex;
+	align-items: center;
+	transition: all 200ms ease-in-out;
+	margin-top: 5px;
 }
 
 .tab {
-    margin: 0;
-    text-decoration: none;
-    color: #16161d;
+	margin: 0;
+	text-decoration: none;
+	color: #16161d;
 }
 
 .active {
-    color: #F37777;
+	color: #f37777;
 }
 
 .tab p {
-    margin: 0;
-    font-size: 18px;
-    line-height: 22px;
+	margin: 0;
+	font-size: 18px;
+	line-height: 22px;
 }
 
 .tab:hover {
-    color: #F37777;
-    cursor: pointer;
+	color: #f37777;
+	cursor: pointer;
 }
 
 .bullet {
-    margin: 0 6px;
+	margin: 0 6px;
 }
 
 .hrule {
-    height: 2px;
-    background: #ebebeb;
-    border: 0;
+	height: 2px;
+	background: #ebebeb;
+	border: 0;
 }
 
 @media only screen and (max-width: 740px) {
-    .Header {
-        width: 90%;
-        padding: 0 20px;
-        margin: auto;
-        margin-top: 36px;
-    }
+	.Header {
+		width: 90%;
+		padding: 0 20px;
+		margin: auto;
+		margin-top: 36px;
+	}
 
-    .name {
-        font-size: 24px;
-    }
+	.name {
+		font-size: 24px;
+	}
 
-    .profileImage {
-        height: 70px;
-        width: 70px;
-        margin-right: 15px;
-    }
+	.profileImage {
+		height: 70px;
+		width: 70px;
+		margin-right: 15px;
+	}
 }
