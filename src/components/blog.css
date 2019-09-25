@@ -66,8 +66,11 @@
 	margin: 0;
 }
 
+.post-content img,
 .post-content figure img {
 	max-width: 100%;
+	margin: auto;
+	display: block;
 }
 
 .post-content pre {
