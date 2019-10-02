@@ -6,7 +6,7 @@ export default class Life extends React.Component {
     render() {
         return (
             <div className={styles.Life}>
-
+                No life found. JK, coming soon.
             </div>
         )
     }
