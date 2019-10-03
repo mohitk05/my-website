@@ -1,9 +1,22 @@
 .Life {
-    width: 700px;
-    margin: auto;
-    font-family: 'Inter', sans-serif;
-    color: #161616;
-    padding: 0 40px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+	width: 700px;
+	margin: auto;
+	font-family: 'Inter', sans-serif;
+	color: #161616;
+	padding: 0 40px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+twitter-widget {
+	max-width: 100%;
+}
+
+@media only screen and (max-width: 740px) {
+	.Life {
+		width: 90%;
+		padding: 0 20px;
+		margin: auto;
+		margin-top: 10px;
+	}
 }
