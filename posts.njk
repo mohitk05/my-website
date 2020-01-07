@@ -1,0 +1,57 @@
+---
+layout: main.njk
+title: Posts
+---
+<style>
+.title {
+    margin-bottom: 5px;
+}
+.posts {
+    margin: 10px auto;
+}
+.tagline {
+    margin-botton: 10px;
+    font-size: 20px;
+}
+.postTitle {
+    margin: 0;
+}
+.postTitle a {
+    text-decoration: none;
+    color: blue;
+}
+.post {
+    font-size: 20px;
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+}
+.bullet {
+    margin: 0 5px;
+}
+@media only screen and (max-width: 680px) {
+    .title {
+        margin-top: 0
+    }
+    .post {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+    .bullet {
+        display: none;
+    }
+}
+</style>
+<h1 class="title">Posts</h1>
+<em class="tagline">I occasionally write my heart and brains out here. This collection is made to last.</em>
+<hr/>
+<div class="posts">
+{%- for post in collections.posts | reverse -%}
+    <div class="post">
+        <p class="postTitle"><a href="{{ post.url }}">{{ post.data.title }}</a></p>
+        <span class="bullet">•</span>
+        <em>{{ post.date | dateReadable }}</em>
+    </div>
+{%- endfor -%}
+</div>

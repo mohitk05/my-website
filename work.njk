@@ -1,0 +1,91 @@
+---
+layout: main.njk
+title: Mohit Karekar
+coverImage: img/cover.jpg
+---
+<style>
+.title {
+    margin-bottom: 5px;
+}
+.work {
+    margin: 10px auto;
+    margin-bottom: 40px;
+}
+.tagline {
+    margin-botton: 10px;
+    font-size: 20px;
+}
+.org {
+    {# border: 1px solid rgba(0,0,0,0.2); #}
+    background: #ffeefe;
+    padding: 2px 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    max-width: 400px;
+}
+.org2 {
+    background: #eeffee;
+}
+.orgTitle {
+    margin: 0;
+}
+.orgPosition {
+    margin: 0;
+    font-size: 1.1em;
+}
+.orgDescription {
+    font-family: 'Menlo', monospace;
+    font-size: 0.8em;
+    margin: 0;
+    opacity: 0.6;
+}
+.tech {
+    font-family: 'Menlo', monospace;
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+.tech:after {
+    content: ", ";
+}
+.tech:last-child:after {
+    content: " ";
+}
+.items {
+    display: flex;
+    flex-wrap: wrap;
+}
+.currentBadge {
+    color: green; 
+}
+</style>
+
+<div>
+    <h1 class="title">Work</h1>
+    <em class="tagline">Orgs I've worked with, and some personal work.</em>
+    <hr/>
+    <div class="work">
+        <div>
+            <h2 class="type">{{ work.projects.title }}</h2>
+            <div class="items">
+            {%- for item in work.projects.items -%}
+                <div class="org">
+                    <h3 class="orgTitle"><a href="{{item.url}}">{{ item.title }}</a><span class="currentBadge" title="Ongoing">{{ ' 🐎' if item.active }}</span></h3>
+                    <p class="orgDescription">{{ item.description }}</p>
+                </div>
+            {%- endfor -%}
+            </div>
+            <h2 class="type">{{ work.experience.title }}</h2>
+            <div class="items">
+            {%- for org in work.experience.items | reverse -%}
+                <div class="org org2">
+                    <h3 class="orgTitle">{{ org.title }} <span class="currentBadge" title="Ongoing">{{ '🐎' if loop.index === 1 }}</span></h3>
+                    <p class="orgPosition">{{ org.position }} • <em>{{ org.dateRange }}</em></p>
+                    {%- for t in org.tech -%}
+                        <span class="tech">{{ t }}</span>
+                    {%- endfor -%}
+                </div>
+            {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</div>

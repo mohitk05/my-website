@@ -1,0 +1,109 @@
+---
+layout: main.njk
+title: Mohit Karekar
+coverImage: img/cover.jpg
+---
+<style>
+.head {
+}
+.headImage {
+    margin-right: 0
+}
+.mainLine {
+    margin: 0;
+}
+.shortBio {
+    margin-top: 0px;
+    opacity: 0.5;
+    font-style: italic;
+}
+.mainCover {
+    position: relative;
+    margin: 20px 0;
+}
+.mainCover img {
+    max-width: 100%;
+    display: block;
+}
+.photoCaption {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    color: white;
+}
+.tabs {
+    margin-top: 20px;
+}
+.tab {
+    font-size: 20px;
+}
+.down {
+    display: flex;
+}
+.downLeft, .downRight {
+    padding: 10px;
+}
+.downLeft {
+    flex: 0.6;
+    margin-right: 10px;
+    background: #fee;
+}
+.downLeft h2, .downRight h2 {
+    margin: 0;
+}
+.downRight {
+    flex: 0.4;
+    background: #dff;
+}
+.post {
+    margin-top: 5px;
+}
+@media only screen and (max-width: 680px) {
+    .down {
+        flex-direction: column;
+    }
+    .downLeft {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+</style>
+
+<div class="mainCover">
+    <img lazy alt="Cover" src="{{coverImage}}" />
+    <p class="photoCaption">Goa - November, 2019</p>
+</div>
+<div class="head">
+    <h1 class="mainLine">Hello there, I'm Mohit.</h1>
+    <p class="shortBio">software_engineer, javascript, python, open_source</p>
+</div>
+<div class="tabs">
+    <a class="tab" href="/posts">Blog</a>
+    •
+    <a class="tab" href="/work">Work</a>
+    •
+    <a class="tab" target="_blank" href="https://docs.google.com/document/d/1239BbrB9jy8trrCkwhFwJuxBy8iwHrEd62rVPXk_Zrg/edit?usp=sharing">Resume</a>
+</div>
+<p></p>
+<div class="down">
+    <div class="downLeft">
+        <h2>Recent posts. <em><a href="/posts">See all.</a></em></h2>
+        <div class="posts">
+            {%- for post in collections.posts | reverse | slice3 -%}
+                <div class="post">
+                    <span class="postTitle"><a href="{{ post.url }}">{{ post.data.title }}</a></span>
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+    <div class="downRight">
+        <h2>Currently reading.</h2>
+        <div class="posts">
+            {%- for c in currentlyReading | reverse | slice3 -%}
+                <div class="post">
+                    <span class="postTitle"><a href="{{ c.url }}">{{ c.title }}</a></span>
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</div>

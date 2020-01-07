@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer by profession and a graphic designer by hobby.' }}">
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:creator" content="@MohitKarekar"/>
+    <meta property="og:title" content="{{ title if title else 'Mohit Karekar - Software Engineer' }}"/>
+    <meta property="og:url" content="{{ 'https://mohitkarekar.com' + page.url if page and page.url else 'https://mohitkarekar.com' }}"/>
+    <meta property="og:description" content="{{ description if description else 'Hello, I am Mohit Karekar, know more about me here.' }}"/>
+    <meta property="og:image" content="{{ coverImage if coverImage else '/mohit.jpg' }}"/>
+    {# <link rel="manifest" href="/manifest.json"> #}
+    <link rel="icon" href="/icon.png">
+
+	<title>{{ title }}</title>
+
+	<style>
+    @import url('https://fonts.googleapis.com/css?family=Baskervville:400,400i,700&display=swap');
+    html { font-family: 'Baskervville', sans-serif; color: #16161d; }
+	body {
+        margin: 0;
+	}
+    .headerStrip {
+        width: 100vw;
+        margin: 0;
+        padding: 5px 0;
+        position: fixed;
+        top: 0;
+    }
+    .headerText {
+        margin: 0;
+    }
+    .container {
+        width: 768px;
+        margin: auto;
+    }
+    .main {
+        margin-top: 30px;
+    }
+	.title {
+	}
+    .topRow {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .profileImage {
+        height: 85px;
+        width: 85px;
+        background-image: url('https://i.imgur.com/p0yklHL.jpg');
+        background-size: contain;
+        border-radius: 50%;
+        margin-right: 18px;
+        background-repeat: no-repeat;
+        flex-shrink: 0;
+    }
+
+    .name {
+        margin: 0;
+        margin-bottom: 5px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .shortBio {
+        margin: 0;
+    }
+
+    .bio {
+        margin: 0;
+        margin-top: 18px;
+    }
+
+    .socialIcons {
+        display: flex;
+        margin: 0;
+        margin-top: 12px;
+        font-size: 1.8em;
+    }
+
+    .socialIcon {
+        margin-right: 15px;
+        color: #16161d;
+        transition: all 200ms ease-in-out;
+    }
+
+    .socialIcon:hover {
+        color: #f37777;
+        cursor: pointer;
+    }
+    hr {
+        border: 0;
+        background: #ccc;
+        height: 1px;
+    }
+	@media only screen and (max-width: 680px) {
+		.container {
+			width: auto;
+			padding: 0 20px;
+            margin-top: 30px;
+		}
+        .headerStrip {
+            display: none;
+        }
+	}
+	</style>
+</head>
+<body>
+    {# <div class="headerStrip">
+        <div style="display: flex" class="container">
+
+            <em><p class="headerText">Create the things you wish existed.</p></em>
+        </div>
+    </div> #}
+    <div class="container main">{{ content | safe }}</div>
+</body>
+</html>
