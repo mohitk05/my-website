@@ -60,7 +60,10 @@ coverImage: img/cover.jpg
     background: #dff;
 }
 .post {
-    margin-top: 5px;
+    margin-top: 10px;
+}
+.postTitle {
+    padding: 15px 0;
 }
 .interesting {
     background: #efe;
@@ -105,8 +108,8 @@ coverImage: img/cover.jpg
         <p class="shortBio">software_engineer, javascript, python, open_source</p>
     </div>
     <div class="socials">
-        <a target="_blank" href="https://github.com/mohitk05"><img class="social" src="/img/github.png"/></a>
-        <a target="_blank" href="https://twitter.com/mohitkarekar"><img class="social" src="/img/twitter.png"/></a>
+        <a target="_blank" href="https://github.com/mohitk05"><img alt="github" class="social" src="/img/github.png"/></a>
+        <a target="_blank" href="https://twitter.com/mohitkarekar"><img alt="twitter" class="social" src="/img/twitter.png"/></a>
     </div>
 </section>
 <div class="tabs">
@@ -123,7 +126,7 @@ coverImage: img/cover.jpg
         <div class="posts">
             {%- for post in collections.posts | reverse | slice3 -%}
                 <div class="post">
-                    <span class="postTitle"><a href="{{ post.url }}">{{ post.data.title }}</a></span>
+                    <a class="postTitle" href="{{ post.url }}">{{ post.data.title }}</a>
                 </div>
             {%- endfor -%}
         </div>
@@ -133,7 +136,7 @@ coverImage: img/cover.jpg
         <div class="posts">
             {%- for c in currentlyReading | reverse | slice3 -%}
                 <div class="post">
-                    <span class="postTitle"><a target="_blank" href="{{ c.url }}">{{ c.title }}</a></span>
+                    <a class="postTitle" target="_blank" href="{{ c.url }}">{{ c.title }}</a>
                 </div>
             {%- endfor -%}
         </div>
@@ -144,7 +147,7 @@ coverImage: img/cover.jpg
     <div class="posts">
         {%- for c in interesting -%}
             <div class="post">
-                <span class="postTitle"><a target="_blank" href="{{ c.url }}">{{ c.title }}</a></span>
+                <a class="postTitle" target="_blank" href="{{ c.url }}">{{ c.title }}</a>
             </div>
         {%- endfor -%}
     </div>
