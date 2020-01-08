@@ -96,6 +96,13 @@
         background: #ccc;
         height: 1px;
     }
+    .footer {
+        margin: auto;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 12px;
+        opacity: 0.6;
+    }
 	@media only screen and (max-width: 680px) {
 		.container {
 			width: auto;
@@ -104,6 +111,9 @@
 		}
         .headerStrip {
             display: none;
+        }
+        .footer {
+            font-size: 10px;
         }
 	}
 	</style>
@@ -116,5 +126,6 @@
         </div>
     </div> #}
     <div class="container main">{{ content | safe }}</div>
+    <footer class="footer">© Mohit Karekar • <a href="mailto:karekar.mohit@gmail.com">karekar.mohit@gmail.com</a></footer>
 </body>
 </html>

@@ -4,6 +4,10 @@ title: Mohit Karekar
 coverImage: img/cover.jpg
 ---
 <style>
+.header {
+    display: flex; 
+    justify-content: space-between;
+}
 .head {
 }
 .headImage {
@@ -32,7 +36,7 @@ coverImage: img/cover.jpg
     color: white;
 }
 .tabs {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .tab {
     font-size: 20px;
@@ -62,6 +66,17 @@ coverImage: img/cover.jpg
     background: #efe;
     margin-top: 10px;
 }
+.socials {
+    margin-top: 10px;
+}
+.social {
+    max-width: 30px;
+    margin-left: 10px;
+    transition: all 200ms ease-in;
+}
+.social:hover {
+    opacity: 0.8;
+}
 @media only screen and (max-width: 680px) {
     .down {
         flex-direction: column;
@@ -70,17 +85,30 @@ coverImage: img/cover.jpg
         margin-right: 0;
         margin-bottom: 10px;
     }
+    .header {
+        flex-direction: column;
+    }
+    .social {
+        margin-left: 0;
+        margin-right: 10px;
+    }
 }
 </style>
-<div style="margin-bottom: 40px;">
+<div style="margin-bottom: 20px;">
 <div class="mainCover">
     <img lazy alt="Cover" src="{{coverImage}}" />
     <p class="photoCaption">Goa - November, 2019</p>
 </div>
-<div class="head">
-    <h1 class="mainLine">Hello there, I'm Mohit.</h1>
-    <p class="shortBio">software_engineer, javascript, python, open_source</p>
-</div>
+<section class="header">
+    <div class="head">
+        <h1 class="mainLine">Hello there, I'm Mohit.</h1>
+        <p class="shortBio">software_engineer, javascript, python, open_source</p>
+    </div>
+    <div class="socials">
+        <a target="_blank" href="https://github.com/mohitk05"><img class="social" src="/img/github.png"/></a>
+        <a target="_blank" href="https://twitter.com/mohitkarekar"><img class="social" src="/img/twitter.png"/></a>
+    </div>
+</section>
 <div class="tabs">
     <a class="tab" href="/posts">Blog</a>
     •
