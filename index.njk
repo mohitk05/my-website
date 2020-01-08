@@ -40,7 +40,7 @@ coverImage: img/cover.jpg
 .down {
     display: flex;
 }
-.downLeft, .downRight {
+.downLeft, .downRight, .interesting {
     padding: 10px;
 }
 .downLeft {
@@ -48,7 +48,7 @@ coverImage: img/cover.jpg
     margin-right: 10px;
     background: #fee;
 }
-.downLeft h2, .downRight h2 {
+.downLeft h2, .downRight h2, .interesting h2 {
     margin: 0;
 }
 .downRight {
@@ -57,6 +57,10 @@ coverImage: img/cover.jpg
 }
 .post {
     margin-top: 5px;
+}
+.interesting {
+    background: #efe;
+    margin-top: 10px;
 }
 @media only screen and (max-width: 680px) {
     .down {
@@ -68,7 +72,7 @@ coverImage: img/cover.jpg
     }
 }
 </style>
-
+<div style="margin-bottom: 40px;">
 <div class="mainCover">
     <img lazy alt="Cover" src="{{coverImage}}" />
     <p class="photoCaption">Goa - November, 2019</p>
@@ -86,7 +90,7 @@ coverImage: img/cover.jpg
 </div>
 <p></p>
 <div class="down">
-    <div class="downLeft">
+    <section class="downLeft">
         <h2>Recent posts. <em><a href="/posts">See all.</a></em></h2>
         <div class="posts">
             {%- for post in collections.posts | reverse | slice3 -%}
@@ -95,15 +99,26 @@ coverImage: img/cover.jpg
                 </div>
             {%- endfor -%}
         </div>
-    </div>
-    <div class="downRight">
+    </section>
+    <section class="downRight">
         <h2>Currently reading.</h2>
         <div class="posts">
             {%- for c in currentlyReading | reverse | slice3 -%}
                 <div class="post">
-                    <span class="postTitle"><a href="{{ c.url }}">{{ c.title }}</a></span>
+                    <span class="postTitle"><a target="_blank" href="{{ c.url }}">{{ c.title }}</a></span>
                 </div>
             {%- endfor -%}
         </div>
+    </section>
+</div>
+<section class="interesting">
+    <h2>Interesting things I found on the Internet. <em><a href="/interesting">See all.</a></em></h2>
+    <div class="posts">
+        {%- for c in interesting -%}
+            <div class="post">
+                <span class="postTitle"><a target="_blank" href="{{ c.url }}">{{ c.title }}</a></span>
+            </div>
+        {%- endfor -%}
     </div>
+</section>
 </div>

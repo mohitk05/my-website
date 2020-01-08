@@ -1,6 +1,7 @@
 ---
 layout: main.njk
-title: Posts
+title: Interesting things I found on the Internet.
+description: I love reading on the internet. And frequently I come accross amazing things.
 ---
 <style>
 .title {
@@ -44,15 +45,13 @@ title: Posts
 }
 </style>
 <a href="/">← home</a>
-<h1 class="title">Posts</h1>
-<em class="tagline">I occasionally write my heart and brains out here. This collection is made to last.</em>
+<h1 class="title">{{ title }}</h1>
+<em class="tagline">{{ description }}</em>
 <hr/>
 <div class="posts">
-{%- for post in collections.posts | reverse -%}
+{%- for i in interesting | reverse -%}
     <div class="post">
-        <p class="postTitle"><a href="{{ post.url }}">{{ post.data.title }}</a></p>
-        <span class="bullet">•</span>
-        <em>{{ post.date | dateReadable }}</em>
+        <li class="postTitle"><a href="{{ i.url }}">{{ i.title }}</a></li>
     </div>
 {%- endfor -%}
 </div>
