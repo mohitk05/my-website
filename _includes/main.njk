@@ -10,7 +10,12 @@
     <meta property="og:title" content="{{ title if title else 'Mohit Karekar - Software Engineer' }}"/>
     <meta property="og:url" content="{{ 'https://mohitkarekar.com' + page.url if page and page.url else 'https://mohitkarekar.com' }}"/>
     <meta property="og:description" content="{{ description if description else 'Hello, I am Mohit Karekar, know more about me here.' }}"/>
-    <meta property="og:image" content="{{ coverImage if coverImage else '/mohit.jpg' }}"/>
+    {% if coverImage and 'http' in coverImage %}
+        <meta property="og:image" content="{{ coverImage if coverImage else '/mohit.jpg' }}"/>
+    {% else %}
+        <meta property="og:image" content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/mk.jpeg' }}"/>
+    {% endif %}
+    <meta property="og:type" content="article" />
     {# <link rel="manifest" href="/manifest.json"> #}
     <link rel="icon" href="/icon.png">
 
