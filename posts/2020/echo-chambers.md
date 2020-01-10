@@ -1,7 +1,7 @@
 ---
 title: Echo Chambers
 date: 2020-01-10
-coverImage: /img/posts/echo.jpeg?q=1
+coverImage: /img/posts/echo.jpeg?12
 description: The building bubbles of misinformation and distrust
 tags: ['posts', 'politics', 'social']
 ---
