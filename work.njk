@@ -69,7 +69,7 @@ coverImage: img/cover.jpg
             <div class="items">
             {%- for item in work.projects.items -%}
                 <div class="org">
-                    <h3 class="orgTitle"><a href="{{item.url}}">{{ item.title }}</a><span class="currentBadge" title="Ongoing">{{ ' 🐎' if item.active }}</span></h3>
+                    <h3 class="orgTitle"><a href="{{item.link}}">{{ item.title }}</a><span class="currentBadge" title="Ongoing">{{ ' 🐎' if item.active }}</span></h3>
                     <p class="orgDescription">{{ item.description }}</p>
                 </div>
             {%- endfor -%}
