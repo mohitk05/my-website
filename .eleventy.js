@@ -1,11 +1,13 @@
 const moment = require('moment');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 
 moment.locale('en');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('img');
     eleventyConfig.addPlugin(syntaxHighlight);
+    eleventyConfig.addPlugin(lazyImagesPlugin);
     eleventyConfig.addFilter('datePretty', date => {
         return moment(date).format('DD MMMM YYYY')
     });

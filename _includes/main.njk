@@ -22,11 +22,19 @@
 	<title>{{ title }}</title>
 
 	<style>
-    @import url('https://fonts.googleapis.com/css?family=Baskervville:400,400i,700&display=swap');
-    html { font-family: 'Baskervville', sans-serif; color: #16161d; }
+    @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,400i,700&display=swap');
+    html { font-family: 'Libre Franklin', sans-serif; color: #16161d; }
+    h1, h2 {
+        font-family: 'Libre Franklin', sans-serif;
+    }
 	body {
         margin: 0;
 	}
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
     .headerStrip {
         width: 100vw;
         margin: 0;
@@ -38,7 +46,7 @@
         margin: 0;
     }
     .container {
-        width: 768px;
+        width: 968px;
         margin: auto;
     }
     .main {
@@ -108,7 +116,7 @@
         font-size: 12px;
         opacity: 0.6;
     }
-	@media only screen and (max-width: 680px) {
+	@media only screen and (max-width: 988px) {
 		.container {
 			width: auto;
 			padding: 0 20px;
@@ -124,12 +132,6 @@
 	</style>
 </head>
 <body>
-    {# <div class="headerStrip">
-        <div style="display: flex" class="container">
-
-            <em><p class="headerText">Create the things you wish existed.</p></em>
-        </div>
-    </div> #}
     <div class="container main">{{ content | safe }}</div>
     <footer class="footer">© Mohit Karekar • <a href="mailto:karekar.mohit@gmail.com">karekar.mohit@gmail.com</a></footer>
 </body>
