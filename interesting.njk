@@ -1,6 +1,6 @@
 ---
 layout: main.njk
-title: Interesting things I found on the Internet.
+title: Interesting things I found on the Internet
 description: I love reading on the internet. And frequently I come accross amazing things.
 ---
 <style>
@@ -11,18 +11,17 @@ description: I love reading on the internet. And frequently I come accross amazi
     margin: 10px auto;
 }
 .tagline {
+    margin: 0;
     margin-botton: 10px;
-    font-size: 20px;
 }
 .postTitle {
     margin: 0;
 }
 .postTitle a {
     text-decoration: none;
-    color: blue;
+    color: slateblue;
 }
 .post {
-    font-size: 20px;
     display: flex;
     margin-bottom: 5px;
     align-items: center;
@@ -30,7 +29,7 @@ description: I love reading on the internet. And frequently I come accross amazi
 .bullet {
     margin: 0 5px;
 }
-@media only screen and (max-width: 988px) {
+@media only screen and (max-width: 768px) {
     .title {
         margin-top: 0
     }
@@ -46,12 +45,12 @@ description: I love reading on the internet. And frequently I come accross amazi
 </style>
 <a href="/">← home</a>
 <h1 class="title">{{ title }}</h1>
-<em class="tagline">{{ description }}</em>
+<p class="tagline">{{ description }}</p>
 <hr/>
 <div class="posts">
 {%- for i in interesting | reverse -%}
     <div class="post">
-        <li class="postTitle"><a href="{{ i.url }}">{{ i.title }}</a></li>
+        <p class="postTitle"><a href="{{ i.url }}">{{ i.title }}</a></p>
     </div>
 {%- endfor -%}
 </div>

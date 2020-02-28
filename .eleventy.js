@@ -25,4 +25,14 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('sliceLast', arr => {
         return arr.slice(3, arr.length)
     })
+    eleventyConfig.addFilter('printthis', (...args) => {
+        console.log(...args)
+    })
+    eleventyConfig.setFrontMatterParsingOptions({
+        excerpt: true,
+        excerpt_separator: "<!-- excerpt -->"
+    });
+    eleventyConfig.addFilter('excerptise', str => {
+        return str.concat('...')
+    })
 };

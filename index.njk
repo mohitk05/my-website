@@ -16,6 +16,7 @@ coverImage: img/cover.jpg
 .mainLine {
     margin: 0;
     font-size: 2em;
+    font-family: 'Source Code Pro', monospace;
 }
 .shortBio {
     margin-top: 0px;
@@ -45,7 +46,7 @@ coverImage: img/cover.jpg
 .down {
     display: flex;
 }
-.downLeft, .downRight, .interesting {
+section {
     padding: 10px;
 }
 .downLeft {
@@ -53,7 +54,7 @@ coverImage: img/cover.jpg
     margin-right: 10px;
     background: #fee;
 }
-.downLeft h2, .downRight h2, .interesting h2 {
+.downLeft h3, .downRight h3, .interesting h3 {
     margin: 0;
 }
 .downRight {
@@ -81,7 +82,47 @@ coverImage: img/cover.jpg
 .social:hover {
     opacity: 0.8;
 }
-@media only screen and (max-width: 988px) {
+.detailedBlogs {
+    display: flex;
+    flex-wrap: wrap;
+}
+.detailedBlog {
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+.detailedBlog:hover {
+    background: #f2f2f2;
+}
+.detailedBlog h4 {
+    margin: 5px 0;
+}
+.detailedBlogImage {
+    display: block;
+    height: 100px;
+    width: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.detailedBlog-description {
+    margin: 5px 0;
+}
+button {
+    background: #f5f5f5;
+    border: none;
+    font-size: 1em;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+button:hover {
+    background: #eee;
+}
+@media only screen and (max-width: 768px) {
     .down {
         flex-direction: column;
     }
@@ -103,16 +144,16 @@ coverImage: img/cover.jpg
     <img lazy alt="Cover" src="{{coverImage}}" />
     <p class="photoCaption">Goa - November, 2019</p>
 </div>
-<section class="header">
+<div class="header">
     <div class="head">
-        <h1 class="mainLine">Hello there, I'm Mohit.</h1>
+        <h1 class="mainLine">mohit_karekar</span></h1>
         <p class="shortBio">software_engineer, javascript, python, open_source</p>
     </div>
     <div class="socials">
         <a target="_blank" href="https://github.com/mohitk05"><img alt="github" class="social" src="/img/github.png"/></a>
         <a target="_blank" href="https://twitter.com/mohitkarekar"><img alt="twitter" class="social" src="/img/twitter.png"/></a>
     </div>
-</section>
+</div>
 <div class="tabs">
     <a class="tab" href="/posts">Blog</a>
     •
@@ -123,7 +164,7 @@ coverImage: img/cover.jpg
 <p></p>
 <div class="down">
     <section class="downLeft">
-        <h2>Recent posts. <em><a href="/posts">See all.</a></em></h2>
+        <h3>Recent posts</h3>
         <div class="posts">
             {%- for post in collections.posts | reverse | slice3 -%}
                 <div class="post">
@@ -133,7 +174,7 @@ coverImage: img/cover.jpg
         </div>
     </section>
     <section class="downRight">
-        <h2>Currently reading.</h2>
+        <h3>Currently reading</h3>
         <div class="posts">
             {%- for c in currentlyReading | reverse | slice3 -%}
                 <div class="post">
@@ -144,7 +185,7 @@ coverImage: img/cover.jpg
     </section>
 </div>
 <section class="interesting">
-    <h2>Interesting things I found on the Internet. <em><a href="/interesting">See all.</a></em></h2>
+    <h3>Interesting things I found on the Internet</h3>
     <div class="posts">
         {%- for c in interesting -%}
             <div class="post">
@@ -153,4 +194,16 @@ coverImage: img/cover.jpg
         {%- endfor -%}
     </div>
 </section>
+<div>
+    <h2 style="padding-left: 10px;">Blogs</h2>
+    <div class="detailedBlogs">
+    {%- for post in collections.posts | reverse | slice4 -%}
+        <div class="detailedBlog" onclick="window.location = '{{post.url}}'">
+            <h4 style="margin: 0">{{ post.data.title }}</h4>
+            <p class="detailedBlog-description">{{ post.template.frontMatter.excerpt | excerptise }}</p>
+        </div>
+    {%- endfor -%}
+    </div>
+    <button onclick="window.location = '/posts'">See all Posts</button>
+</div>
 </div>

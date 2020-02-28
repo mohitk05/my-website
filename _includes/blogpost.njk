@@ -221,18 +221,23 @@ pre[class*='language-'] {
 .content {
 	line-height: 1.8;
 	color: #16161d;
-	font-size: 18px;
 }
 .content img {
 	max-width: 100%;
 }
 .content code {
-	font-size: 16px;
 	cursor: text;
-	font-family: 'Menlo', monospace;
+	font-family: 'Source Code Pro', monospace;
 }
 .coverImage {
+{% if coverImageHeight %}
+	height: {{ coverImageHeight }};
+{% else %}
 	height: 400px;
+{% endif %}
+{% if coverImagePosition %}
+	background-position: {{ coverImagePosition }};
+{% endif %}
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -240,13 +245,11 @@ blockquote {
 	background: #efe;
 	padding: 0 10px;
 }
-@media only screen and (max-width: 988px) {
+@media only screen and (max-width: 768px) {
 	.coverImage {
 		height: 200px;
 	}
 	.content {
-		line-height: 1.6;
-		font-size: 1.2em;
 		color: black;
 	}
 }

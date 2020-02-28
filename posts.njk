@@ -10,8 +10,8 @@ title: Posts
     margin: 10px auto;
 }
 .tagline {
+    margin: 0;
     margin-botton: 10px;
-    font-size: 20px;
 }
 .postTitle {
     margin: 0;
@@ -21,7 +21,7 @@ title: Posts
     color: slateblue;
 }
 .post {
-    font-size: 20px;
+    font-size: 1em;
     display: flex;
     margin-bottom: 5px;
     align-items: center;
@@ -29,7 +29,7 @@ title: Posts
 .bullet {
     margin: 0 5px;
 }
-@media only screen and (max-width: 988px) {
+@media only screen and (max-width: 768px) {
     .title {
         margin-top: 0
     }
@@ -45,7 +45,7 @@ title: Posts
 </style>
 <a href="/">← home</a>
 <h1 class="title">Posts</h1>
-<em class="tagline">I occasionally write my heart and brains out here. This collection is made to last.</em>
+<p class="tagline">I occasionally write my heart and brains out here. This collection is made to last.</p>
 <hr/>
 <div class="posts">
 {%- for post in collections.posts | reverse -%}

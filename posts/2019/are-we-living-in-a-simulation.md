@@ -5,7 +5,7 @@ date: 2019-12-27
 tags: ['posts', 'theory']
 ---
 
-This thought struck me while listening to Lex Fridman's podcast with George Hotz. This was Lex's exact opening question - 'Are we part of a simulation?' I do not remember what George answered but this surely got my mind running, searching for answers and trying to find analogies. What came to my mind is that we might not be in an exact simulation, but we may be a part of a playground, one that has all the human beings and is continuing to exist until infinity.
+This thought struck me while listening to Lex Fridman's podcast with George Hotz. This was Lex's exact opening question - 'Are we part of a simulation?'<!-- excerpt --> I do not remember what George answered but this surely got my mind running, searching for answers and trying to find analogies. What came to my mind is that we might not be in an exact simulation, but we may be a part of a playground, one that has all the human beings and is continuing to exist until infinity.
 
 This very much reminds me of the HBO series _WestWorld_. The series was centered around a simulation game that was like a theme park, where humans could go and have realistic roleplaying experience. For some it was a mere game, for some it was passion. But, this game still had a controlling entity - the ones who built it. They were humans too. But what if, keeping the WestWorld example aside, what if there was a playground, where millions of players existed, each one with there set of features, with some additional scenic elements like air, water and land? This is exactly what I think of our world to be.
 
