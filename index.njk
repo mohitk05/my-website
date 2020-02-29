@@ -195,7 +195,7 @@ button:hover {
     </div>
 </section>
 <div>
-    <h2 style="padding-left: 10px;">Blogs</h2>
+    <h2 style="padding-left: 10px;">Posts</h2>
     <div class="detailedBlogs">
     {%- for post in collections.posts | reverse | slice4 -%}
         <div class="detailedBlog" onclick="window.location = '{{post.url}}'">

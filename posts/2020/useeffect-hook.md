@@ -1,6 +1,6 @@
 ---
-title: The `useEffect` hook
-coverImage: /img/posts/mirror1.jpeg
+title: The useEffect hook
+coverImage: /img/posts/useeffect.png
 ---
 
 I recently took up the task of clearing up the reported issues for `react-insta-stories`, an open source React component I had made last year and quite a few people use it. I was visiting the codebase after a couple of months<!-- excerpt --> and I had written one useEffect hook for maintaining `requestAnimationFrame` calls. You must know how an Instagram story behaves, it has a smooth moving top progress bar which goes on switching stories. I had implemented this animation using `requestAnimationFrame`.
