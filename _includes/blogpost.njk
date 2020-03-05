@@ -221,6 +221,15 @@ pre[class*='language-'] {
 .tag:hover {
 	opacity: 0.8;
 }
+.topic {
+	font-size: 12px;
+}
+.topic:after {
+	content: ","
+}
+.topic:last-child:after {
+	content: ""
+}
 .content {
 	line-height: 1.8;
 	color: #16161d;
@@ -267,6 +276,12 @@ blockquote {
 		{% for tag in tags %}
 			<a href="/posts?tag={{tag}}" class="tag">{{ tag }}</a>
 		{% endfor %}
+		{% if topics and topics.length %}
+			•
+			{% for topic in topics %}
+				<span class="topic">{{ topic }}</span>
+			{% endfor %}
+		{% endif %}
 	</span>
 	<br/>
 	{% if coverImage %}

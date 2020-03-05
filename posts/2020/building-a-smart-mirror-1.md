@@ -3,6 +3,8 @@ title: Building a Smart Mirror - 1
 coverImage: /img/posts/mirror1-3.jpeg
 coverImagePosition: 50% 36%
 coverImageHeight: 450px
+topics: ['raspberry pi', 'alexa', 'smart mirror', 'smart home']
+description: This post is about we building a smart mirror from scratch using Raspberry Pi.
 ---
 
 Almost a month back we started the work for renovating our house in Panvel, a decision my parents had taken long back, but was finally brought into action<!-- excerpt --> the previous month. This included a lot of breaking, building, cutting and painting. The house was going to be a mess for sure. This was a trigger for me and my brother, Nitish, because this was the right time to experiment with building some stuff. Nitish wanted to build a smart mirror for quite some time, so without any delay, I ordered a Raspberry Pi 3B and got to work.

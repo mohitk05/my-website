@@ -200,7 +200,11 @@ button:hover {
     {%- for post in collections.posts | reverse | slice4 -%}
         <div class="detailedBlog" onclick="window.location = '{{post.url}}'">
             <h4 style="margin: 0">{{ post.data.title }}</h4>
+            {% if post.template.frontMatter.excerpt %}
             <p class="detailedBlog-description">{{ post.template.frontMatter.excerpt | excerptise }}</p>
+            {% else %}
+            <p class="detailedBlog-description">{{ post.data.description | excerptise }}</p>
+            {% endif %}
         </div>
     {%- endfor -%}
     </div>
