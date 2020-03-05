@@ -3,7 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if topics and tags %}
     <meta name="keywords" content="{{ topics.join(',') + ',' + tags.join(',') if topics and tags else tags.join(',') }}">
+    {% elif tags %}
+    <meta name="keywords" content="{{ tags.join(',') }}">
+    {% endif %}
     <meta name="description" content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader.' }}">
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:creator" content="@MohitKarekar"/>
