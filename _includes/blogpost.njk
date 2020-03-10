@@ -230,6 +230,25 @@ pre[class*='language-'] {
 .topic:last-child:after {
 	content: ""
 }
+table {
+    border: solid 1px #ccc;
+    border-collapse: collapse;
+    border-spacing: 0;
+	margin: 10px 0;
+	font-size: 0.9em;
+	width: 100%;
+}
+table thead th {
+    background-color: #eee;
+    border: solid 1px #ccc;
+    padding: 10px;
+    text-align: left;
+}
+table tbody td {
+    border: solid 1px #ccc;
+    color: #333;
+    padding: 10px;
+}
 .content {
 	line-height: 1.8;
 	color: #16161d;
@@ -250,7 +269,11 @@ pre[class*='language-'] {
 {% if coverImagePosition %}
 	background-position: {{ coverImagePosition }};
 {% endif %}
+{% if coverImageSize %}
+	background-size: {{ coverImageSize }};
+{% else %}
 	background-size: cover;
+{% endif %}
 	background-repeat: no-repeat;
 }
 blockquote {
