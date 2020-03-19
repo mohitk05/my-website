@@ -92,6 +92,20 @@ This isn't straightforward in the case of a complex state, e.g. JSON data. You w
 
 This method is better when you know the exact operations that can occur on the entity, and you can exactly apply them on the target entity. Or in other case where you have no idea of what has happened to the data, and are directly supplied with the two states.
 
-## The frontend scenario
+## The Frontend Scenario
 
-<!-- We deviated from our initial topic of discussion - frontend frameworks. -->
+We deviated from our initial topic of discussion - _frontend frameworks_. Various frameworks follow their own way of optimisation. Going through the popular ones out there, I can list down the approaches followed by each one of them.
+
+### React
+
+One of the most popular frameworks out there is React. As most of us would know that it operates on the principle of a virtual DOM - meaning that instead of operating directly on the DOM tree, it operates on a stripped down JavaScript-object like version of the tree first and then moves the changes to the actual DOM. Working with JS objects is no doubt faster than operating on DOM nodes, and React leverages this rightly and provides that necessary performance gain.
+
+One place where React succumbs to repetitive computation is reconciliation. Reconciliation is the process by which React takes the changes from the virtual DOM to the actual DOM, leading to the final UI update. I'll try to explain the way it works:
+
+Whenever a component calls setState from inside itself, the component returns its complete sub-tree according to the new state. This derives its origin from functional programming where the component is seen as a black box, and every state change leads to the new state being fed to the black box, and in return we get the new sub-tree of the component.
+
+```bash
+                     |------------------------|
+---- x (state) ----> |  f(x) (the component)  | ---- y (sub-tree) ---->
+                     |------------------------|
+```
