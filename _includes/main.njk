@@ -17,7 +17,7 @@
     {% if coverImage and 'http' in coverImage %}
         <meta property="og:image" content="{{ coverImage if coverImage else '/mohit.jpg' }}"/>
     {% else %}
-        <meta property="og:image" content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/mk.jpeg' }}"/>
+        <meta property="og:image" content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/icon.jpeg' }}"/>
     {% endif %}
     <meta property="og:type" content="article" />
     {# <link rel="manifest" href="/manifest.json"> #}
@@ -67,7 +67,7 @@
     .profileImage {
         height: 85px;
         width: 85px;
-        background-image: url('https://i.imgur.com/p0yklHL.jpg');
+        background-image: url('/img/icon.jpeg');
         background-size: contain;
         border-radius: 50%;
         margin-right: 18px;
