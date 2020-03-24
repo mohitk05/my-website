@@ -105,7 +105,11 @@ One place where React succumbs to repetitive computation is reconciliation. Reco
 Whenever a component calls setState from inside itself, the component returns its complete sub-tree according to the new state. This derives its origin from functional programming where the component is seen as a black box, and every state change leads to the new state being fed to the black box, and in return we get the new sub-tree of the component.
 
 ```bash
-                     |------------------------|
+                     +------------------------+
 ---- x (state) ----> |  f(x) (the component)  | ---- y (sub-tree) ---->
-                     |------------------------|
+                     +------------------------+
 ```
+
+The issue here is that when React tries to apply the new sub-tree to the actual DOM, it diffs the complete sub-tree with the DOM and selectively updates the things that changed. We usually see the efficiency of this feature of virtual DOM where only the part that changed gets updated but ignore the fact that it had to compare each and every level of the sub-tree to identify the changed parts when it could have evaluated this from the `setState` statement. `setState` knows what part of the state updated but on re-render, the whole component is re-evaluated irrespective of what part of the state changed.
+
+
