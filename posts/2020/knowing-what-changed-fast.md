@@ -112,4 +112,36 @@ Whenever a component calls setState from inside itself, the component returns it
 
 The issue here is that when React tries to apply the new sub-tree to the actual DOM, it diffs the complete sub-tree with the DOM and selectively updates the things that changed. We usually see the efficiency of this feature of virtual DOM where only the part that changed gets updated but ignore the fact that it had to compare each and every level of the sub-tree to identify the changed parts when it could have evaluated this from the `setState` statement. `setState` knows what part of the state updated but on re-render, the whole component is re-evaluated irrespective of what part of the state changed.
 
+### Vue
 
+Vue is a very popular framework and gives a tough competition to React in terms of developer adoption and ease of writing code. Vue provides a much easier interface for reactivity. Here, setting a value to a variable triggers re-render, and there is no `setState` like method that has the sole purpose of updating the state. Vue does this by maintaining `getter` and `setter` for each property. Vue's reactivity model can be understood well in the [official docs](https://vuejs.org/v2/guide/reactivity.html), but can be simply put as:
+
+```js
+data() {
+	return {
+		name: 'Mohit'
+	}
+}
+
+// This internally creates a getter and setter for name
+name.getter = () => {
+	addAsDependent(callee) // Called only once during init
+	return name.value
+}
+name.setter = (newValue) => {
+	name.value = newValue
+	notifyWatcher()
+}
+```
+
+When some property uses `name` in itself, Vue maps that that property depends on `name` and hence must be updated whenever `name` updates.
+
+```js
+computed() {
+	fullName() {
+		return this.name + ' Karekar'
+	}
+}
+```
+
+Here the property `fullName` is added to the list of dependents/subscribers for `name`. Whenever name changes

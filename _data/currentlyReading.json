@@ -1,22 +1,14 @@
 [
 	{
-		"title": "",
-		"url": ""
-	},
-	{
-		"title": "",
-		"url": ""
-	},
-	{
-		"title": "",
-		"url": ""
-	},
-	{
 		"title": "Computer Vision with OpenCV",
 		"url": "https://www.youtube.com/playlist?list=PLvVx8lH-gGeC8XmmrsG855usswhwt5Tr1"
 	},
 	{
 		"title": "Teach Yourself CS",
 		"url": "https://teachyourselfcs.com"
+	},
+	{
+		"title": "The Rust Programming Language",
+		"url": "https://doc.rust-lang.org/book/"
 	}
 ]
