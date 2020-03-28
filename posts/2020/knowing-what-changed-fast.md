@@ -6,6 +6,7 @@ coverImageHeight: 300px
 coverImagePosition: center
 date: 2020-03-15
 tags: ['posts', 'theory']
+eleventyExcludeFromCollections: true
 topics: ['algorithms', 'difference', 'git', 'react', 'vue', 'javascript']
 ---
 
