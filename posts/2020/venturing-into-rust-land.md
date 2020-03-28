@@ -27,7 +27,7 @@ Unlike JavaScript, Rust is a compiled language and hence once something is devel
 Since Rust is compiled, it requires an entry point to your code. Like C and Java, Rust requires a `main` function which it considers by default as the entry point to your code. We define functions as follows:
 
 ```rust
-fn square(n: i32) {
+fn square(n: i32) -> i32 {
     n * n
 }
 ```
