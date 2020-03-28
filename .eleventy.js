@@ -21,6 +21,12 @@ module.exports = function (eleventyConfig) {
         permalinkClass: "direct-link",
         permalinkSymbol: "#"
     });
+    const rules = {
+        table_close: () => '</table>\n</div>',
+        table_open: () => '<div class="table-wrapper">\n<table>\n',
+    }
+
+    markdownLibrary.renderer.rules = { ...markdownLibrary.renderer.rules, ...rules };
     eleventyConfig.setLibrary("md", markdownLibrary);
 
     eleventyConfig.addFilter('datePretty', date => {

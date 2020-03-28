@@ -4,10 +4,9 @@ coverImage: /img/posts/knowing-change-1.jpg
 coverImageSize: contain
 coverImageHeight: 300px
 coverImagePosition: center
-date: 2020-03-07
+date: 2020-03-15
 tags: ['posts', 'theory']
 topics: ['algorithms', 'difference', 'git', 'react', 'vue', 'javascript']
-eleventyExcludeFromCollections: true
 ---
 
 Frontend development landscape has evolved a lot in the past decade, from simple JavaScript, HTML and CSS to complex frameworks and libraries. These have<!-- excerpt --> helped maintaining a solid code structure and visibility in our frontend applications, and in a way have enabled writing logic heavy apps on the frontend. Other than developer friendliness and code organisation, every framework or library presents its own form of optimisation - a way to do stuff faster than it actually is.
@@ -144,4 +143,4 @@ computed() {
 }
 ```
 
-Here the property `fullName` is added to the list of dependents/subscribers for `name`. Whenever name changes
+Here the property `fullName` is added to the list of dependents/subscribers for `name`. Whenever name changes [WIP]
