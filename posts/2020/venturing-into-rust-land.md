@@ -209,7 +209,7 @@ impl Person {
 }
 ```
 
-`enum` is used to store a list of items that are possible values of some entity, such that the entity will hold only of those values at a particular time. This is particularly useful at places where there are multiple results/inputs possible and we need a way to group them and operate all of the variations as one. For example, consider we have a multi-user chat room, and we have implemented a function that displays a new message on the terminal. The message to be displayed can be a result of a variety of situations - a new user joined the room, a user left the room, a new room was created, a new message, a message for all users etc.
+`enum` is used to store a list of items that are possible values of some entity, such that the entity will hold only one of those values at a particular time. This is particularly useful at places where there are multiple results/inputs possible and we need a way to group them and operate all of the variations as one. For example, consider we have a multi-user chat room, and we have implemented a function that displays a new message on the terminal. The message to be displayed can be a result of a variety of situations - a new user joined the room, a user left the room, a new room was created, a new message, a message for all users etc.
 
 We want that one single function should display all these types of messages, but each of the message has some different property like `new user joined` has the name of the user to be displayed. `new room created` has name of the room attached to it etc. In short, each message needs to be printed/handled in a different way. Here, creating an enum called `Message` would be very useful.
 
