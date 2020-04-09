@@ -290,13 +290,26 @@ blockquote {
 	.coverImage {
 		height: 200px;
 	}
-	.content {
-		color: black;
-	}
+}
+body.dark {
+	background: #16161d;
+	color: #eee;
+}
+body.dark a {
+	color: salmon;
+}
+body.dark p code {
+	background: #2f2f2f;
 }
 </style>
 <main>
-	<a href="/posts">← all posts</a>
+	<span style="display: flex; justify-content: space-between">
+		<a href="/posts">← all posts</a>
+		<span style="display: flex; align-items: center;">
+			<input type="checkbox" onclick="toggleDark()" id="dark-mode" style="margin-right: 5px">
+			<code>dark</code>
+		</span>
+	</span>
 	<h1 class="title">{{ title }}</h1>
 	<span>
 		<em>{{ page.date | dateReadable }}</em>
@@ -335,4 +348,26 @@ blockquote {
 		label="blog-comment"
         async>
     </script>
+	<script>
+		window.addEventListener('load', () => {
+			if(sessionStorage.__dark == 1) {
+				var dark = document.getElementById('dark-mode');
+				dark.checked = true;
+				toggleDark();
+			}
+		})
+		function toggleDark() {
+			var dark = document.getElementById('dark-mode');
+			var utter = document.querySelector('.utterances-frame');
+			if(dark.checked) {
+				sessionStorage.__dark = 1;
+				document.body.className = document.body.className.length ? document.body.className + ' dark' : 'dark';
+				utter.contentWindow.location.replace(utter.src.replace('github-light', 'github-dark'));
+			} else {
+				sessionStorage.__dark = 0;
+				document.body.className = document.body.className.replace(/\s*dark/, '');
+				utter.contentWindow.location.replace(utter.src.replace('github-dark', 'github-light'));
+			}
+		}
+	</script>
 </main>

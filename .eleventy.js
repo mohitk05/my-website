@@ -54,6 +54,6 @@ module.exports = function (eleventyConfig) {
         excerpt_separator: "<!-- excerpt -->"
     });
     eleventyConfig.addFilter('excerptise', str => {
-        return str.concat('...')
+        return str ? str.concat('...') : ''
     })
 };
