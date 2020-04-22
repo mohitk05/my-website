@@ -2,9 +2,10 @@
 title: The Beauty of Abstraction
 topics: ['abstraction', 'rambling', 'code', 'abstract']
 coverImage: /img/posts/abstraction.jpeg
+description: Our world is modular, made up of complex things working independently yet together - all perfect examples of abstractions. It is hence important to appreciate its beauty.
 ---
 
-Abstraction is the _art_ of building things in such a way that the people using them should never need to care about how they work, but instead should only care about the outcomes they offer and certain inputs they require.
+Abstraction is the _art_ of building things in such a way that the people using them should never need to care about how they work, but instead should only care about<!-- excerpt --> the outcomes they offer and certain inputs they require.
 
 Abstractions are everywhere. A simple light switch is an easy example. It requires minimum effort to learn what a wall mounted button does - if you switch it on, which is achieved by positioning the button in a certain way - the light goes on. If positioned the other way, it goes off. If one never studies basic electric cirtcuits, they might never know what goes inside the switch. But the most important thing is that it does not matter - knowing or not knowing how a switch works does not affect its output and that is the absolute beauty of abstraction.
 
