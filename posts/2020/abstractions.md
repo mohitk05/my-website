@@ -66,4 +66,4 @@ function factorial(n) {
 factorial(4); // 24
 ```
 
-Abstractions in every aspect of life have made it possible to create a modular world. Our very body is made up of them - cells -> tissues -> organs -> systems. They allow us to visualise things independently and will always remain a topic of interest for me. Read this beautiful article [[Conversations with a six-year-old on functional programming](https://byorgey.wordpress.com/2018/05/06/conversations-with-a-six-year-old-on-functional-programming/)], until next time.
+Abstractions in every aspect of life have made it possible to create a modular world. Our very body is made up of them - cells -> tissues -> organs -> systems. They allow us to visualise things independently and will always remain a topic of interest for me. Read this beautiful article [[Conversations with a six-year-old on functional programming](https://byorgey.wordpress.com/2018/05/06/conversations-with-a-six-year-old-on-functional-programming/)] and this one about [[Lambda Calculus](https://plato.stanford.edu/entries/lambda-calculus/)], until next time.
