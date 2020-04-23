@@ -47,7 +47,7 @@ function factorial(n, fact) {
 factorial(4, 1); // 120
 ```
 
-This is a simple, tail-recursive Fibonacci function.
+This is a simple, tail-recursive factorial function.
 
 > **Sidenote**: Tail recursive functions are better than non-tail recursive ones because the compiler can optimise a tail recursive function since recursion is the last call. The compiler then does not have to keep a reference to return back to and hence can reduce the total steps.
 
