@@ -44,7 +44,7 @@ function factorial(n, fact) {
 	return factorial(n - 1, fact * n);
 }
 
-factorial(4, 1); // 120
+factorial(4, 1); // 24
 ```
 
 This is a simple, tail-recursive factorial function.
@@ -63,7 +63,7 @@ function factorial(n) {
 	return factorial_internal(n, 1);
 }
 
-factorial(4); // 120
+factorial(4); // 24
 ```
 
 Abstractions in every aspect of life have made it possible to create a modular world. Our very body is made up of them - cells -> tissues -> organs -> systems. They allow us to visualise things independently and will always remain a topic of interest for me. Read this beautiful article [[Conversations with a six-year-old on functional programming](https://byorgey.wordpress.com/2018/05/06/conversations-with-a-six-year-old-on-functional-programming/)], until next time.
