@@ -47,7 +47,12 @@ module.exports = function (eleventyConfig) {
         return arr.slice(3, arr.length)
     })
     eleventyConfig.addFilter('printthis', (...args) => {
-        console.log(...args)
+        console.log(...args);
+        return 'Check console'
+    })
+    eleventyConfig.addFilter('timeToRead', (str) => {
+        let mins = Math.ceil(str.split(' ').length / 200)
+        return mins > 1 ? mins + ' minutes read' : mins + ' minute read';
     })
     eleventyConfig.setFrontMatterParsingOptions({
         excerpt: true,

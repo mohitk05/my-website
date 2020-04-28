@@ -14,7 +14,6 @@ pre[class*='language-'] {
 	word-wrap: normal;
 	color: #eee;
 	background: #2f2f2f;
-	font-family: Roboto Mono, monospace;
 	font-size: 1em;
 	line-height: 1.5em;
 	max-height: 500px;
@@ -263,7 +262,6 @@ table tbody td {
 }
 .content code {
 	cursor: text;
-	font-family: 'Source Code Pro', monospace;
 }
 .coverImage {
 {% if coverImageHeight %}
@@ -307,7 +305,13 @@ body.dark blockquote {
 </style>
 <main>
 	<span style="display: flex; justify-content: space-between">
-		<a href="/posts">← all posts</a>
+		<span>
+			<a href="/">home</a>
+			<span>/</span>
+			<a href="/posts">all posts</a>
+			<span>/</span>
+			<span>here</span>
+		</span>
 		<span style="display: flex; align-items: center;">
 			<input type="checkbox" onclick="toggleDark()" id="dark-mode" style="margin-right: 5px">
 			<code>dark</code>

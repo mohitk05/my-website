@@ -3,7 +3,7 @@ title: Update only if Necessary, treat ~equal things as one
 date: 2019-10-08
 ---
 
-The concept of 'update only if required' has applications in several areas of computing and I find it really interesting. It can be considered the simplest form of optimisation for any task, i.e. instead of naively updating the complete state of something, we selectively update the parts which changed. The success of this optimisation also largely depends on how efficient the calculation of finding what needs to updated is and if it is faster that a complete refresh.
+The concept of 'update only if required' has applications in several areas of computing and I find it really interesting. It can be considered the simplest form of optimisation for any task<!-- excerpt -->, i.e. instead of naively updating the complete state of something, we selectively update the parts which changed. The success of this optimisation also largely depends on how efficient the calculation of finding what needs to updated is and if it is faster that a complete refresh.
 
 One such famous application is the React's virtual DOM. It is a skeleton copy of the actual DOM and is used for the purpose of fast diffing between two states. Instead of repainting the whole DOM, we selectively update the nodes which have changed, hence saving us unecessary heavy rendering. Since DOM APIs are relatively slower than operations on JS objects, the Virtual DOM is a win win.
 

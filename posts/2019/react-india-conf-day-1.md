@@ -1,11 +1,10 @@
 ---
 title: React India Conf - Day 1
 date: 2019-09-27
+coverImage: https://i.imgur.com/ua395dD.jpg
 ---
 
-![](https://i.imgur.com/ua395dD.jpg)
-
-Today was the first day of the first ever React India conference and it was my first experience at a tech conference ever. Too many of firsts, but it was really an amazing experience altogether. The day left me all insipired and pumped up to give my first talk, whenever that's going to be. I am writing this blog late in the night, after a few beers and my notes on the side. I had forgotten my laptop at the place where I'm staying so it was all old-school handwritten notemaking, which I absolutely love.
+Today was the first day of the first ever React India conference and it was my first experience at a tech conference ever. Too many of firsts, but it was really an amazing experience altogether<!-- excerpt -->. The day left me all inspired and pumped up to give my first talk, whenever that's going to be. I am writing this blog late in the night, after a few beers and my notes on the side. I had forgotten my laptop at the place where I'm staying so it was all old-school handwritten notemaking, which I absolutely love.
 
 There was a lot to learn from this one day, one of the things being about documenting the stuff you learn; hence I'm going to keep this blog super simple and crisp, noting just the important takeways.
 

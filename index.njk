@@ -16,12 +16,10 @@ coverImage: img/cover.jpg
 .mainLine {
     margin: 0;
     font-size: 2em;
-    font-family: 'Source Code Pro', monospace;
 }
 .shortBio {
     margin-top: 0px;
     opacity: 0.8;
-    font-style: italic;
 }
 .mainCover {
     position: relative;
@@ -48,6 +46,8 @@ coverImage: img/cover.jpg
 }
 section {
     padding: 10px;
+    max-height: 250px;
+    overflow-y: auto;
 }
 .downLeft {
     flex: 0.6;
@@ -63,9 +63,6 @@ section {
 }
 .post {
     margin-top: 10px;
-}
-.postTitle {
-    padding: 15px 0;
 }
 .interesting {
     background: #efe;
@@ -146,8 +143,8 @@ button:hover {
 </div>
 <div class="header">
     <div class="head">
-        <h1 class="mainLine">mohit_karekar</span></h1>
-        <p class="shortBio">software_engineer, javascript, python, open_source</p>
+        <h1 class="mainLine">Mohit Karekar</h1>
+        <p class="shortBio">software engineer, javascript, open source | experimenting with rust</p>
     </div>
     <div class="socials">
         <a target="_blank" href="https://github.com/mohitk05"><img alt="github" class="social" src="/img/github.png"/></a>
@@ -187,7 +184,7 @@ button:hover {
 <section class="interesting">
     <h3>Interesting things I found on the Internet</h3>
     <div class="posts">
-        {%- for c in interesting -%}
+        {%- for c in interesting | reverse -%}
             <div class="post">
                 <a class="postTitle" target="_blank" href="{{ c.url }}">{{ c.title }}</a>
             </div>
@@ -197,9 +194,10 @@ button:hover {
 <div>
     <h2 style="padding-left: 10px;">Posts</h2>
     <div class="detailedBlogs">
-    {%- for post in collections.posts | reverse | slice4 -%}
+    {%- for post in collections.posts | reverse -%}
         <div class="detailedBlog" onclick="window.location = '{{post.url}}'">
             <h4 style="margin: 0">{{ post.data.title }}</h4>
+            <span style="color: grey; font-size: 0.8em">{{ post.data.date | dateReadable }}</span>
             {% if post.template.frontMatter.excerpt %}
             <p class="detailedBlog-description">{{ post.template.frontMatter.excerpt | excerptise }}</p>
             {% else %}
@@ -208,6 +206,5 @@ button:hover {
         </div>
     {%- endfor -%}
     </div>
-    <button onclick="window.location = '/posts'">See all Posts</button>
 </div>
 </div>

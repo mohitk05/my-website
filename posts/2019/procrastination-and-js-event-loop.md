@@ -1,11 +1,10 @@
 ---
 title: Procrastination and the Javascript Event Loop
 date: 2019-03-09
+coverImage: https://i.imgur.com/i7xSN37.jpg
 ---
 
-![](https://i.imgur.com/i7xSN37.jpg)
-
-Every professional, be it a developer or a designer, has always experienced this humongous pressure of completing pending tasks within a given deadline. A tempting TV series, or the Goddess of sleep have numerous times pushed tasks to a never appearing time, 'later', or as it is widely known - **_tomorrow_**.
+Every professional, be it a developer or a designer, has always experienced this humongous pressure of completing pending tasks within a given deadline. A tempting TV series, or the Goddess of sleep have numerous<!-- excerpt --> times pushed tasks to a never appearing time, 'later', or as it is widely known - **_tomorrow_**.
 
 _Oh, my Jira says I need to build this app authentication system which would need a couple of APIs and then finally some testing to check if it integrates correctly with the app, but that could wait - this one button in the UI does not appear to have the right amount of shadow, let me just tweak the CSS a little bit._
 

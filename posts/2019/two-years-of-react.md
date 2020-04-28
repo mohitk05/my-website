@@ -1,11 +1,10 @@
 ---
 title: Two years of React
 date: 2019-01-18
+coverImage: https://i.imgur.com/1vLimSl.png
 ---
 
-![](https://i.imgur.com/1vLimSl.png)
-
-I remember the first website I built; it was an ugly, dumb webpage which had couple of `<div>`s and a `<marquee>` running across the page, welcoming the visitor. It was almost 10 years ago. Frontend landscape has changed drastically since then, but my desire to create beautiful websites remains the same.
+I remember the first website I built; it was an ugly, dumb webpage which had couple of `<div>`s and a `<marquee>` running across the page, welcoming the visitor. It was almost<!-- excerpt --> 10 years ago. Frontend landscape has changed drastically since then, but my desire to create beautiful websites remains the same.
 
 AngularJS was my first ‘frontend web framework’, which I had desperately learnt because it boasted single code base for multiple platforms. Fortunately, I couldn’t hold on to it, the concepts seemed unnatural. Writing javascript in double quotes (`<div ngFor=“let fruit of fruits”></div>` - the famous ngFor) still disturbs me. I do not exactly remember how I got introduced to React, but very soon after I read about it, it was my favourite. In this article, I list down some of the peculiar features of React that fascinate me, and keep me connected to it.
 
@@ -51,7 +50,7 @@ React, unlike Angular, allows only one-way data binding by default. To understan
 But when someone types into the input field, the value `name` in `this.state` does not change. HTML cannot change the values of variables, being quite different from Angular's two-way binding.\ React provides a set of events, when such changes to input fields occur; one needs to handle the event and store the updated value.
 
 ```jsx
-_onChange = e => {
+_onChange = (e) => {
 	this.setState({ name: e.target.value });
 };
 

@@ -1,11 +1,10 @@
 ---
 title: Removing duplicates
 date: 2019-02-21
+coverImage: https://i.imgur.com/XvpoVsx.png
 ---
 
-![](https://i.imgur.com/XvpoVsx.png)
-
-A year ago, at my previous organisation, I had once received a very redundant task to be carried out. I was a fresher then and it was quite normal to get such work in an Indian MNC (one of the reasons I quit and joined a startup).
+A year ago, at my previous organisation, I had once received a very redundant task to be carried out. I was a fresher then and it was quite normal to get such work in an<!-- excerpt --> Indian MNC (one of the reasons I quit and joined a startup).
 
 The task was to combine contents of several Excel files into one, given that the content might have been repeated multiple times, across files, and finally have one clean file. Now the _'challenge'_ was that I had no idea of automating stuff in Excel. I was aware of VB Scripts, I also tried a few, but the syntax and concepts felt foreign to me. Soon I was trying out other solutions, something which I could carry out faster and would be easier to write.
 

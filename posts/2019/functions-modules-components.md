@@ -1,11 +1,10 @@
 ---
 title: Functions, modules and components
 date: 2019-02-12
+coverImage: https://i.imgur.com/hbZoLzO.jpg
 ---
 
-![Modularity](https://i.imgur.com/hbZoLzO.jpg)
-
-From the evolution of computer programming, the main aim of the whole concept has been to behave autonomously to a certain set of varied input. In Mathematics, we define a function as something which accepts a set of input and produces a range of results.
+From the evolution of computer programming, the main aim of the whole concept has been to behave autonomously to a certain set of varied input. In Mathematics<!-- excerpt -->, we define a function as something which accepts a set of input and produces a range of results.
 
 ```
 y = x²Input: x belongs to Real Numbers.Range: [0, +∞)

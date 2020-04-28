@@ -10,5 +10,9 @@
 	{
 		"title": "The Rust Programming Language",
 		"url": "https://doc.rust-lang.org/book/"
+	},
+	{
+		"title": "Build a Modern Computer - Nand2Tetris",
+		"url": "https://www.coursera.org/learn/build-a-computer/home/welcome"
 	}
 ]

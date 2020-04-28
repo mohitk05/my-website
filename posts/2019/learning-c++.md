@@ -3,7 +3,7 @@ title: Learning C++
 date: 2019-09-06
 ---
 
-For a long time, I wanted to learn a strictly typed, high performance language which runs close to machine code. During my school days, **C** was one of the first languages I was introduced to, and it was unusual to have it during my 7th grade. I had absolutely loved writing short programs that would let you interact with the terminal and process some numbers. **C** was there again during my first year of college, with somewhat advanced concepts like pointers and data structures. I had always been familiar and comfortable with C type syntax and hence learning other languages like Java and JavaScript wasn't a big deal.
+For a long time, I wanted to learn a strictly typed, high performance language which runs close to machine code. During my school days, **C** was one of the first languages<!-- excerpt --> I was introduced to, and it was unusual to have it during my 7th grade. I had absolutely loved writing short programs that would let you interact with the terminal and process some numbers. **C** was there again during my first year of college, with somewhat advanced concepts like pointers and data structures. I had always been familiar and comfortable with C type syntax and hence learning other languages like Java and JavaScript wasn't a big deal.
 
 Learning JS was like eating candy, though.
 
