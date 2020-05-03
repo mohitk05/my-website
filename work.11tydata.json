@@ -24,7 +24,7 @@
 					"id": "upgrad",
 					"title": "upGrad, Mumbai",
 					"position": "Software Engineer II",
-					"tech": ["react", "node", "vue", "mongodb"],
+					"tech": ["javascript", "react", "node", "vue", "mongodb"],
 					"description": "",
 					"dateRange": "April, 2019 - present"
 				}
@@ -34,6 +34,11 @@
 			"type": "open-projects",
 			"title": "Projects",
 			"items": [
+				{
+					"title": "Evolve",
+					"description": "A tiny world simulator plus game that works on levels of insanity in a city",
+					"link": "http://evolve-game.surge.sh"
+				},
 				{
 					"title": "Shaai",
 					"description": "A highly customisable, open source blogging framework",

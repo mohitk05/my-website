@@ -176,6 +176,9 @@ button:hover {
             {%- for c in currentlyReading | reverse | slice3 -%}
                 <div class="post">
                     <a class="postTitle" target="_blank" href="{{ c.url }}">{{ c.title }}</a>
+                    {% if c.pinned %}
+                        <span>📌</span>
+                    {% endif %}
                 </div>
             {%- endfor -%}
         </div>

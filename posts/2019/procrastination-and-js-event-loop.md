@@ -2,6 +2,7 @@
 title: Procrastination and the Javascript Event Loop
 date: 2019-03-09
 coverImage: https://i.imgur.com/i7xSN37.jpg
+coverImageHeight: 480px
 ---
 
 Every professional, be it a developer or a designer, has always experienced this humongous pressure of completing pending tasks within a given deadline. A tempting TV series, or the Goddess of sleep have numerous<!-- excerpt --> times pushed tasks to a never appearing time, 'later', or as it is widely known - **_tomorrow_**.

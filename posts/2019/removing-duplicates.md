@@ -2,6 +2,7 @@
 title: Removing duplicates
 date: 2019-02-21
 coverImage: https://i.imgur.com/XvpoVsx.png
+coverImageHeight: 480px
 ---
 
 A year ago, at my previous organisation, I had once received a very redundant task to be carried out. I was a fresher then and it was quite normal to get such work in an<!-- excerpt --> Indian MNC (one of the reasons I quit and joined a startup).

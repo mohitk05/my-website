@@ -4,8 +4,9 @@
 		"url": "https://www.youtube.com/playlist?list=PLvVx8lH-gGeC8XmmrsG855usswhwt5Tr1"
 	},
 	{
-		"title": "Teach Yourself CS",
-		"url": "https://teachyourselfcs.com"
+		"title": "Teaching myself CS",
+		"url": "posts/2020/teaching-myself-cs",
+		"pinned": true
 	},
 	{
 		"title": "The Rust Programming Language",

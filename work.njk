@@ -16,12 +16,8 @@ coverImage: img/cover.jpg
     margin-botton: 10px;
 }
 .org {
-    {# border: 1px solid rgba(0,0,0,0.2); #}
     background: #ffeefe;
-    padding: 2px 10px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    max-width: 400px;
+    padding: 5px 10px;
 }
 .org2 {
     background: #eeffee;
@@ -37,25 +33,26 @@ coverImage: img/cover.jpg
     font-family: 'Fira Mono', monospace;
     font-size: 0.8em;
     margin: 0;
-    opacity: 0.6;
 }
 .tech {
     font-family: 'Fira Mono', monospace;
     font-size: 0.8em;
-    opacity: 0.6;
 }
 .tech:after {
     content: ", ";
 }
 .tech:last-child:after {
-    content: " ";
+    content: "";
 }
 .items {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
 }
 .currentBadge {
-    color: green; 
+    color: salmon;
+    font-size: 0.6em;
+    font-weight: normal;
 }
 </style>
 <span>
@@ -73,7 +70,7 @@ coverImage: img/cover.jpg
             <div class="items">
             {%- for item in work.projects.items -%}
                 <div class="org">
-                    <h3 class="orgTitle"><a href="{{item.link}}">{{ item.title }}</a><span class="currentBadge" title="Ongoing">{{ ' 🐎' if item.active }}</span></h3>
+                    <h3 class="orgTitle"><a href="{{item.link}}">{{ item.title }}</a><span class="currentBadge" title="Ongoing">{{ ' active ' if item.active }}</span></h3>
                     <p class="orgDescription">{{ item.description }}</p>
                 </div>
             {%- endfor -%}
@@ -82,7 +79,7 @@ coverImage: img/cover.jpg
             <div class="items">
             {%- for org in work.experience.items | reverse -%}
                 <div class="org org2">
-                    <h3 class="orgTitle">{{ org.title }} <span class="currentBadge" title="Ongoing">{{ '🐎' if loop.index === 1 }}</span></h3>
+                    <h3 class="orgTitle">{{ org.title }} <span class="currentBadge" title="Ongoing">{{ 'current' if loop.index === 1 }}</span></h3>
                     <p class="orgPosition">{{ org.position }} • <em>{{ org.dateRange }}</em></p>
                     {%- for t in org.tech -%}
                         <span class="tech">{{ t }}</span>
