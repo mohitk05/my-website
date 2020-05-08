@@ -22,13 +22,13 @@
     <meta property="og:type" content="article" />
     {# <link rel="manifest" href="/manifest.json"> #}
     <link rel="icon" href="/img/icon.jpeg">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Mono&display=swap" rel="stylesheet">
 
 	<title>{{ title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
 	<style>
-    html { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #16161d; font-size: 18px }
-    code { font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 16px; }
+    html { font-family: Fira Sans, Helvetica, Arial, sans-serif; color: #16161d; }
+    code { font-family: Fira Mono, Consolas, "Courier New", monospace; }
 	body {
         margin: 0;
 	}
@@ -148,5 +148,8 @@
 <body>
     <div class="container main">{{ content | safe }}</div>
     <footer class="footer">© Mohit Karekar • <a href="mailto:karekar.mohit@gmail.com">karekar.mohit@gmail.com</a></footer>
+    <script>
+        console.log('%cHello there! Welcome to our friendly abode, the console. Do you have a dev question? Or do you want to have a chat?\nIn any case, drop a mail to karekar.mohit@gmail.com ❤️', 'background: #16161d; color: white; font-size: 14px; padding: 10px; margin: 5px')
+    </script>
 </body>
 </html>
