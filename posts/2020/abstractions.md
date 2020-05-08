@@ -3,6 +3,7 @@ title: The Beauty of Abstraction
 topics: ['abstraction', 'rambling', 'code', 'abstract']
 coverImage: /img/posts/abstraction.jpeg
 description: Our world is modular, made up of complex things working independently yet together - all perfect examples of abstractions. It is hence important to appreciate its beauty.
+date: 2020-04-23
 ---
 
 Abstraction is the _art_ of building things in such a way that the people using them should never need to care about how they work, but instead should only care about<!-- excerpt --> the outcomes they offer and certain inputs they require.
