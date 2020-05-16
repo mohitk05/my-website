@@ -8,6 +8,8 @@ moment.locale('en');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('img');
+    eleventyConfig.addPassthroughCopy('fonts');
+    eleventyConfig.addPassthroughCopy('css');
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(lazyImagesPlugin);
 
@@ -60,5 +62,8 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.addFilter('excerptise', str => {
         return str ? str.concat('...') : ''
+    })
+    eleventyConfig.addFilter('randomSingle', arr => {
+        return [arr[Math.floor(Math.random() * arr.length)]]
     })
 };

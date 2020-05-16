@@ -1,14 +1,11 @@
 ---
 layout: main.njk
 title: Mohit Karekar
-coverImage: img/cover.jpg
 ---
 <style>
 .header {
     display: flex; 
     justify-content: space-between;
-}
-.head {
 }
 .headImage {
     margin-right: 0
@@ -24,6 +21,8 @@ coverImage: img/cover.jpg
 .mainCover {
     position: relative;
     margin: 20px 0;
+    max-height: 300px;
+    overflow: hidden;
 }
 .mainCover img {
     max-width: 100%;
@@ -34,6 +33,8 @@ coverImage: img/cover.jpg
     bottom: 0px;
     right: 20px;
     color: white;
+    font-weight: bold;
+    filter: drop-shadow(2px 4px 10px #333);
 }
 .tabs {
     margin-top: 10px;
@@ -134,13 +135,18 @@ button:hover {
         margin-left: 0;
         margin-right: 10px;
     }
+    .mainCover {
+        max-height: 200px;
+    }
 }
 </style>
 <div style="margin-bottom: 20px;">
+{%- for cover in covers | randomSingle -%}
 <div class="mainCover">
-    <img lazy alt="Cover" src="{{coverImage}}" />
-    <p class="photoCaption">Goa - November, 2019</p>
+    <img lazy alt="Cover" src="{{cover.url}}" />
+    <p class="photoCaption">{{cover.caption}}</p>
 </div>
+{%- endfor -%}
 <div class="header">
     <div class="head">
         <h1 class="mainLine">Mohit Karekar</h1>

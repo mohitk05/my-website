@@ -24,11 +24,37 @@
     <link rel="icon" href="/img/icon.jpeg">
 
 	<title>{{ title }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
 	<style>
-    html { font-family: Fira Sans, Helvetica, Arial, sans-serif; color: #16161d; }
-    code { font-family: Fira Mono, Consolas, "Courier New", monospace; }
+    @font-face {
+        font-family: 'Helvetica Neue';
+        src: url(/fonts/HelveticaNeue.woff);
+    }
+    @font-face {
+        font-family: 'Helvetica Neue';
+        src: url(/fonts/HelveticaNeue-Bold.woff);
+        font-weight: bold;
+    }
+    @font-face {
+        font-family: 'Helvetica Neue';
+        src: url(/fonts/HelveticaNeue-Italic.woff);
+        font-style: italic;
+    }
+    @font-face {
+        font-family: 'Helvetica Neue';
+        src: url(/fonts/HelveticaNeue-BoldItalic.woff);
+        font-weight: bold;
+        font-style: italic;
+    }
+    html { 
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
+        letter-spacing: 0.01em; 
+        line-height: 1.125; 
+        color: #16161d; 
+    }
+    code { 
+        font-size: 1.1em;
+    }
 	body {
         margin: 0;
 	}
@@ -69,8 +95,6 @@
     .main {
         margin-top: 30px;
     }
-	.title {
-	}
     .topRow {
         display: flex;
         align-items: center;

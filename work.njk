@@ -30,12 +30,11 @@ coverImage: img/cover.jpg
     font-size: 1.1em;
 }
 .orgDescription {
-    font-family: 'Fira Mono', monospace;
     font-size: 0.8em;
     margin: 0;
+    margin-top: 5px;
 }
 .tech {
-    font-family: 'Fira Mono', monospace;
     font-size: 0.8em;
 }
 .tech:after {
@@ -53,6 +52,11 @@ coverImage: img/cover.jpg
     color: salmon;
     font-size: 0.6em;
     font-weight: normal;
+}
+@media only screen and (max-width: 768px) {
+    .items {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 </style>
 <span>
