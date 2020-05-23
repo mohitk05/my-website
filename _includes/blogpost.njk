@@ -13,9 +13,6 @@ main {
 .tag:hover {
 	opacity: 0.8;
 }
-.topic {
-	font-size: 12px;
-}
 .topic:after {
 	content: ","
 }
@@ -82,8 +79,8 @@ blockquote {
 	}
 }
 body.dark {
-	background: #16161d;
-	color: #eee;
+	background: #121212;
+	color: #fdfdfd;
 }
 body.dark a {
 	color: salmon;
@@ -92,7 +89,8 @@ body.dark p code {
 	background: #2f2f2f;
 }
 body.dark blockquote {
-	background: #333;
+	background: #222;
+	border: 2px solid #000;
 }
 body.dark td {
 	color: #ccc;
@@ -164,14 +162,21 @@ body.dark th {
 		function toggleDark() {
 			var dark = document.getElementById('dark-mode');
 			var utter = document.querySelector('.utterances-frame');
+			var meta = document.querySelector('#tab-color');
 			if(dark.checked) {
 				sessionStorage.__dark = 1;
 				document.body.className = document.body.className.length ? document.body.className + ' dark' : 'dark';
 				utter.contentWindow.location.replace(utter.src.replace('github-light', 'github-dark'));
+				let metaTag = document.createElement('meta');
+				metaTag.id = 'tab-color';
+				metaTag.name = 'theme-color';
+				metaTag.content = '#222222';
+				document.head.appendChild(metaTag);
 			} else {
 				sessionStorage.__dark = 0;
 				document.body.className = document.body.className.replace(/\s*dark/, '');
 				utter.contentWindow.location.replace(utter.src.replace('github-dark', 'github-light'));
+				meta.parentNode.removeChild(meta);
 			}
 		}
 	</script>
