@@ -8,7 +8,7 @@ description: 'Debouncing is a commonly discussed concept in a frontend interview
 
 Debouncing is a commonly discussed concept in a frontend interview. I was once asked about it, and back then I had no idea what it was. After using it in a project, I understood it well, it just struck how useful it was. Overall it is a simple concept but proves to be very crucial in terms of preventing unnecessary work.
 
-It would be unfair to define debouncing directly. The best way to understand it is via the example of incremental search on the frontend. It is a high chance that at some point in your frontend career you would have to implement an instant search bar, where you'd have to list the results as the user types in the query string. A naive developer would approach this using the `keyup` event or `onChange` prop in case of React, which give you the current value of the input box.
+It would be unfair to define debouncing directly. The best way to understand it is via the example of incremental search on the frontend. It is a high chance that at some point in your frontend career you would have to implement an instant search bar, where you'd have to list the results as the user types in the query string. A naive approach to this would be using the `keyup` event or `onChange` prop in case of React, which give you the current value of the input box.
 
 ```html
 <input id="search" />
