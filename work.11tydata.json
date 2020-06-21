@@ -35,6 +35,12 @@
 			"title": "Projects",
 			"items": [
 				{
+					"title": "Aboard",
+					"description": "A simulation game engine which builds up on travel in an alternate world.",
+					"link": "",
+					"active": true
+				},
+				{
 					"title": "Evolve",
 					"description": "A tiny world simulator plus game that works on levels of insanity in a city",
 					"link": "http://evolve-game.surge.sh"

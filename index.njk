@@ -46,27 +46,25 @@ title: Mohit Karekar
     display: flex;
 }
 section {
-    padding: 10px;
+    padding: 15px;
     max-height: 250px;
     overflow-y: auto;
+    border: 1px solid #ddd;
 }
 .downLeft {
     flex: 0.6;
     margin-right: 10px;
-    background: #fee;
 }
 .downLeft h3, .downRight h3, .interesting h3 {
     margin: 0;
 }
 .downRight {
     flex: 0.4;
-    background: #dff;
 }
 .post {
     margin-top: 10px;
 }
 .interesting {
-    background: #efe;
     margin-top: 10px;
 }
 .socials {
@@ -87,13 +85,14 @@ section {
 .detailedBlog {
     width: 100%;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     padding: 10px;
     transition: all 200ms ease-in-out;
     cursor: pointer;
+    background: white;
 }
 .detailedBlog:hover {
-    background: #f2f2f2;
+    filter: drop-shadow(0 4px 10px #eee);
 }
 .detailedBlog h4 {
     margin: 5px 0;
@@ -107,6 +106,7 @@ section {
     background-position: center;
 }
 .detailedBlog-description {
+    font-size: 0.9em;
     margin: 5px 0;
 }
 button {
