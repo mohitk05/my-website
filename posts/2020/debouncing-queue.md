@@ -1,6 +1,6 @@
 ---
 title: Debouncing Execution of Jobs in a Queue
-data: 2020-05-23
+date: 2020-05-23
 coverImage: /img/posts/queue_cover.png
 topics: ['queueing', 'nodejs', 'debounce', 'upGrad']
 description: 'Debouncing is a commonly discussed concept in a frontend interview. This post discusses how it is crucial in its own sense, and how we used it while building one of our products at upGrad.'
