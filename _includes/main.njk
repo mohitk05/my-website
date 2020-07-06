@@ -26,39 +26,10 @@
 	<title>{{ title }}</title>
 
 	<style>
-    @font-face {
-        font-family: 'Helvetica Neue';
-        src: url(/fonts/HelveticaNeue.woff);
-        font-style: normal;
-        font-weight: normal;
-        font-display: swap;
-    }
-    @font-face {
-        font-family: 'Helvetica Neue';
-        src: url(/fonts/HelveticaNeue-Bold.woff);
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-    }
-    @font-face {
-        font-family: 'Helvetica Neue';
-        src: url(/fonts/HelveticaNeue-Italic.woff);
-        font-style: italic;
-        font-weight: normal;
-        font-display: swap;
-    }
-    @font-face {
-        font-family: 'Helvetica Neue';
-        src: url(/fonts/HelveticaNeue-BoldItalic.woff);
-        font-weight: bold;
-        font-style: italic;
-        font-display: swap;
-    }
     html { 
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
+        font-family: system-ui, sans-serif; 
         letter-spacing: 0.01em; 
         line-height: 1.2;
-        font-size: 1.125em;
         color: #16161d; 
     }
     code { 
@@ -169,10 +140,44 @@
         font-size: 12px;
         opacity: 0.6;
     }
-	@media only screen and (max-width: 768px) {
+
+    .sideProfile {
+        display: none;
+    }
+
+    body.dark .globalSocial:first-child {
+        filter: invert(1);
+    }
+
+    @media only screen and (min-width: 1100px) {
+        .container {
+            width: 53%;
+            margin-left: 12%;
+        }
+        .sideProfile {
+            display: block;
+            position: fixed;
+            top: 16%;
+            right: 10%;
+            max-width: 250px;
+            padding: 20px;
+            border-left: 1px solid #ddd;
+        }
+        .globalSocials {
+            display: block;
+            margin-top: 8px;            
+        }
+        .globalSocial {
+            width: 25px;
+            margin-right: 10px;
+        }
+    }
+
+	@media only screen and (max-width: 788px) {
 		.container {
 			width: auto;
 			padding: 0 20px;
+            margin: 0;
             margin-top: 30px;
 		}
         .footer {
@@ -183,6 +188,17 @@
 </head>
 <body>
     <div class="container main">{{ content | safe }}</div>
+    <div class="sideProfile">
+        <div class="profileImage" style="width: 100px;height: 100px; border-radius: 0px"></div>
+        <div style="margin-top: 8px">
+            <h1 class="name">Mohit Karekar</h1>
+            <serif><em class="shortBio" style="font-size: 12px;">software engineer, javascript, open source, experimenting with rust</em></serif>
+        </div>
+        <div class="globalSocials">
+            <a target="_blank" href="https://github.com/mohitk05"><img alt="github" class="globalSocial" src="/img/github.png"/></a>
+            <a target="_blank" href="https://twitter.com/mohitkarekar"><img alt="twitter" class="globalSocial" src="/img/twitter.png"/></a>
+        </div>
+    </div>
     <footer class="footer">© Mohit Karekar • <a href="mailto:karekar.mohit@gmail.com">karekar.mohit@gmail.com</a></footer>
     <script>
         console.log('%cHello there! Welcome to our friendly abode, the console. Do you have a dev question? Or do you want to have a chat?\nIn any case, drop a mail to karekar.mohit@gmail.com ❤️', 'background: #16161d; color: white; font-size: 14px; padding: 10px; margin: 5px')

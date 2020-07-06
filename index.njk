@@ -4,8 +4,7 @@ title: Mohit Karekar
 ---
 <style>
 .header {
-    display: flex; 
-    justify-content: space-between;
+    display: none; 
 }
 .headImage {
     margin-right: 0
@@ -68,6 +67,7 @@ section {
     margin-top: 10px;
 }
 .socials {
+    display: none;
     margin-top: 10px;
 }
 .social {
@@ -136,7 +136,12 @@ button:hover {
         margin-bottom: 10px;
     }
     .header {
+        display: flex;
+        justify-content: space-between;
         flex-direction: column;
+    }
+    .socials {
+        display: block;
     }
     .social {
         margin-left: 0;
