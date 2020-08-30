@@ -17,11 +17,14 @@ title: Mohit Karekar
     margin-top: 0px;
     opacity: 0.8;
 }
+.topDiv {
+}
 .mainCover {
     position: relative;
     margin: 20px 0;
     max-height: 300px;
     overflow: hidden;
+    border-radius: 2px;
 }
 .mainCover img {
     max-width: 100%;
@@ -152,7 +155,7 @@ button:hover {
     }
 }
 </style>
-<div style="margin-bottom: 20px;">
+<div style="margin-bottom: 20px; margin-top: 70px">
 {%- for cover in covers | randomSingle -%}
 <div class="mainCover">
     <img lazy alt="Cover" src="{{cover.url}}" />
@@ -222,7 +225,11 @@ button:hover {
     {%- for post in collections.posts | reverse -%}
         <div class="detailedBlog" onclick="window.location = '{{post.url}}'">
             <h4 style="margin: 0">{{ post.data.title }}</h4>
-            <span style="color: grey; font-size: 0.8em">{{ post.data.date | dateReadable }}</span>
+            <span style="color: grey; font-size: 0.8em">{{ post.data.date | dateReadable }}</span> 
+            {%if post.data.topics %}
+            <span>•</span>
+            {% endif %} 
+            <span style="font-family: monospace; color: coral">{{ post.data.topics | commaSeparated }}</span>
             {% if post.template.frontMatter.excerpt %}
             <p class="detailedBlog-description">{{ post.template.frontMatter.excerpt | excerptise }}</p>
             {% else %}

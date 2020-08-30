@@ -66,4 +66,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('randomSingle', arr => {
         return [arr[Math.floor(Math.random() * arr.length)]]
     })
+    eleventyConfig.addFilter('commaSeparated', arr => {
+        return arr ? arr.join(', ') : '';
+    })
 };

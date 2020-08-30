@@ -35,6 +35,12 @@
 			"title": "Projects",
 			"items": [
 				{
+					"title": "unipipe",
+					"description": "A tool to build and save JS flows",
+					"link": "https://github.com/mohitk05/unipipe",
+					"active": true
+				},
+				{
 					"title": "Aboard",
 					"description": "A simulation game engine which builds up on travel in an alternate world.",
 					"link": "",
@@ -47,7 +53,7 @@
 				},
 				{
 					"title": "Shaai",
-					"description": "A highly customisable, open source blogging framework",
+					"description": "A highly customizable, open-source blogging framework",
 					"link": "https://github.com/shaaijs/core",
 					"active": true
 				},
