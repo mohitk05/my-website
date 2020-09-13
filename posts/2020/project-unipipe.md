@@ -1,6 +1,7 @@
 ---
 title: A Side Project - unipipe
 date: 2020-08-30
+description: A side-project I started to create a tool to build workflows. Did not quite get through to the end of it, am trying to generalize it to solve a simple problem.
 ---
 
 As I write this piece, I have already mentally decided to redo the current version of `unipipe` which works really well but fails to do one single thing that would be crucial for it to succeed. I am creating this post so that the ideas that went behind creating the first version don't just disappear but stay written somewhere. That's the essence of creating and logging, the end product might be very different than what you thought initially.

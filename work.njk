@@ -3,61 +3,6 @@ layout: main.njk
 title: Mohit Karekar
 coverImage: img/cover.jpg
 ---
-<style>
-.title {
-    margin-bottom: 5px;
-}
-.work {
-    margin: 10px auto;
-    margin-bottom: 40px;
-}
-.tagline {
-    margin: 0;
-    margin-botton: 10px;
-}
-.org {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-}
-.org2 {
-}
-.orgTitle {
-    margin: 0;
-}
-.orgPosition {
-    margin: 0;
-    font-size: 1.1em;
-}
-.orgDescription {
-    font-size: 0.8em;
-    margin: 0;
-    margin-top: 5px;
-}
-.tech {
-    font-size: 0.8em;
-}
-.tech:after {
-    content: ", ";
-}
-.tech:last-child:after {
-    content: "";
-}
-.items {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 5px;
-}
-.currentBadge {
-    color: tomato;
-    font-size: 0.6em;
-    font-weight: normal;
-}
-@media only screen and (max-width: 768px) {
-    .items {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-</style>
 <span>
     <a href="/">home</a>
     <span>/</span>
@@ -68,28 +13,30 @@ coverImage: img/cover.jpg
     <p class="tagline">Orgs I've worked with, and some personal work.</p>
     <hr/>
     <div class="work">
-        <div>
-            <h2 class="type">{{ work.projects.title }}</h2>
-            <div class="items">
+        <h2 class="type">{{ work.experience.title }}</h2>
+        <table>
+            <tbody>
+            {%- for item in work.experience.items | reverse -%}
+                <tr>
+                    <td><a href="{{item.link}}">{{ item.title }}</a></td>
+                    <td>
+                        {{ item.position }} • <span>{{ item.dateRange }}</span>
+                        <p>{{ item.description }}</p>
+                    </td>
+                </tr>
+            {%- endfor -%}
+            </tbody>
+        </table>
+        <h2 class="type">{{ work.projects.title }}</h2>
+        <table>
+            <tbody>
             {%- for item in work.projects.items -%}
-                <div class="org">
-                    <h3 class="orgTitle"><a href="{{item.link}}">{{ item.title }}</a><span class="currentBadge" title="Ongoing">{{ ' active ' if item.active }}</span></h3>
-                    <p class="orgDescription">{{ item.description }}</p>
-                </div>
+                <tr>
+                    <td><a href="{{item.link}}">{{ item.title }}</a></td>
+                    <td>{{ item.description }}</td>
+                </tr>
             {%- endfor -%}
-            </div>
-            <h2 class="type">{{ work.experience.title }}</h2>
-            <div class="items">
-            {%- for org in work.experience.items | reverse -%}
-                <div class="org org2">
-                    <h3 class="orgTitle">{{ org.title }} <span class="currentBadge" title="Ongoing">{{ 'current' if loop.index === 1 }}</span></h3>
-                    <p class="orgPosition">{{ org.position }} • <em>{{ org.dateRange }}</em></p>
-                    {%- for t in org.tech -%}
-                        <span class="tech">{{ t }}</span>
-                    {%- endfor -%}
-                </div>
-            {%- endfor -%}
-            </div>
-        </div>
+            </tbody>
+        </table>
     </div>
 </div>

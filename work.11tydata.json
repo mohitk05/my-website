@@ -9,7 +9,7 @@
 					"title": "HSBC Technology India, Pune",
 					"position": "Software Engineer",
 					"tech": ["react", "java", "javascript"],
-					"description": "",
+					"description": "Worked as a Software Engineer in the Core Banking department at HSBC, Pune. Built 'Hawkeye' which is an internal tool to manage databases and provides an elegant UI in the browser. It was built with React and Java.",
 					"dateRange": "August, 2017 - April, 2018"
 				},
 				{
@@ -17,7 +17,7 @@
 					"title": "Terribly Tiny Tales, Mumbai",
 					"position": "Software Engineer",
 					"tech": ["react", "node", "react native", "sql", "redis"],
-					"description": "",
+					"description": "Fullstack engineer at Terribly Tiny Tales (TTT). I built 'Tribe' at TTT, which is a writer submissions collection and curation platform. It uses Node, React, React Native as its tech. Worked on social networking platform for writers built in Nodejs. Other singular projects like an automated chat video maker, developed using HTML5 Canvas.",
 					"dateRange": "May, 2018 - April, 2019"
 				},
 				{
@@ -25,14 +25,14 @@
 					"title": "upGrad, Mumbai",
 					"position": "Software Engineer II",
 					"tech": ["javascript", "react", "node", "vue", "mongodb"],
-					"description": "",
+					"description": "At upGrad, I work as a full-stack JavaScript engineer, majorly handling our marketing platform. This includes the upgrad.com website and its underlying CMS - Apollo. Technologies include Nodejs, Vue, and React being used across multiple platforms along with MongoDB and various AWS services backing the architecture.",
 					"dateRange": "April, 2019 - present"
 				}
 			]
 		},
 		"projects": {
 			"type": "open-projects",
-			"title": "Projects",
+			"title": "Personal projects",
 			"items": [
 				{
 					"title": "unipipe",
@@ -64,12 +64,6 @@
 					"active": true
 				},
 				{
-					"title": "upGrad.com",
-					"description": "upGrad’s marketing website",
-					"link": "https://upgrad.com",
-					"active": true
-				},
-				{
 					"title": "Play This",
 					"description": "Multi-member music playlist platform",
 					"link": "https://playthis.netlify.com"
@@ -93,26 +87,6 @@
 					"title": "react-router-fuzzy",
 					"description": "A React component for fuzzy route matching",
 					"link": "https://github.com/mohitk05/react-router-fuzzy"
-				},
-				{
-					"title": "TTT - Tribe",
-					"description": "Platform for collecting writer submissions and curation at Terribly Tiny Tales",
-					"link": "https://terriblytinytales.com"
-				},
-				{
-					"title": "TTT - Videomaker",
-					"description": "HTML5 Canvas chat-style video generator",
-					"link": "https://terriblytinytales.com"
-				},
-				{
-					"title": "TTT - Social App",
-					"description": "Social writing app for Terribly Tiny Tales",
-					"link": "https://play.google.com/store/apps/details?id=com.terriblytinytales.ttt"
-				},
-				{
-					"title": "Hawkeye",
-					"description": "An internal dashboard for HSBC Core Banking",
-					"link": "https://hsbc.com"
 				}
 			]
 		}
