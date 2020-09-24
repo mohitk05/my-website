@@ -1,5 +1,4 @@
 const moment = require('moment');
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require("markdown-it-anchor");
@@ -9,20 +8,20 @@ moment.locale('en');
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('img');
     eleventyConfig.addPassthroughCopy('fonts');
-    eleventyConfig.addPassthroughCopy('css');
-    eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(lazyImagesPlugin);
 
     let markdownLibrary = markdownIt({
         html: true,
         breaks: true,
         linkify: true
-    }).use(markdownItAnchor, {
-        permalink: true,
-        permalinkBefore: true,
-        permalinkClass: "direct-link",
-        permalinkSymbol: "#"
-    });
+    })
+        .use(require('markdown-it-highlightjs'))
+        .use(markdownItAnchor, {
+            permalink: true,
+            permalinkBefore: true,
+            permalinkClass: "direct-link",
+            permalinkSymbol: "#"
+        });
     const rules = {
         table_close: () => '</table>\n</div>',
         table_open: () => '<div class="table-wrapper">\n<table>\n',
