@@ -55,7 +55,7 @@ One such _big project_ we took up was filming a farewell movie. It wasn't a movi
 
 This was a very weird concept that I was fond of back then - having a brand representing things and I was unusually proud of my bunch of classmates. So we designed a class logo and pained it on the walls of our class. Another instance was when we wanted to leave a message for the future generations about climate change and we painted a symbolic drawing about global warming. It was real fun to work together to achieve something beautiful!
 
-<figure style="width: 300px; margin: auto">
+<figure style="width: 70%; margin: auto">
     <img src="/img/posts/atpis_1.jpg">
     <figcaption style="text-align: center">One of the illustrations that went up on the walls. Courtesy Saylee Kir.</figcaption>
 </figure>
