@@ -86,14 +86,14 @@ Through my blog and writing skills I got into the magazine club of my college as
 
 Techbasics was my attempt at starting a tech YouTube channel. I recorded and posted some 4-5 videos about things like iPhone jailbreaking, Windows tips - the regular _jugaad_ tech channel starters. The biggest mistake was me expecting that the viewers will come organically to my channel, so dumb I was. I never promoted the channel, I'm sure no one would be aware of it. I think I was doubtful about the content and quality too.
 
-<iframe width="560" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/XTXu9eUmaL4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="80%" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/XTXu9eUmaL4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p style="text-align: center">One of the videos from the channel. Pardon the poor quality and speaking-into-the-mic skills.</p>
 
 ### Short Film
 
 Having used mobile cameras and point-to-shoots to record videos in school, I had been dreaming of shooting a movie for a long time. One day, frustrated from an aspect of engineering life, I made a few of my friends to shoot a movie with me. I am unsure how they would react to me resharing this because the movie is very much based on a metaphor that is hard to perceive and might look absurd.
 
-<iframe width="560" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/Nd9BUddGSgI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="80%" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/Nd9BUddGSgI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p style="text-align: center">Engineering Escorts - my first short film. Pardon if this wastes 8 minutes of your life.</p>
 
 This was a nice experience getting to know what all goes into shooting a short film, and what all things need to be taken care of if I decided to shoot another one in the future.
@@ -104,7 +104,7 @@ During one of my summer vacations, I did a photography trip to my maternal homet
 
 I went around visiting fields and a few local craftsmen - a typical Swades trip. I had planned to print these pictures at some point of time but that never happened.
 
-<figure style="width: 400px; margin: auto">
+<figure style="width: 70%; margin: auto">
     <img src="/img/posts/atpis_4.jpg">
     <figcaption style="text-align: center">A few clicks from the trip</figcaption>
 </figure>
@@ -113,7 +113,7 @@ I went around visiting fields and a few local craftsmen - a typical Swades trip.
 
 This was the first Android app I built and tried promoting. The idea was simple - a campus app to cater to all things college. I recently got an old build for the app and installed it on my phone. The idea was novel, but the implementation was too immature. It had various views to display mess menu, syllabus and timetable.
 
-<figure style="width: 400px; margin: auto">
+<figure style="width: 70%; margin: auto">
     <img src="/img/posts/atpis_5.jpeg">
     <figcaption style="text-align: center">Screenshots of the app. Notice the unconventional pictorial backgrounds - a facepalming UI</figcaption>
 </figure>
@@ -143,7 +143,7 @@ If I ever get to restart one project from the past, this would be it for sure.
 
 It was the time when Christopher Nolan movies had grown onto me and the concept of space-time entanglement was intriguing. This idea clicked one morning to me and decided to execute it the same day and me and Pradnyanand started shooting it using our friends as actors.
 
-<iframe width="560" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/01-b90banSQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="80%" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/01-b90banSQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The execution could have been much better and I would have gotten some good sleep if we had not decided to do it in one night.
 
@@ -153,13 +153,13 @@ Organizing an event was something I hadn't done in quite some time then but kudo
 
 Pradnyanand used to record such moments and put them up on his YouTube channel. During this event, he created a fantastic post-event video.
 
-<iframe width="560" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/kjGvOHrbRc0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="80%" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/kjGvOHrbRc0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Timelapses
 
 This was one of the last things I did in college - I wanted to record the last few days of college. I used to carry a tripod and place my mobile at places to record general activities and the daily life of a final year student. It was fun to do and always fun to watch, I bet I'll be watching it right after adding the video to this post.
 
-<iframe width="560" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/w4avYercFmA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="80%" height="315" style="margin: auto; display: block" src="https://www.youtube.com/embed/w4avYercFmA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br>
 
