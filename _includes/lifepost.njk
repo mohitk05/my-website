@@ -29,7 +29,7 @@ layout: main.njk
 		<span>
 			<a href="/">home</a>
 			<span>/</span>
-			<a href="/posts">all posts</a>
+			<a href="/life">life</a>
 			<span>/</span>
 			<span>here</span>
 		</span>
@@ -41,8 +41,6 @@ layout: main.njk
 	<h1 class="title">{{ title }}</h1>
 	<span>
 		<em>{{ page.date | dateReadable }}</em>
-		•
-		<span>{{ content | timeToRead }}</span>
 		•
 		{% for tag in tags %}
 			<a href="/posts?tag={{tag}}" class="tag">{{ tag }}</a>

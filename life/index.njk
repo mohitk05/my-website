@@ -1,0 +1,22 @@
+---
+layout: main.njk
+title: Life
+---
+<span>
+    <a href="/">home</a>
+    <span>/</span>
+    <span>life</span>
+</span>
+<h1>Life</h1>
+<p>I occasionally write my heart and brains out here. This collection is made to last.</p>
+<hr/>
+<div>
+{%- for lifepost in collections.life | skipfirst | reverse -%}
+    <div>
+        <span><a href="{{ lifepost.url }}">{{ lifepost.data.title }}</a></span>
+        <span>•</span>
+        <em>{{ lifepost.date | dateReadable }}</em>
+    </div>
+{%- endfor -%}
+<script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+</div>

@@ -10,7 +10,7 @@ eleventyExcludeFromCollections: true
 Out of college
 
 -   Trying hand at React
--   Calendar with Saylee
+-   Calendar
 -   Node - collaborative writing
 -   TTT - chat generator
 -   Tribe

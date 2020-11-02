@@ -68,4 +68,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('commaSeparated', arr => {
         return arr ? arr.join(', ') : '';
     })
+    eleventyConfig.addFilter('skipfirst', (arr) => {
+        return arr.slice(1, arr.length);
+    })
 };
