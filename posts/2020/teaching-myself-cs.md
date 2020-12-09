@@ -1,43 +1,21 @@
 ---
 title: Teaching myself Computer Science
-eleventyExcludeFromCollections: true
+description: Log of my progress of learning core CS
+date: 2020-12-09
 ---
 
 I have long wanted to study computer science, right from the basics. This is a log of the steps I've taken, majorly following some popular self-learning curriculums. Most of these are from [Teach Yourself CS](https://teachyourselfcs.com).
+
 Start date: 3 April 2020
 
-<h2>Ongoing Learnings</h2>
+## Progress
 
-### [Computer Organisation - Nand2Tetris](https://www.coursera.org/learn/build-a-computer/home/welcome)
+| Course                                                                                                  | Score   |
+| ------------------------------------------------------------------------------------------------------- | ------- |
+| [Computer Organisation - Nand2Tetris](https://coursera.org/share/35f1e26c14805ea77e12bca39a35de08)      | 98.30%  |
+| [DS & Algorithms](https://www.coursera.org/specializations/algorithms)                                  | Ongoing |
+| [Intro to Mathematics for CS](https://www.coursera.org/specializations/discrete-mathematics)            | Ongoing |
+| [Parallel, Concurrent & Distributed Programming in Java](https://www.coursera.org/specializations/pcdp) | Ongoing |
+| [Programming Languages](https://www.coursera.org/learn/programming-languages)                           | Ongoing |
 
-Hours: ~ 72 (6 \* 6 weeks) \* 2 courses
-
--   Very beginner-friendly
--   Progresses gradually, layer by layer
--   A few parts similar to microprocessors course I had done in college
--   Tools are easy to use
--   A small idea about programming will help understand the technicalities quickly - like HDL, etc.
-
-### [Algorithms](https://www.coursera.org/specializations/algorithms)
-
-Around 2 months to complete
-
--   A bit theoretical, much required
--   Language agnostic
--   WIP
-
-<h2>Planned Learnings</h2>
-
-### [Operating Systems]()
-
-Course followed - https://www.ops-class.org/slides/2017-01-30-intro/
-Hours - 90
-
-### [Computer Networks]()
-
-Course followed - https://www.youtube.com/playlist?list=PLEAYkSg4uSQ2dr0XO_Nwa5OcdEcaaELSG
-Hours - 24
-
-### [Structure and Interpretation of Computer Programs](https://www.youtube.com/watch?v=Yj1fm4PVQPM&list=PL7BcsI5ueSNFPCEisbaoQ0kXIDX9rR5FF&index=3)
-
-Book - [SICP](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html)
+Doing these courses are opening up new fields for me and I am able to relate these concepts to the work I do on a daily basis. At times, these also improve the way I think and design a solution.
