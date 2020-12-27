@@ -2,7 +2,9 @@
 title: k-clustering and Kruskal's Algorithm
 date: 2020-12-27
 description: Notes about Kruskal's MST algorithm and its application in k-clustering
-topics: ['Algorithms Part 3']
+tags:
+    - posts
+    - algorithms-part-3
 ---
 
 I am currently on the 3rd course of the Algorithms specialization on Coursera and this part is all about greedy algorithms. One of the popular greedy algorithms is Kruskal's. It is a way to find the minimum spanning tree (MST) of an undirectied graph. MST of a graph is defined as a spanning tree, i.e. an acyclic graph that spans over every vertex of the graph and is minimum in cost.

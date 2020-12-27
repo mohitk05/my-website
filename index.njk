@@ -35,10 +35,12 @@ title: Mohit Karekar
         <article class="detailedBlog">
             <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
             <b>{{ post.data.date | dateReadable }}</b> 
-            {%if post.data.topics %}
+            {%if post.data.tags %}
             <span>•</span>
             {% endif %}
-            <span>{{ post.data.topics | commaSeparated }}</span>
+            {% for tag in post.data.tags | tagFilter %}
+			<a href="/tags/{{tag}}" class="tag">{{ tag }}</a>
+		    {% endfor %}
             <br>
             {% if post.template.frontMatter.excerpt %}
             <label class="detailedBlog-description">{{ post.template.frontMatter.excerpt }}</label>

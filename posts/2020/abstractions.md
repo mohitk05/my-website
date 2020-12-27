@@ -1,6 +1,6 @@
 ---
 title: The Beauty of Abstraction
-topics: ['abstraction', 'rambling', 'code', 'abstract']
+tags: ['posts', 'abstraction', 'rambling', 'code', 'abstract']
 coverImage: /img/posts/abstraction.jpeg
 description: Our world is modular, made up of complex things working independently yet together - all perfect examples of abstractions. It is hence important to appreciate its beauty.
 date: 2020-04-23

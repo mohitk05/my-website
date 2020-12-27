@@ -2,6 +2,7 @@
 title: Teaching myself Computer Science
 description: Log of my progress of learning core CS
 date: 2020-12-09
+tags: ['posts', 'learning', 'tmcs']
 ---
 
 I have long wanted to study computer science, right from the basics. This is a log of the steps I've taken, majorly following some popular self-learning curriculums. Most of these are from [Teach Yourself CS](https://teachyourselfcs.com).

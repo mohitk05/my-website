@@ -71,4 +71,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('skipfirst', (arr) => {
         return arr.slice(1, arr.length);
     })
+    eleventyConfig.addFilter('tagFilter', (arr) => {
+        return arr.filter(a => !/posts|work|life/.test(a));
+    })
 };

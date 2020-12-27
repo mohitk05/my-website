@@ -2,7 +2,7 @@
 title: Docker In and Out 🐳
 date: 2020-08-29
 coverImage:
-topics: ['devops', 'docker']
+tags: ['posts', 'devops', 'docker']
 description: I have been doing a bit of DevOps lately. Honestly, I have had a love for it from the beginning, playing with R-Pis and using them as home-servers. Right now we are at the peak of virtualization and rarely would an app be deployed to a physical server. Docker is one such important piece in this.
 ---
 

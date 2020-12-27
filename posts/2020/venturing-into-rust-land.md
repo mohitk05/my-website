@@ -1,7 +1,7 @@
 ---
 title: Venturing into Rust Land 🤺
 coverImage: /img/posts/rust.jpeg
-topics: ['rust', 'learning', 'programming language']
+tags: ['posts', 'rust', 'learning', 'programming-language']
 description: I started learning Rust, much after giving up on learning C++. It has been an interesting experience and this post is the documentation of whatever I've learnt yet. Rust seems promising and exciting to learn as I move gradually into writing practical code in it.
 date: 2020-03-10
 ---

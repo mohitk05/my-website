@@ -2,7 +2,7 @@
 title: Building a Smart Mirror - 2
 coverImage: /img/posts/mirror2.jpeg
 date: 2020-03-05
-topics: ['raspberry pi', 'alexa', 'smart mirror', 'smart home']
+tags: ['posts', 'raspberry-pi', 'alexa', 'smart-mirror', 'smart-home']
 description: This is the second post in the Building a Smart Mirror blog series. In the first part, I wrote about how we got the mirror up and running - honestly the feeling of accomplishment was amazing.
 ---
 
@@ -41,15 +41,15 @@ var config = {
 	units: 'metric',
 	modules: [
 		{
-			module: 'alert'
+			module: 'alert',
 		},
 		{
 			module: 'updatenotification',
-			position: 'top_bar'
+			position: 'top_bar',
 		},
 		{
 			module: 'clock',
-			position: 'top_left'
+			position: 'top_left',
 		},
 		{
 			module: 'calendar',
@@ -60,12 +60,12 @@ var config = {
 					{
 						symbol: 'calendar-check',
 						url:
-							'webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics'
-					}
-				]
-			}
-		}
-	]
+							'webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics',
+					},
+				],
+			},
+		},
+	],
 };
 ```
 

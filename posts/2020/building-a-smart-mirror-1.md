@@ -3,7 +3,7 @@ title: Building a Smart Mirror - 1
 coverImage: /img/posts/mirror1-3.jpeg
 coverImagePosition: 50% 36%
 coverImageHeight: 450px
-topics: ['raspberry pi', 'alexa', 'smart mirror', 'smart home']
+tags: ['posts', 'raspberry-pi', 'alexa', 'smart-mirror', 'smart-home']
 description: This post is about we building a smart mirror from scratch using Raspberry Pi.
 date: 2020-02-21
 ---

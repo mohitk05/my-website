@@ -138,14 +138,8 @@ body.dark form .form-body {
 		<em>{{ page.date | dateReadable }}</em>
 		•
 		{% for tag in tags %}
-			<a href="/posts?tag={{tag}}" class="tag">{{ tag }}</a>
+			<a href="/tags/{{tag}}" class="tag">{{ tag }}</a>
 		{% endfor %}
-		{% if topics and topics.length %}
-			•
-			{% for topic in topics %}
-				<span class="topic">{{ topic }}</span>
-			{% endfor %}
-		{% endif %}
 	</span>
 	<br/>
 	{% if coverImage %}

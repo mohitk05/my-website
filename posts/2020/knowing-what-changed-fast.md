@@ -5,9 +5,18 @@ coverImageSize: contain
 coverImageHeight: 300px
 coverImagePosition: center
 date: 2020-03-15
-tags: ['posts', 'theory']
 eleventyExcludeFromCollections: true
-topics: ['algorithms', 'difference', 'git', 'react', 'vue', 'javascript']
+tags:
+    [
+        'posts',
+        'algorithms',
+        'theory',
+        'difference',
+        'git',
+        'react',
+        'vue',
+        'javascript',
+    ]
 ---
 
 Frontend development landscape has evolved a lot in the past decade, from simple JavaScript, HTML and CSS to complex frameworks and libraries. These have<!-- excerpt --> helped maintaining a solid code structure and visibility in our frontend applications, and in a way have enabled writing logic heavy apps on the frontend. Other than developer friendliness and code organisation, every framework or library presents its own form of optimisation - a way to do stuff faster than it actually is.

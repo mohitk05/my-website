@@ -1,0 +1,38 @@
+---
+layout: main.njk
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - posts
+permalink: /tags/{{ tag }}/
+---
+<span>
+    <a href="/">home</a>
+    <span>/</span>
+    <a href="/">all tags</a>
+    <span>/</span>
+    <span>{{ tag }}</span>
+</span>
+<h1 style="text-align: left">Posts tagged with {{tag}}</h1>
+
+{%- for post in collections[tag] | reverse -%}
+    <article class="detailedBlog">
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <b>{{ post.data.date | dateReadable }}</b> 
+        {%if post.data.tags %}
+        <span>•</span>
+        {% endif %}
+        {% for tag in post.data.tags | tagFilter %}
+			<a href="/tags/{{tag}}" class="tag">{{ tag }}</a>
+		{% endfor %}
+        <br>
+        {% if post.template.frontMatter.excerpt %}
+        <label class="detailedBlog-description">{{ post.template.frontMatter.excerpt }}</label>
+        {% else %}
+        <label class="detailedBlog-description">{{ post.data.description }}</label>
+        {% endif %}
+    </article>
+{%- endfor -%}
