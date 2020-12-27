@@ -1,10 +1,10 @@
 ---
 title: Concurrency and Parallelism
-date: 2020-11-29
+date: 2020-12-12
 eleventyExcludeFromCollections: true
 ---
 
-Having majorly worked with JavaScript, parallelism to me is an exciting construct. It's a treasure that I know I'll never find, given the single-threaded nature of JavaScript. I wanted to learn more about how one can implement parallel programs that leverage the availability of multi-core CPUs to reduce latencies in web applications.
+Having majorly worked with JavaScript, concurrency to me is an exciting construct. With NodeJS, it has become possible to write highly concurrent applications, and I was initially amazed when I read the way Node handles this. I wanted to learn more about how one can implement parallel programs that leverage the availability of multi-core CPUs to reduce latencies in web applications.
 
 I had previously worked on Java and it has a concept of threads to handle such situations. Again, at that point in time, I wasn't exactly aware of what threads were exactly, or how they allowed programs to run in parallel. Almost a year back I had watched a video which was linked in Golang's documentation - it was about concurrency and parallelism and how these concepts differed. This was a good introduction to what these terms meant, and I could see where these applied to in terms of real-world software.
 
@@ -32,6 +32,10 @@ In Java, threads are a way to create concurrent tasks. These have been known to 
 
 ![Concurrent](/img/posts/concurrent.jpeg)
 
-Concurrency as a pattern has been present in OS almost since their inception. Operating Systems are essentially programs that have to manage and run multiple tasks together and they have to be perfect while doing this. OSs have a concept of _time sharing_ which, as the name suggests, is a way to share execution time between various tasks. I remember my days at HSBC where I worked with Mainframes, as appalled I was with the arcane technology, it actually made me aware of low level systems. During this time I had read about time sharing, a fantastic approach to acheive concurrency.
+Concurrency as a pattern has been present in operating systems almost since their inception. Operating Systems are essentially programs that have to manage and run multiple tasks together and they have to be perfect while doing this. OSs have had a concept of _time sharing_ which, as the name suggests, is a way to share execution time between various tasks. I remember my days at HSBC where I worked with Mainframes, as appalled I was with the arcane technology, it actually made me aware of low level systems. During this time I had read about time sharing, a fantastic approach to acheive concurrency.
 
-Simply put, if there are 10 tasks to be run by the OS simultaneously, instead of running them one by one, or expecting to have 10 cores to execute them parallely, the OS smartly divides its execution time over these 10 tasks. It first executes a part of the first task, pauses the execution and then moves to the second task to do the same. This is done for all the tasks until completion.
+Simply put, if there are 10 tasks to be run by the OS simultaneously, instead of running them one by one, or expecting to have 10 cores to execute them parallely, the OS smartly divides its execution time over these 10 tasks. It executes a part of the first task, pauses the execution and then moves to the second task to do the same. This is done for all the tasks until completion.
+
+If noticed carefully, this is very similar to Node's event loop. Concurrency is acheived by dividing sequential tasks into small chunks and executing these chunks one by one to appear as if all of the tasks are being executed _together_.
+
+Generally, programming languages provide a higher level API to obtain concurrency.
