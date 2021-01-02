@@ -7,9 +7,10 @@ description: 'How unipipe executes flows and chances of improvements in the algo
 
 ![unipipe](/img/posts/unipipe-1.png)
 
-A few months back, I started a side project that I named [**unipipe**](https://github.com/mohitk05/unipipe). It is a visual tool to build flows and automate stuff. I had initially started with simple math functions like addition and squaring and could establish a generic structure for building on top of the basic functions.
+A few months back, I started a side project that I named [**unipipe**](https://github.com/mohitk05/unipipe). It is a visual tool to build flows and automate repetitive work. I had initially started with simple math functions like addition and squaring and could establish a generic structure for building on top of the basic functions.
 
 <p class="sidenote">UI/UX credits to Sreekar Pradyuman. The amazing team included Akshay, Rishabh, Sreekar, Jay and me.</p>
+
 I recently worked on unipipe again when I had pitched the idea at the annual hackathon at upGrad. This time, the project got a visual face-lift and also got a backend for executing custom scripts and firing APIs - thanks to the amazing team I worked with.
 
 For the ones who are reading about unipipe for the first time, simply put, it is a _flow executor_. You can create flows by adding various _blocks_ performing different things on the board and then connecting them to define the flow of data. Overall, the project's status looks as follows:
