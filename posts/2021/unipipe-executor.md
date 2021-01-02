@@ -2,10 +2,11 @@
 title: Definitive Execution in unipipe with Topological Sorting
 date: 2021-01-02
 tags: ['posts', 'unipipe', 'projects']
-description: 'How unipipe executes flows and chances of improvements in the algorithm'
+description: How unipipe executes flows and chances of improvements in the algorithm
+coverImage: /img/posts/unipipe-1.png
+coverImageSize: contain
+coverImageHeight: 270px
 ---
-
-![unipipe](/img/posts/unipipe-1.png)
 
 A few months back, I started a side project that I named [**unipipe**](https://github.com/mohitk05/unipipe). It is a visual tool to build flows and automate repetitive work. I had initially started with simple math functions like addition and squaring and could establish a generic structure for building on top of the basic functions.
 
