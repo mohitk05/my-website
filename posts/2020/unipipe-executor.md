@@ -16,7 +16,7 @@ I recently worked on unipipe again when I had pitched the idea at the annual hac
 For the ones who are reading about unipipe for the first time, simply put, it is a _flow executor_. You can create flows by adding various _blocks_ performing different things on the board and then connecting them to define the flow of data. Overall, the project's status looks as follows:
 
 -   Currently supported blocks - API, custom script in JavaScript, constant, several sinks including HTML renderer
--   Proxy backend for firing APIs and executing custom scripts using Java's ScriptEngine (powered by Nashorn JS engine)
+-   Proxy backend for firing APIs and executing custom scripts using Java's ScriptEngine (powered by Nashorn JS engine) and a switch to local execution using web-workers and _eval_.
 -   Ability (weak) to create new block templates
 -   Ability to save flows and reload them later
 
