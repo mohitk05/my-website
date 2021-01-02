@@ -21,7 +21,8 @@ Start date: 3 April 2020
 | → [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them](https://www.coursera.org/learn/algorithms-npcomplete/home/welcome) | Todo        |
 | **[Intro to Mathematics for CS](https://www.coursera.org/specializations/discrete-mathematics)**                                                | **Ongoing** |
 | → [Mathematical Thinking in Computer Science](https://coursera.org/share/21091f3d3709ff63395ede7477ece086)                                      | 97.57%      |
-| → [Combinatorics and Probability](https://www.coursera.org/learn/combinatorics/home/welcome)                                                    | Ongoing     |
+| → [Combinatorics and Probability](https://www.coursera.org/learn/combinatorics/home/welcome)                                                    | 99.62%      |
+| → [Introduction to Graph Theory](https://www.coursera.org/learn/graphs/home/welcome)                                                            | Ongoing     |
 | **[Parallel, Concurrent & Distributed Programming in Java](https://www.coursera.org/specializations/pcdp)**                                     | **Ongoing** |
 | → [Parallel Programming in Java](https://www.coursera.org/learn/parallel-programming-in-java/home/welcome)                                      | Ongoing     |
 | **[Compilers](https://www.edx.org/course/compilers)**                                                                                           | **Ongoing** |

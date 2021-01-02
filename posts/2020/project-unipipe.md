@@ -1,7 +1,14 @@
 ---
-title: A Side Project - unipipe
+title: A Side Project - unipipe [updated]
 date: 2020-08-30
 description: A side-project I started to create a tool to build workflows. Did not quite get through to the end of it, am trying to generalize it to solve a simple problem.
+tags: ['posts', 'unipipe', 'projects']
+---
+
+<h3>Update - December 2020</h3>
+
+I pitched this idea at upGrad's hackathon and it got selected for the final round! Me and my team built this product to completion. I love the final form of unipipe and will soon update it in the main repo. [Read more here](/posts/2020/unipipe-executor).
+
 ---
 
 As I write this piece, I have already mentally decided to redo the current version of `unipipe` which works really well but fails to do one single thing that would be crucial for it to succeed. I am creating this post so that the ideas that went behind creating the first version don't just disappear but stay written somewhere. That's the essence of creating and logging, the end product might be very different than what you thought initially.
@@ -18,14 +25,9 @@ The idea was also inspired by Lambda Calculus, something I had been frequently r
 
 ## Lambda Calculus and it's Magic ✨
 
-Lambda Calculus sees functions in a computer science perspective. There are two peculiar things about functions here:
+There are two peculiar things about functions in Lambda Calculus:
 
 -   Functions are black boxes that take certain inputs and give out certain outputs. What goes on inside them is unknown to the external world.
--   Functions are stateless or pure, they have no context between any two executions.
+-   Functions are stateless or pure, they have no context between any two executions. Given the same input, they'll produce the same output.
 
----
-
-Update December 2020
-I had pitched this idea at upGrad's hackathon and it got selected for the final round! Me and my team built this product to completion.
-
-Topological Sort - use case in deciding order of execution.
+This allows us to easily define black boxes of logic and then connect them so that data flows through a _pipeline_ of such functions.

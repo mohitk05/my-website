@@ -27,7 +27,7 @@ Kruskal G:
 
 Trivially, the running time for this algorithm would be _O(m + n)_, _m_ being the number of edges and _n_ being the number of vertices in _G_. This is because there is one `for` loop of size `m` and the step for checking if there are cycles in _T_ takes _O(n)_ time.
 
-As Tim Roughgarden frequently reminds what an algorithm designer should ask themselves - **Can I do better?** And the answer usually is yes. For Kruskal's algorithm, speedup is possible in the step where cycle existence is checked. To overcome the _O(n)_ time for this step, a data structure called **Union-Find** is used.
+As Tim Roughgarden frequently reminds what an algorithm designer should ask themselves - **Can we do better?** And the answer usually is yes. For Kruskal's algorithm, speedup is possible in the step where cycle existence is checked. To overcome the _O(n)_ time for this step, a data structure called **Union-Find** is used.
 
 Union-Find structure stores objects in the form of disjoint sets, i.e. it holds a particular number of sets which have objects in them. And it provides two operations:
 
