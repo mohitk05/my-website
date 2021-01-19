@@ -34,13 +34,20 @@ By the end of the year, I expect:
 -   To be skilled in FP using JavaScript
 -   Implement a project using these patterns, e.g. like in unipipe, try your hand at a mini JS module bundler.
 
-<h3>3. JavaScript Exploration - Performance & Patterns</h3>
-At times I feel I tend to pick up new things, languages without knowing well about the main tool that I use most frequently. JavaScript is a comprehensive language, and has lately become much more standardised. I want to learn more about the unknown areas of JS like web workers, some less popular data structures, browser APIs and especially Node. I want to explore areas like parallelism via workers and performance optimization in Node. This can be my targetted field to work in at work.
-This also includes web performance - page loading, CP, server bottlenecks etc.
+<h3>3. Distributed Systems w/ JavaScript + Performance of web applications</h3>
+As I am encountering different scenarios while developing JavaScript applications, I am intrigued about building large distributed software in it. I want to pick essential elements of building a distributed setup like synchronization, database concepts and infrastructure.
+
+JavaScript is a comprehensive language, and has lately become much more standardised. I want to learn more about web workers, some less popular data structures, browser APIs and especially Node. I want to explore areas like parallelism via workers and performance optimization in Node. This can be my targetted field to work in at work.
+This also includes web performance - page loading, critical path, server bottlenecks etc.
 
 By the end of the year, I expect:
 
--   To know better about JavaScript in general
--   To build a project involving workers and their abstraction
+-   To understand concepts involved in building distributed systems
+-   To implement such a system in Node
+-   To learn about databases in a DS
 -   To know about Node's performance specific APIs
 -   To having worked on one of these at work
+
+Resources:
+
+-   https://raw.githubusercontent.com/Yang-Yanxiang/Designing-Data-Intensive-Applications/master/Designing%20Data%20Intensive%20Applications.pdf
