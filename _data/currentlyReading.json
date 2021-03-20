@@ -19,5 +19,13 @@
 	{
 		"title": "Programming Languages, Part A on Coursera",
 		"url": "https://www.coursera.org/learn/programming-languages/home/welcome"
+	},
+	{
+		"title": "Writing an Interpreter (not in Go but Rust)",
+		"url": "https://interpreterbook.com/"
+	},
+	{
+		"title": "Programming Languages - My Notes",
+		"url": "/tags/pl"
 	}
 ]

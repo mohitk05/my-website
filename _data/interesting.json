@@ -14,5 +14,9 @@
 	{
 		"title": "An amazing article on closures",
 		"url": "https://doc.rust-lang.org/book/ch13-01-closures.html"
+	},
+	{
+		"title": "Programming Language Resources",
+		"url": "https://bernsteinbear.com/pl-resources/"
 	}
 ]
