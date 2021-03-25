@@ -15,7 +15,6 @@ module.exports = function (eleventyConfig) {
         breaks: true,
         linkify: true
     })
-        .use(require('markdown-it-highlightjs'))
         .use(markdownItAnchor, {
             permalink: true,
             permalinkBefore: true,
