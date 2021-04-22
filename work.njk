@@ -20,8 +20,10 @@ coverImage: img/cover.jpg
                 <tr>
                     <td><a href="{{item.link}}">{{ item.title }}</a></td>
                     <td>
-                        {{ item.position }} • <span>{{ item.dateRange }}</span>
-                        <p>{{ item.description }}</p>
+                        {%- for role in item.roles -%}
+                        <b>{{ role.position }}</b> • <span>{{ role.dateRange }}</span>
+                        <p>{{ role.description }}</p>
+                        {%- endfor -%}
                     </td>
                 </tr>
             {%- endfor -%}

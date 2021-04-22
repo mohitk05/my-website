@@ -7,26 +7,62 @@
 				{
 					"id": "hsbc",
 					"title": "HSBC Technology India, Pune",
-					"position": "Software Engineer",
-					"tech": ["react", "java", "javascript"],
-					"description": "Worked as a Software Engineer in the Core Banking department at HSBC, Pune. Built 'Hawkeye' which is an internal tool to manage databases and provides an elegant UI in the browser. It was built with React and Java.",
-					"dateRange": "August, 2017 - April, 2018"
+					"roles": [
+						{
+							"position": "Software Engineer",
+							"tech": ["react", "java", "javascript"],
+							"description": "Worked as a Software Engineer in the Core Banking department at HSBC, Pune. Built 'Hawkeye' which is an internal tool to manage databases and provides an elegant UI in the browser. It was built with React and Java.",
+							"dateRange": "August, 2017 - April, 2018"
+						}
+					]
 				},
 				{
 					"id": "ttt",
 					"title": "Terribly Tiny Tales, Mumbai",
-					"position": "Software Engineer",
-					"tech": ["react", "node", "react native", "sql", "redis"],
-					"description": "Fullstack engineer at Terribly Tiny Tales (TTT). I built 'Tribe' at TTT, which is a writer submissions collection and curation platform. It uses Node, React, React Native as its tech. Worked on social networking platform for writers built in Nodejs. Other singular projects like an automated chat video maker, developed using HTML5 Canvas.",
-					"dateRange": "May, 2018 - April, 2019"
+					"roles": [
+						{
+							"position": "Software Engineer",
+							"tech": [
+								"react",
+								"node",
+								"react native",
+								"sql",
+								"redis"
+							],
+							"description": "Fullstack engineer at Terribly Tiny Tales (TTT). I built 'Tribe' at TTT, which is a writer submissions collection and curation platform. It uses Node, React, React Native as its tech. Worked on social networking platform for writers built in Nodejs. Other singular projects like an automated chat video maker, developed using HTML5 Canvas.",
+							"dateRange": "May, 2018 - April, 2019"
+						}
+					]
 				},
 				{
 					"id": "upgrad",
 					"title": "upGrad, Mumbai",
-					"position": "Software Engineer II",
-					"tech": ["javascript", "react", "node", "vue", "mongodb"],
-					"description": "At upGrad, I work as a full-stack JavaScript engineer, majorly handling our marketing platform. This includes the upgrad.com website and its underlying CMS - Apollo. Technologies include Nodejs, Vue, and React being used across multiple platforms along with MongoDB and various AWS services backing the architecture.",
-					"dateRange": "April, 2019 - present"
+					"roles": [
+						{
+							"position": "Senior Software Engineer",
+							"tech": [
+								"javascript",
+								"react",
+								"node",
+								"vue",
+								"mongodb"
+							],
+							"description": "",
+							"dateRange": "April, 2021 - present"
+						},
+						{
+							"position": "Software Engineer II",
+							"tech": [
+								"javascript",
+								"react",
+								"node",
+								"vue",
+								"mongodb"
+							],
+							"description": "At upGrad, I work as a full-stack JavaScript engineer, majorly handling our marketing platform. This includes the upgrad.com website and its underlying CMS - Apollo. Technologies include Nodejs, Vue, and React being used across multiple platforms along with MongoDB and various AWS services backing the architecture.",
+							"dateRange": "April, 2019 - April, 2021"
+						}
+					]
 				}
 			]
 		},
