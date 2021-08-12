@@ -2,13 +2,16 @@ const moment = require('moment');
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require("markdown-it-anchor");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 moment.locale('en');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('img');
     eleventyConfig.addPassthroughCopy('fonts');
+    eleventyConfig.addPassthroughCopy('css');
     eleventyConfig.addPlugin(lazyImagesPlugin);
+    eleventyConfig.addPlugin(syntaxHighlight);
 
     let markdownLibrary = markdownIt({
         html: true,
@@ -42,6 +45,9 @@ module.exports = function (eleventyConfig) {
     })
     eleventyConfig.addFilter('slice4', arr => {
         return arr.slice(0, 4)
+    })
+    eleventyConfig.addFilter('slice10', arr => {
+        return arr.slice(0, 10)
     })
     eleventyConfig.addFilter('sliceLast', arr => {
         return arr.slice(3, arr.length)

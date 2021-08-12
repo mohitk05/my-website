@@ -21,7 +21,7 @@ Being [one of my themes for the year 2021](/posts/2021/goals-for-2021), I am beg
 
 Lisp is known for its minimal syntax and functional nature. SICP uses a variant of Lisp known as Scheme. The syntax is really simple to learn and I believe equally simple to implement an interpreter for.
 
-```scm
+```text
 (+ (* 4 5) 10)
 
 // This should output 30. -> (4 * 5) + 10
