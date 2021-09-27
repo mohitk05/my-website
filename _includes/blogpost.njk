@@ -4,7 +4,7 @@ layout: main.njk
 <link rel="stylesheet" href="/css/prism.css" >
 <style>
 	.content img {
-		max-width: 100%;
+		max-width: 90%;
 		height: auto;
 	}
 	.coverImage {
@@ -15,11 +15,13 @@ layout: main.njk
 	{% endif %}
 	{% if coverImagePosition %}
 		background-position: {{ coverImagePosition }};
+	{% else %}
+		background-position: center;
 	{% endif %}
 	{% if coverImageSize %}
 		background-size: {{ coverImageSize }};
 	{% else %}
-		background-size: cover;
+		background-size: contain;
 	{% endif %}
 		background-repeat: no-repeat;
 		margin-bottom: 16px;

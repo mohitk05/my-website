@@ -12,17 +12,16 @@ title: Posts
 <hr/>
 <div>
 {%- for post in collections.posts | reverse -%}
-    <div>
-        <span>
+    <div style="display: flex; align-items: center; margin-bottom: 10px">
+        <span style="flex: 0.2;font-size: 14px">{{ post.date | dateReadable }}</span>
+        <b style="flex: 0.7">
             {%if post.data.external %}
                 <a href="{{ post.data.external }}">{{ post.data.title }}</a>
             {% else %}
                 <a href="{{ post.url }}">{{ post.data.title }}</a>
             {% endif %}
-        </span>
-        <span>•</span>
-        <em>{{ post.date | dateReadable }}</em>
+        </b>
     </div>
 {%- endfor -%}
-<script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 </div>
+<script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
