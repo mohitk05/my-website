@@ -47,7 +47,7 @@ title: Mohit Karekar
             {% endif %}
             </h3>
             <b>{{ post.data.date | dateReadable }}</b> 
-            {%if post.data.tags %}
+            {%if (post.data.tags | tagFilter).length %}
             <span>•</span>
             {% endif %}
             {% for tag in post.data.tags | tagFilter %}

@@ -41,10 +41,6 @@ layout: main.njk
 			<span>/</span>
 			<span>here</span>
 		</span>
-		<span style="display: flex; align-items: center;">
-			<input type="checkbox" onclick="toggleDark()" id="dark-mode" style="margin-right: 5px">
-			<span>dark</span>
-		</span>
 	</span>
 	<h1 class="title">{{ title }}</h1>
 	<span>
@@ -77,38 +73,4 @@ layout: main.njk
 		label="blog-comment"
         async>
     </script>
-	<script>
-		window.addEventListener('load', () => {
-			const urlParams = new URLSearchParams(window.location.search);
-			const myParam = urlParams.get('dark');
-			if(sessionStorage.__dark == 1 || myParam == '1') {
-				var dark = document.getElementById('dark-mode');
-				dark.checked = true;
-				toggleDark();
-			}
-		})
-		function toggleDark() {
-			var dark = document.getElementById('dark-mode');
-			var utter = document.querySelector('.utterances-frame');
-			var meta = document.querySelector('#tab-color');
-			if(dark.checked) {
-				sessionStorage.__dark = 1;
-				document.getElementById('stylesheet-dark').media = ''
-				//document.getElementById('stylesheet-light').media = 'not-all'
-				utter.contentWindow.location.replace(utter.src.replace('github-light', 'github-dark'));
-				let metaTag = document.createElement('meta');
-				metaTag.id = 'tab-color';
-				metaTag.name = 'theme-color';
-				metaTag.content = '#222222';
-				document.head.appendChild(metaTag);
-			} else {
-				sessionStorage.__dark = 0;
-				document.getElementById('stylesheet-dark').media = 'not-all'
-				//document.getElementById('stylesheet-light').media = ''
-				
-				utter.contentWindow.location.replace(utter.src.replace('github-dark', 'github-light'));
-				meta.parentNode.removeChild(meta);
-			}
-		}
-	</script>
 </main>
