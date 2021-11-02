@@ -63,6 +63,25 @@
 							"dateRange": "April, 2019 - April, 2021"
 						}
 					]
+				},
+				{
+					"id": "zalando",
+					"link": "https://twitter.com/zalandotech",
+					"title": "Zalando, Berlin, Germany",
+					"roles": [
+						{
+							"position": "Senior Software Engineer",
+							"tech": [
+								"typescript",
+								"node",
+								"react",
+								"kubernetes",
+								"SSR"
+							],
+							"description": "Part of team rendering-engine that maintains Zalando's core web framework",
+							"dateRange": "October, 2021 - present"
+						}
+					]
 				}
 			]
 		},
