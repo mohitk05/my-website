@@ -14,7 +14,7 @@ title: Posts
 {%- for post in collections.posts | reverse -%}
     <div style="display: flex; align-items: center; margin-bottom: 10px">
         <span style="flex: 0.2;font-size: 14px">{{ post.date | dateReadable }}</span>
-        <b style="flex: 0.7">
+        <b style="flex: 0.7;margin-left:10px">
             {%if post.data.external %}
                 <a href="{{ post.data.external }}">{{ post.data.title }}</a>
             {% else %}
