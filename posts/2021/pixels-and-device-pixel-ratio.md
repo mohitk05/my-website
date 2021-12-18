@@ -5,4 +5,4 @@ description: Working with pixel values on the web
 eleventyExcludeFromCollections: true
 ---
 
-Recently, I was working with an image related topic at work and was reading a lot about how images should be sized and the impact on performance.
+Recently, I was working with an image related topic at work and was reading a lot about how images should be sized and the respective impact on performance.
