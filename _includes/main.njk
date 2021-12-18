@@ -6,18 +6,24 @@
     {% if tags %}
     <meta name="keywords" content="{{ tags.join(',') }}">
     {% endif %}
+    <meta name="author" content="Mohit Karekar">
     <meta name="description" content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader. I currently work at upGrad as a Software Engineer maily working in JavaScript.' }}">
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:creator" content="@MohitKarekar"/>
-    <meta property="og:title" content="{{ title if title else 'Mohit Karekar - Software Engineer' }}"/>
-    <meta property="og:url" content="{{ 'https://mohitkarekar.com' + page.url if page and page.url else 'https://mohitkarekar.com' }}"/>
-    <meta property="og:description" content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader.' }}"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="mohitkarekar.com">
+    <meta name="twitter:creator" content="@MohitKarekar">
+    <meta property="twitter:title" content="{{ title if title else 'Mohit Karekar - Software Engineer' }}">
+    <meta property="og:site_name" content="mohitkarekar.com" >
+    <meta property="og:title" content="{{ title if title else 'Mohit Karekar - Software Engineer' }}">
+    <meta property="og:url" content="{{ 'https://mohitkarekar.com' + page.url if page and page.url else 'https://mohitkarekar.com' }}">
+    <meta property="og:description" content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader.' }}">
     {% if coverImage and 'http' in coverImage %}
-        <meta property="og:image" content="{{ coverImage if coverImage else '/mohit.jpg' }}"/>
+        <meta property="og:image" content="{{ coverImage if coverImage else '/mohit.jpg' }}">
     {% else %}
-        <meta property="og:image" content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/icon.jpeg' }}"/>
+        <meta property="og:image" content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/icon.jpeg' }}">
     {% endif %}
-    <meta property="og:type" content="article" />
+    <meta property="og:type" content="article" >
+    <meta property="article:author" content="https://mohitkarekar.com/about" >
+    <link rel="canonical" href="{{ 'https://mohitkarekar.com' + page.url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="/img/icon.jpeg">
