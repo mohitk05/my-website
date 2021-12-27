@@ -2,7 +2,7 @@
 title: My Experience with Cooking
 date: 2021-12-26
 description: I've been cooking myself recently and I'm liking the process
-tags: ['posts', 'life', 'cooking']
+tags: ['posts', 'life', 'cooking', '100-days-of-writing']
 coverImage: /img/posts/2021/cooking.jpg
 coverImageSize: cover
 ---
