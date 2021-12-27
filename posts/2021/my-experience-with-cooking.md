@@ -1,7 +1,7 @@
 ---
 title: My Experience with Cooking
 date: 2021-12-26
-description: Cooking
+description: I've been cooking myself recently and I'm liking the process
 tags: ['posts', 'life', 'cooking']
 coverImage: /img/posts/2021/cooking.jpg
 coverImageSize: cover
