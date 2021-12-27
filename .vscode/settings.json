@@ -1,0 +1,8 @@
+{
+	"[markdown]": {
+		"editor.formatOnSave": true,
+		"editor.fontFamily": "Alice, serif",
+		"editor.fontSize": 22
+	},
+	"workbench.colorTheme": "Quiet Light"
+}
