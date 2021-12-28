@@ -4,6 +4,7 @@ date: 2021-12-28
 tags: ['posts', '100DaysOfWriting']
 description: Things that run things
 coverImage: https://images.unsplash.com/photo-1611849362103-5c99622adf18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80
+coverImageSize: cover
 ---
 
 **_Day 3 of [#100DaysOfWriting](/tags/100DaysOfWriting/)_**
