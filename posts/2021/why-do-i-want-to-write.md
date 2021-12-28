@@ -2,7 +2,7 @@
 title: Why do I want to write?
 date: 2021-12-27
 description: I ponder upon why I have this intense feeling to write
-tags: ['posts', '100-days-of-writing']
+tags: ['posts', '100DaysOfWriting']
 coverImage: https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dHlwZXdyaXRlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60
 coverImageSize: cover
 coverImagePosition: 0 60%
