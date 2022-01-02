@@ -3,13 +3,13 @@ title: Libraries of Berlin - Berliner Stadtbibliothek
 date: 2022-01-02
 description: A visit to the Berlin City Library
 tags: ['posts', '100DaysOfWriting', 'Berlin', 'LibrariesOfBerlin', 'library']
+coverImage: /img/posts/2021/building.jpg
+coverImageSize: cover
 ---
 
 **_Day 6 of [#100DaysOfWriting](/tags/100DaysOfWriting/)_**
 
 After a two-day break for new-year's eve, I'm continuing my 100 days of writing challenge. Today, I decided to visit one of the biggest libraries in Berlin - Berliner Stadtbibliothek (translated as Berlin City Library). There are a few things you can do on a Sunday in Berlin, if you are up for it. This is the only library I could find open close to me, and suprisingly it's the central one.
-
-![building](/img/posts/2021/building.jpg)
 
 This building holds a fair amount of history. It was co-financed by the USA after the Soviet downfall, in fact the entire library complex was created after unifying the _Amerika Memorial Library_ and the Berlin City Library.
 
