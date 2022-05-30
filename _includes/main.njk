@@ -28,6 +28,9 @@
     <link rel="canonical" href="{{ 'https://mohitkarekar.com' + page.url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     {% if page.url == '/' %}
         {%- for post in collections.posts | reverse | slice10 -%}
             <link rel="prefetch" href="{{post.url}}" as="document">
@@ -35,9 +38,6 @@
     {%- endif -%}
     <link rel="icon" href="/img/icon.jpeg">
 	<title>{{ title }}</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>a{color: crimson;transition: color 200ms;}a:hover{color: red}table{width:100%}body{font-size:1.3rem;font-family:'Crimson Pro', serif;max-width:700px}td{word-break:keep-all}@media only screen and (max-width: 600px){body{padding: 1rem}h1{font-size: 2.2rem}}h1,h2,h3{font-family:'Helvetica Neue Bold'}
     code{font-size: 1rem; background:white;}article pre[class*="language-"] {padding:4px }
     {# @media (prefers-color-scheme: dark)
