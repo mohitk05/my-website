@@ -3,6 +3,22 @@ layout: main.njk
 ---
 <link rel="stylesheet" href="/css/prism.css" >
 <style>
+	{% if pageBackgroundImage %}
+	.bg-image {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		z-index: -1;
+		background: white;
+		background-image: url("{{ pageBackgroundImage }}");
+		background-repeat: no-repeat;
+		background-blend-mode: hard-light;
+		background-position: 50% 20%;
+		opacity: 10%;
+	}
+	{% endif %}
 	.content img {
 		max-width: 90%;
 		height: auto;
@@ -39,6 +55,7 @@ layout: main.njk
 		}
 	}
 </style>
+<div class="bg-image"></div>
 <main>
 	<span style="display: flex; justify-content: space-between">
 		<span>
