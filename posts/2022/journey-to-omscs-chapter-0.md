@@ -3,7 +3,6 @@ title: Chapter 0 - Journey to an Online Masters - OMSCS
 date: 2022-01-30
 tags: ['posts', 'omscs', 'online masters', 'computer science', 'georgia tech']
 description: My experience while applying to Georgia Tech's OMSCS and tips if you are an aspirant
-eleventyExcludeFromCollections: true
 ---
 
 I studied Electrical and Electronics Engineering in my bachelor's degree and transitioned into software development right after I finished college. Towards the end of the four years, I had realized that building software is what I love and that is what I would want to do in my career. Writing code and watching it come to life in the form of programs, web pages and games led me to this path that I'm on for the past 5 years now.
