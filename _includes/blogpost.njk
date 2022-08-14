@@ -47,7 +47,11 @@ layout: main.njk
 	}
 	@media only screen and (max-width: 640px) {
 		.coverImage {
-			height: 200px;
+			{% if coverImageHeightMobile %}
+				height: {{ coverImageHeightMobile }};
+			{% else %}
+				height: 200px;
+			{% endif %}
 		}
 		.title {
 			line-height: 2.4rem;
