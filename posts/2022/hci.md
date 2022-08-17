@@ -4,8 +4,6 @@ date: 2022-08-13
 tags: ['omscs', 'hci', '6750', 'posts']
 description: Course review and information
 coverImage: /img/posts/2022/hci-cover.png
-coverImageHeight: 120px
-coverImageHeightMobile: 40px
 ---
 
 | Property             | Value |
