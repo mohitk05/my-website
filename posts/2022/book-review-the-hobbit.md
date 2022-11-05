@@ -2,11 +2,10 @@
 title: Book Review - The Hobbit
 date: 2022-06-14
 description: My thoughts about the story of Bilbo Baggins
-tags: ['posts', 'books']
+tags: ["posts", "books"]
 coverImage: /img/posts/2022/hobbit.jpg
 coverImageSize: cover
-coverImagePosition: '0 80%'
-pageBackgroundImage: /img/posts/2022/hobbit-bg.jpg
+coverImagePosition: "0 80%"
 ---
 
 I recently completed reading J.R.R. Tolkien’s [_The Hobbit_](https://www.goodreads.com/book/show/5907.The_Hobbit), which is a prequel book to the renowned The Lord of the Rings. My entry into Tolkien’s [_Middle-earth_](https://en.wikipedia.org/wiki/Middle-earth), The Hobbit was a charming, beautiful read. It was after a long time that I picked up a fantasy book, wanting to read fiction and getting into a habit of reading. I was excited from the very moment I decided to start the book as I had watched one part of the LOTR trilogy movies but fortunately had forgotten most of it. It was time to start fresh.
