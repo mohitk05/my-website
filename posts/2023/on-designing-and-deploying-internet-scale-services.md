@@ -1,7 +1,8 @@
 ---
+title: On Designing and Deploying Internet-Scale Services - Tuesday Papers
+date: 2023-01-10
+tags: ['posts']
 ---
-
-# On Designing and Deploying Internet-Scale Services - Tuesday Papers
 
 **James Hamilton – Windows Live Services Platform**
 
