@@ -1,11 +1,7 @@
 ---
 ---
 
-* * *
-
-title: On Designing and Deploying Internet-Scale Services - Tuesday Papers
-
-* * *
+# On Designing and Deploying Internet-Scale Services - Tuesday Papers
 
 **James Hamilton – Windows Live Services Platform**
 
