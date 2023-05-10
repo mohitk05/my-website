@@ -90,7 +90,7 @@ module.exports = function (eleventyConfig) {
                     successMessage: "Thanks for subscribing! ❤️ Please check your email to confirm your subscription."
                 })
             case "about-computer-systems-substack":
-                return `<iframe src="https://aboutcomputingsystems.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>`
+                return `<iframe src="https://aboutcomputingsystems.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;width:100%;margin-top:20px" frameborder="0" scrolling="no"></iframe>`
         }
         return getNewsletterCtaMarkup(name);
     })

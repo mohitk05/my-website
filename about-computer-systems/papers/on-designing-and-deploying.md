@@ -1,6 +1,6 @@
 ---
 title: On Designing and Deploying Internet-Scale Services - Pivotal Papers
-tags: ['posts', 'about-computing-systems']
+tags: ['about-computing-systems']
 ---
 
 I picked up this paper to start off the Tuesday Papers series where I will read and review some seminal papers in computer science and software engineering. Reading research exposes you to progressive ideas on a topic and helps you know the cutting-edge thoughts from when it was published. The research I read may not be the latest but is some of the most important in the history of CS.
