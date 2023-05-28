@@ -1,132 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {% if tags %}
-  <meta name="keywords" content="{{ tags.join(',') }}" />
-  {% endif %}
-  <meta name="author" content="Mohit Karekar" />
-  <meta name="description"
-    content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader. I currently work on the web platform at Zalando in Berlin, Germany.' }}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:domain" content="mohitkarekar.com" />
-  <meta name="twitter:creator" content="@MohitKarekar" />
-  <meta property="twitter:title" content="{{ title if title else 'Mohit Karekar - Software Engineer' }}" />
-  <meta property="og:site_name" content="mohitkarekar.com" />
-  <meta property="og:title" content="{{ title if title else 'Mohit Karekar - Software Engineer' }}" />
-  <meta property="og:url"
-    content="{{ 'https://mohitkarekar.com' + page.url if page and page.url else 'https://mohitkarekar.com' }}" />
-  <meta property="og:description"
-    content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader.' }}" />
-  {% if coverImage and 'http' in coverImage %}
-  <meta property="og:image" content="{{ coverImage if coverImage else '/mohit.jpg' }}" />
-  <link rel="preload" href="{{ coverImage if coverImage else '/mohit.jpg' }}" as="image" />
-  {% else %}
-  <meta property="og:image"
-    content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/meta-cover.png' }}" />
-  <link rel="preload"
-    href="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/Profile.jpeg.jpeg' }}"
-    as="image" />
-  {% endif %}
-  <meta property="og:type" content="article" />
-  <meta property="article:author" content="https://mohitkarekar.com/about" />
-  <link rel="canonical" href="{{ 'https://mohitkarekar.com' + page.url }}" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet" />
-  {% if page.url == '/' %} {%- for post in collections.posts | reverse |
-  slice10 -%}
-  <link rel="prefetch" href="{{ post.url }}" as="document" />
-  {%- endfor -%} {%- endif -%}
-  <link rel="icon" href="/img/icon.jpeg" />
-  <title>{{ title }}</title>
-  <style>
-    a {
-      color: crimson;
-      transition: color 200ms;
-    }
-
-    a:hover {
-      color: red
-    }
-
-    table {
-      width: 100%
-    }
-
-    body {
-      font-size: 1.3rem;
-      font-family: 'Crimson Pro', serif;
-      max-width: 750px;
-      color: #191c40;
-      background: rgb(248, 249, 250);
-    }
-
-    td {
-      word-break: keep-all
-    }
-
-    @media only screen and (max-width: 600px) {
-      body {
-        padding: 1rem
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if tags %}
+    <meta name="keywords" content="{{ tags.join(',') }}" />
+    {% endif %}
+    <meta name="author" content="Mohit Karekar" />
+    <meta
+      name="description"
+      content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader. I currently work on the web platform at Zalando in Berlin, Germany.' }}"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:domain" content="mohitkarekar.com" />
+    <meta name="twitter:creator" content="@MohitKarekar" />
+    <meta
+      property="twitter:title"
+      content="{{ title if title else 'Mohit Karekar - Software Engineer' }}"
+    />
+    <meta property="og:site_name" content="mohitkarekar.com" />
+    <meta
+      property="og:title"
+      content="{{ title if title else 'Mohit Karekar - Software Engineer' }}"
+    />
+    <meta
+      property="og:url"
+      content="{{ 'https://mohitkarekar.com' + page.url if page and page.url else 'https://mohitkarekar.com' }}"
+    />
+    <meta
+      property="og:description"
+      content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader.' }}"
+    />
+    {% if coverImage and 'http' in coverImage %}
+    <meta
+      property="og:image"
+      content="{{ coverImage if coverImage else '/mohit.jpg' }}"
+    />
+    <link
+      rel="preload"
+      href="{{ coverImage if coverImage else '/mohit.jpg' }}"
+      as="image"
+    />
+    {% else %}
+    <meta
+      property="og:image"
+      content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/meta-cover.png' }}"
+    />
+    <link
+      rel="preload"
+      href="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/Profile.jpeg.jpeg' }}"
+      as="image"
+    />
+    {% endif %}
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="https://mohitkarekar.com/about" />
+    <link rel="canonical" href="{{ 'https://mohitkarekar.com' + page.url }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    {% if page.url == '/' %} {%- for post in collections.posts | reverse |
+    slice10 -%}
+    <link rel="prefetch" href="{{ post.url }}" as="document" />
+    {%- endfor -%} {%- endif -%}
+    <link rel="icon" href="/img/icon.jpeg" />
+    <title>{{ title }}</title>
+    <style>
+      a {
+        color: crimson;
+        transition: color 200ms;
       }
 
-      h1 {
-        font-size: 2.2rem
+      a:hover {
+        color: red
       }
-    }
 
-    h1,
-    h2,
-    h3 {}
+      table {
+        width: 100%
+      }
 
-    code {
-      font-size: 1rem;
-      background: white;
-    }
-
-    article pre[class*="language-"] {
-      padding: 4px
-    }
-
-    .page {
-      background: white;
-      padding: 35px;
-      filter: drop-shadow(0px 2px 2px #ccc);
-    }
-
-    @media only screen and (max-width: 640px) {
       body {
+        font-family: 'Crimson Pro', serif;
+        font-size: 1.2rem;
+        max-width: 750px;
+        color: #191c40;
+        background: rgb(248, 249, 250);
+      }
+
+      td {
+        word-break: keep-all
+      }
+
+      @media only screen and (max-width: 600px) {
+        body {
+          padding: 1rem
+        }
+
+        h1 {
+          font-size: 2.2rem
+        }
+      }
+
+      h1,
+      h2,
+      h3 {
+      }
+
+      code {
+        font-size: 1rem;
         background: white;
-        margin: 0;
+      }
+
+      article pre[class*="language-"] {
+        padding: 4px
       }
 
       .page {
-        padding: 0;
-        filter: none;
+        background: white;
+        padding: 35px;
+        filter: drop-shadow(0px 2px 2px #ccc);
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div class="container main page">
-    {{ content | safe }}
-    <div style="text-align: center; margin-top: 20px; font-size: 1rem">
-      © Mohit Karekar •
-      <a href="mailto:karekar.mohit@gmail.com">karekar.mohit@gmail.com</a>
+      @media only screen and (max-width: 640px) {
+        body {
+          background: white;
+          margin: 0;
+        }
+
+        .page {
+          padding: 0;
+          filter: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container main page">
+      {{ content | safe }}
+      <div style="text-align: center; margin-top: 20px; font-size: 1rem">
+        © Mohit Karekar •
+        <a href="mailto:karekar.mohit@gmail.com">karekar.mohit@gmail.com</a>
+      </div>
     </div>
-  </div>
 
-  <script>
-    console.log(
-      "Hello there! Welcome to our friendly abode, the console. Do you have a dev question? Or do you want to have a chat?\nIn any case, drop a mail to karekar.mohit@gmail.com ❤️"
-    );
-  </script>
-</body>
-
+    <script>
+      console.log(
+        "Hello there! Welcome to our friendly abode, the console. Do you have a dev question? Or do you want to have a chat?\nIn any case, drop a mail to karekar.mohit@gmail.com ❤️"
+      );
+    </script>
+  </body>
 </html>
