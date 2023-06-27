@@ -1,6 +1,7 @@
 ---
 title: How music relates to times in our lives
 date: 2020-11-10
+tags: ['posts', 'music']
 ---
 
 I had a couple of moments today that were filled with nostalgia and both of them were related to music. It is interesting how different types of music or some specific songs get attached to a period in our lives, and whenever we listen these songs later, they not only remind us of the times but also produce clear visual snippets of life passing by.
