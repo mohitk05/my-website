@@ -2,7 +2,7 @@
 title: Do Not Go Gentle Into That Good Night
 date: 2020-06-14
 coverImage: /img/posts/amelia.jpg
-tags: ['posts', 'space', 'movies']
+tags: ['posts', 'space', 'movies', 'music']
 description: Oh, this is just an appreciation post for a work of art I absolutely love.
 ---
 
