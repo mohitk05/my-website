@@ -57,10 +57,7 @@
     <link rel="canonical" href="{{ 'https://mohitkarekar.com' + page.url }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
-    />
+    <link rel="stylesheet" href="/css/water.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -74,12 +71,9 @@
     <title>{{ title }}</title>
     <style>
       a {
-        color: crimson;
-        transition: color 200ms;
       }
 
       a:hover {
-        color: red
       }
 
       table {
@@ -90,8 +84,6 @@
         font-family: 'Crimson Pro', serif;
         font-size: 1.2rem;
         max-width: 750px;
-        color: #191c40;
-        background: rgb(248, 249, 250);
       }
 
       td {
@@ -115,7 +107,9 @@
 
       code {
         font-size: 1rem;
-        background: white;
+      }
+      article pre[class^="language-"], pre code[class^="language-"] {
+        background: #efefef;
       }
 
       article pre[class*="language-"] {
@@ -123,14 +117,11 @@
       }
 
       .page {
-        background: white;
         padding: 35px;
-        filter: drop-shadow(0px 2px 2px #ccc);
       }
 
       @media only screen and (max-width: 640px) {
         body {
-          background: white;
           margin: 0;
         }
 
