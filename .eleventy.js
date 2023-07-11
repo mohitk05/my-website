@@ -42,6 +42,9 @@ module.exports = function (eleventyConfig) {
     return moment(date).format("LL");
   });
 
+  eleventyConfig.addFilter("slice2", (arr) => {
+    return arr.slice(0, 2);
+  });
   eleventyConfig.addFilter("slice3", (arr) => {
     return arr.slice(0, 3);
   });
@@ -80,6 +83,25 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addFilter("tagFilter", (arr) => {
     return arr.filter((a) => !/posts|work|life/.test(a));
+  });
+
+  eleventyConfig.addFilter("groupTags", (collections, tags) => {
+    return Object.entries(collections).reduce((acc, curr) => {
+      if (tags.includes(curr[0])) {
+        curr[1].forEach(post => {
+          if (!acc.find(p => p.url === post.url)) acc = [...acc, post];
+        })
+      };
+      return acc;
+    }, []);
+  });
+
+  eleventyConfig.addFilter("nearestTwoPosts", (arr, url, tags) => {
+    if (!arr) return [];
+    const index = arr.findIndex(post => post.url === url);
+    if (index === 0) return arr.slice(1, 3);
+    if (index === arr.length - 1) return arr.slice(index - 2, index);
+    return [arr[index - 1], arr[index + 1]];
   });
 
   eleventyConfig.addNunjucksShortcode("newsletter_cta", function (name) {
