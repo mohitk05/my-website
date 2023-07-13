@@ -5,7 +5,7 @@ description: Suggesting related posts for a blog post
 tags: ['posts', 'eleventy', '11ty', 'web', 'meta']
 ---
 
-My website (including my blog) is built using Eleventy (or 11ty), a static site generator similar to Jekyll. It has been over 3 years since I moved to this setup, and it has worked well. It is super simple, fast and built for longevity. While websites built in modern frontend frameworks might not work ten years down the lane, and your favourite social and blogging platforms may shut down abruptly, the only thing that will stay alive is pure text accompanied by HTML.
+My website (including my blog) is built using [Eleventy](https://www.11ty.dev/) (or 11ty), a static site generator similar to Jekyll. It has been over 3 years since I moved to this setup, and it has worked well. It is super simple, fast and built for longevity. While websites built in modern frontend frameworks might not work ten years down the lane, and your favourite social and blogging platforms may shut down abruptly, the only thing that will stay alive is pure text accompanied by HTML.
 
 I am fascinated by the idea of [digital gardens](https://maggieappleton.com/garden-history) and it fits well in my perspective of how personal web should ideally be. My website is an online space I own and tend to occasionally. It is open to all and a collection of my thoughts and ideas.
 
@@ -15,7 +15,7 @@ As a solution to this, I recently tried implementing “related posts” in my b
 
 Any writing platform allows you to tag your content with labels such that posts about similar topics can be grouped together. Tags are a way to build connections between topics and posts and eventually posts themselves. The relation between tags and posts is N-to-N, i.e. each post can have multiple tags attached and each tag can have multiple posts under it.
 
-The immediate use case of tags is finding similar content in a single place. Eleventy holds all the tags across the website in an object called `collections`. Each key in this object is a tag and the corresponding value is an array of posts that are tagged using the key.
+The immediate use case of tags is finding similar content in a single place. Eleventy holds all the tags across the website in an object called [`collections`](https://www.11ty.dev/docs/collections/). Each key in this object is a tag and the corresponding value is an array of posts that are tagged using the key.
 
 ```js
 {
