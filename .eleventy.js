@@ -96,7 +96,7 @@ module.exports = function (eleventyConfig) {
     }, []);
   });
 
-  eleventyConfig.addFilter("nearestTwoPosts", (arr, url, tags) => {
+  eleventyConfig.addFilter("nearestTwoPosts", (arr, url) => {
     if (!arr) return [];
     const index = arr.findIndex(post => post.url === url);
     if (index === 0) return arr.slice(1, 3);
