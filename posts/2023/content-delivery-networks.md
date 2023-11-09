@@ -6,10 +6,10 @@ tags:
   - notes
   - cdn
   - systems
-description: Notes about Content Distribution Networks
+description: Notes about Content Delivery Networks
 gardenTag: Evergreen
 ---
-A content distribution network (CDN) is a set of globally-distributed servers that serve content from an origin server. The primary goals of a CDN are to act as a proxy server to an origin and be physically close to users globally.
+A content delivery network (CDN) is a set of globally-distributed servers that serve content from an origin server. The primary goals of a CDN are to act as a proxy server to an origin and be physically close to users globally.
 
 Physical distance related network latencies are significant and can drastically impact your web application performance for users located far away from where you deploy your application. For example if you choose to deploy your application on Amazon Web Services (AWS) in the Europe West Frankfurt region, and you have active customers in Australia, the website performance for them would be far worse than someone using it from Berlin or Paris.
 
