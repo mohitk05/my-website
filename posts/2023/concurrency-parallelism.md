@@ -13,7 +13,7 @@ I remember watching a [popular talk](https://go.dev/blog/waza-talk) on the Golan
 
 Computer programs let you perform a certain piece of logic using the underlying hardware and they abstract a lot that goes on in the background. Simple programs have simple logical flows, they advance sequentially - one line at a time. E.g. this program in C declares a variable and adds 5 to it.
 
-```C
+```c
 int main() {
 	int num = 0;
 	num = num + 5;
@@ -32,7 +32,7 @@ When a program is executed sequentially, the program counter increments at each 
 
 Now comes the interesting bit - programs aren't this simple in reality. They involve a lot of other operations that may take variable time to complete. Most common is input/output, popularly known as I/O. I/O involves interacting with hardware devices which may not be prompt to reply immediately. The operating system (which handles program execution and interaction with hardware) often has to wait for responses from the hardware. Let's add this to our example.
 
-```C
+```c
 int main() {
 	int num = 0;
 	num = num + 5;
@@ -51,7 +51,7 @@ Along with degraded performance, this model also leads to sub-par use of availab
 
 Rob Pike defined concurrency as _dealing with a lot of things at the same time_. He differentiates it from parallelism, which is _doing a lot of things at the same time_. Concurrency comes in as a great solution for the problems mentioned in the previous section. Let's take a simple example.
 
-```C
+```c
 int main() {
 	int a = 0, c;
 	char *mode = "r";
