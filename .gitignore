@@ -3,3 +3,4 @@ _site
 .DS_Store
 _editor/dist
 _editor/.parcel-cache
+posts/.obsidian
