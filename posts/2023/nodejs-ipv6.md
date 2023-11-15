@@ -1,5 +1,5 @@
 ---
-title: Node.js HTTP and a misconfigured IPv6 router
+title: Node.js HTTP and a misconfigured WiFi router
 date: 2023-11-15
 description: Discovering a Node.js behaviour by accident
 tags:
@@ -52,17 +52,17 @@ Ran the `git push` command and it failed again - with a similar error `code: 'UN
 
 I found this GitHub issue in the `undici` repository: https://github.com/nodejs/undici/issues/1531
 
-![[Screenshot 2023-11-15 at 11.08.41.png]]
+![Screenshot 2023-11-15 at 11.08.41.png](./images/Screenshot 2023-11-15 at 11.08.41.png)
 
 The initial few comments talk about how the issue is intermittent and the request fails if a short timeout is configured. It succeeds if a high timeout >30 seconds is set. Matteo Colina is super patient and trying to reproduce the issue but he could not. The issue author points out an interesting thing:
 
-![[Screenshot 2023-11-15 at 11.16.44.png]]
+![Screenshot 2023-11-15 at 11.16.44.png](./images/Screenshot 2023-11-15 at 11.16.44.png)
 
 This strikes some thoughts for me - is it an issue with DNS resolution? And specifically with my router somehow? I quickly switch my WiFi connection to a different one and try to push - IT WORKS!! 🤯 But how?!
 
 Another comment below points to the answer:
 
-![[Screenshot 2023-11-15 at 11.19.17.png]]
+![Screenshot 2023-11-15 at 11.19.17.png](./images/Screenshot 2023-11-15 at 11.19.17.png)
 
 The [issue mentioned here](https://github.com/nodejs/node/issues/41625)contains a detailed description of the symptoms I initially faced and how to reproduce them. To summarise, this is what happened:
 
@@ -70,6 +70,6 @@ Node.js v17's HTTP client uses an algorithm to resolve IP address of the request
 
 My old router had a misconfigured IPv6 setting and as soon as I switched to the second router, Node.js could resolve the IPv6 and the request succeeded. The reason it worked in the browser is quite clear - it uses a different network stack, probably implemented in C++.
 
-HTTP clients implement a logic known as [**Happy Eyeballs**](), which tries to resolve IPv6 and IPv4 together instead of doing it sequentially. It accepts whatever is resolved first, hence ensuring no timeouts as before. Several HTTP clients like Go's HTTP module, `curl` implement this. Unfortunately Node.js does not yet. As a solution, [Node.js implements](https://github.com/nodejs/node/blob/2d1bc3d130bdd0c948f5ad5874387ab8ffd04a33/lib/net.js#L1401) a weak version of this algorithm - if the option `autoSelectFamily: true` is sent to `socket.connect()`, it tries all the IPv4 and IPv6 addresses in sequence and selects the first successful connection. It waits for `autoSelectFamilyAttemptTimeout` number of milliseconds before trying the next address.
+HTTP clients implement a logic known as [**Happy Eyeballs**](https://en.wikipedia.org/wiki/Happy_Eyeballs), which tries to resolve IPv6 and IPv4 together instead of doing it sequentially. It accepts whatever is resolved first, hence ensuring no timeouts as before. Several HTTP clients like Go's HTTP module, `curl` implement this. Unfortunately Node.js does not yet. As a solution, [Node.js implements](https://github.com/nodejs/node/blob/2d1bc3d130bdd0c948f5ad5874387ab8ffd04a33/lib/net.js#L1401) a weak version of this algorithm - if the option `autoSelectFamily: true` is sent to `socket.connect()`, it tries all the IPv4 and IPv6 addresses in sequence and selects the first successful connection. It waits for `autoSelectFamilyAttemptTimeout` number of milliseconds before trying the next address.
 
 There is an [open issue](https://github.com/nodejs/node/issues/48145) to implement the Happy Eyeballs algorithm in parallel which is still in discussion. That's all folks about my accidental encounter with a Node.js peculiarity!
