@@ -52,17 +52,17 @@ Ran the `git push` command and it failed again - with a similar error `code: 'UN
 
 I found this GitHub issue in the `undici` repository: https://github.com/nodejs/undici/issues/1531
 
-![Screenshot 2023-11-15 at 11.08.41.png](./images/Screenshot 2023-11-15 at 11.08.41.png)
+![Screenshot 2023-11-15 at 11.08.41.png](/posts/2023/images/Screenshot%202023-11-15%20at%2011.08.41.png)
 
 The initial few comments talk about how the issue is intermittent and the request fails if a short timeout is configured. It succeeds if a high timeout >30 seconds is set. Matteo Colina is super patient and trying to reproduce the issue but he could not. The issue author points out an interesting thing:
 
-![Screenshot 2023-11-15 at 11.16.44.png](./images/Screenshot 2023-11-15 at 11.16.44.png)
+![Screenshot 2023-11-15 at 11.16.44.png](/posts/2023/images/Screenshot%202023-11-15%20at%2011.16.44.png)
 
 This strikes some thoughts for me - is it an issue with DNS resolution? And specifically with my router somehow? I quickly switch my WiFi connection to a different one and try to push - IT WORKS!! 🤯 But how?!
 
 Another comment below points to the answer:
 
-![Screenshot 2023-11-15 at 11.19.17.png](./images/Screenshot 2023-11-15 at 11.19.17.png)
+![Screenshot 2023-11-15 at 11.19.17.png](/posts/2023/images/Screenshot%202023-11-15%20at%2011.19.17.png)
 
 The [issue mentioned here](https://github.com/nodejs/node/issues/41625)contains a detailed description of the symptoms I initially faced and how to reproduce them. To summarise, this is what happened:
 
