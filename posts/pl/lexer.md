@@ -1,6 +1,10 @@
 ---
 title: Starting with a Lexer - in Rust
-tags: ['posts', 'pl', 'rust', 'monkey-rust']
+tags:
+  - posts
+  - rust
+  - monkey-rust
+  - programming-languages
 description: Building a lexer in Rust, following the book 'Writing an Interpreter'
 date: 2021-03-21
 coverImage: /img/posts/2021/lexer.jpg

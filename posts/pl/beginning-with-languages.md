@@ -1,6 +1,8 @@
 ---
 title: Programming Languages - the first encounter
-tags: ['posts', 'pl']
+tags:
+  - posts
+  - programming-languages
 date: 2021-02-23
 description: The beauty of languages
 ---
