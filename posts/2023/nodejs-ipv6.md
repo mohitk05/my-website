@@ -7,20 +7,21 @@ tags:
   - nodejs
   - systems
 ---
+
 I recently came across an interesting situation while working on a Node.js service locally. We have a pre-push hook that checks if the CSS bundle version in code is actually the right one by making a HEAD request to the generated URL (from the version) and verifying if the status code is 200. If it is not, we prevent the push. In my branch, I had a very unrelated change to the deployment configuration of the application and whenever I tried to push my changes, the pre-push hook failed at this CSS bundle check.
 
 The error? Initially I only saw the error exposed by the check - `CSS bundle version xx.xx.xx does not exist or network request failed.` I checked the code for the check, there was a function that returned a boolean that represented the existence of the version bundle.
 
 ```js
 const bundleExists = await serviceClient
-	.request({
-		method: "HEAD",
-		pathname: cssPath,
-	})
-	.then(
-		(res) => res.statusCode === 200,
-		() => false
-	);
+  .request({
+    method: "HEAD",
+    pathname: cssPath,
+  })
+  .then(
+    (res) => res.statusCode === 200,
+    () => false
+  );
 ```
 
 To know more, I added a few logs in the reject handler of the promise. I saw some more logs now - `HTTP Request failed. read timeout`. Okay, I have some information now, I thought. So I added increased the timeout to `20000` - enough time to fetch a CSS file from a CDN (should have been a few milliseconds ideally).
@@ -37,32 +38,31 @@ The check waited for 20 seconds and then failed again with the same error messag
 
 ```js
 const bundleExists = await fetch(BASE + cssPath, {
-		method: "HEAD",
-	})
-	.then(
-		(res) => res.status === 200,
-		(e) => {
-			console.log(e);
-			return false;
-		}
-	);
+  method: "HEAD",
+}).then(
+  (res) => res.status === 200,
+  (e) => {
+    console.log(e);
+    return false;
+  }
+);
 ```
 
 Ran the `git push` command and it failed again - with a similar error `code: 'UND_ERR_CONNECT_TIMEOUT'`. Mildly frustrated, I asked for help in my team chat while debugging simultaneously. I decided to try the debugging 101 method to just copy the error message and search for it on the web. I was skeptical to see useful results as the error message was too generic `HTTP Request failed. read timeout`. So I looked up for `UND_ERR_CONNECT_TIMEOUT`.
 
 I found this GitHub issue in the `undici` repository: https://github.com/nodejs/undici/issues/1531
 
-![Screenshot 2023-11-15 at 11.08.41.png](/posts/2023/images/Screenshot%202023-11-15%20at%2011.08.41.png)
+![Screenshot 2023-11-15 at 11.08.41.png](/posts/2023/images/ipv6-1.png)
 
 The initial few comments talk about how the issue is intermittent and the request fails if a short timeout is configured. It succeeds if a high timeout >30 seconds is set. Matteo Colina is super patient and trying to reproduce the issue but he could not. The issue author points out an interesting thing:
 
-![Screenshot 2023-11-15 at 11.16.44.png](/posts/2023/images/Screenshot%202023-11-15%20at%2011.16.44.png)
+![Screenshot 2023-11-15 at 11.16.44.png](/posts/2023/images/ipv6-2.png)
 
 This strikes some thoughts for me - is it an issue with DNS resolution? And specifically with my router somehow? I quickly switch my WiFi connection to a different one and try to push - IT WORKS!! 🤯 But how?!
 
 Another comment below points to the answer:
 
-![Screenshot 2023-11-15 at 11.19.17.png](/posts/2023/images/Screenshot%202023-11-15%20at%2011.19.17.png)
+![Screenshot 2023-11-15 at 11.19.17.png](/posts/2023/images/ipv6-3.png)
 
 The [issue mentioned here](https://github.com/nodejs/node/issues/41625)contains a detailed description of the symptoms I initially faced and how to reproduce them. To summarise, this is what happened:
 
