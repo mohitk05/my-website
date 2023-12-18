@@ -2,6 +2,7 @@
 date: 2023-11-04
 title: Visual Programming Interfaces
 description: A written version of my presentation at MeshCon Berlin
+eleventyExcludeFromCollections: true
 ---
 I recently gave a short talk at MeshCon 2023 in Berlin on _Visual Programming Interfaces_. The event was organised by OpnTec and Fossasia and included several talks on variety of topics, the idea being “meshing of ideas”. My topic was inspired from a mixture of motivations as well - an old project, recent studies in human-computer interaction and my increasing interest in tools for thought for the future of programming.
 
