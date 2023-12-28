@@ -8,8 +8,14 @@
     {% endif %}
     <meta name="author" content="Mohit Karekar" />
     <meta
-      name="description"
-      content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader. I currently work on the web platform at Zalando in Berlin, Germany.' }}"
+      property="description"
+      {% if page.excerpt|length %}
+      content="{{ page.excerpt }}"
+      {% elif description|length %}
+      content="{{ description }}"
+      {% else %}
+      content="Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader. I currently work on the web platform at Zalando in Berlin, Germany."
+      {% endif %}
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:domain" content="mohitkarekar.com" />
@@ -29,7 +35,13 @@
     />
     <meta
       property="og:description"
-      content="{{ description if description else 'Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader.' }}"
+      {% if page.excerpt|length %}
+      content="{{ page.excerpt }}"
+      {% elif description|length %}
+      content="{{ description }}"
+      {% else %}
+      content="Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader. I currently work on the web platform at Zalando in Berlin, Germany."
+      {% endif %}
     />
     {% if coverImage and 'http' in coverImage %}
     <meta
@@ -117,6 +129,7 @@
 
       .page {
         padding: 35px;
+        position: relative;
       }
 
       @media only screen and (max-width: 640px) {

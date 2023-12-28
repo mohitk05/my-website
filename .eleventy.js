@@ -3,10 +3,13 @@ const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const fs = require("fs");
+const path = require("path");
 
 moment.locale("en");
 
 module.exports = function (eleventyConfig) {
+  fs.cpSync(path.resolve(__dirname, "posts/img/posts"), path.resolve(__dirname, "img/posts"), { overwrite: false, recursive: true });
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("css");
@@ -69,6 +72,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,
     excerpt_separator: "<!-- excerpt -->",
+    excerpt_alias: "excerpt",
   });
   eleventyConfig.addFilter("excerptise", (str) => {
     return str ? str.concat("...") : "";

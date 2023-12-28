@@ -74,8 +74,8 @@ title: Mohit Karekar
                 <a href="/tags/{{tag}}" class="tag">{{ tag }}</a>
                 {% endfor %}
                 <br>
-                {% if post.template.frontMatter.excerpt %}
-                <label class="detailedBlog-description">{{ post.template.frontMatter.excerpt }}</label>
+                {% if post.data.excerpt %}
+                <label class="detailedBlog-description">{{ post.data.excerpt }}</label>
                 {% else %}
                 <label class="detailedBlog-description">{{ post.data.description }}</label>
                 {% endif %}
