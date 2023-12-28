@@ -29,6 +29,8 @@ For this session, we'll take the example of a simple language `ccc-lang` and bui
 * Arithmetic - only addition and subtraction is allowed to limit the complexity of priority. Arithmetic expressions have only two operands. (bigger expressions can be composed though)
 * Literals are only integers.
 
+Full implementation: https://github.com/mohitk05/ccc-lang/
+
 Following are some example programs in `ccc-lang`:
 
 ```
