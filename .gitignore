@@ -4,3 +4,4 @@ _site
 _editor/dist
 _editor/.parcel-cache
 posts/.obsidian
+.obsidian

@@ -65,9 +65,13 @@ layout: with_newsletter_cta_bottom.njk
   <span style="display: flex; justify-content: space-between">
     <span>
       <a href="/">home</a>
-      <span>/</span>
-      <a href="/posts">all posts</a>
-      <span>/</span>
+      <span style="margin-left:2px;margin-right:2px">/</span>
+      {%- if tags | contains('posts') -%}
+      <span><a href="/posts">all posts</a></span>
+      {%- elif tags | contains('notes') -%}
+      <span><a href="/notes">all notes</a></span>
+      {%- endif -%}
+      <span style="margin-left:2px;margin-right:2px">/</span>
       <span>here</span>
     </span>
 	<span title="{{ gardenTag }}" style="font-size:1.8rem;position:absolute;right:35px;">
@@ -77,6 +81,8 @@ layout: with_newsletter_cta_bottom.njk
   			🌳
   		{% elif gardenTag == "Seedling" %}
 			🌱
+      {% elif gardenTag == "Note" %}
+			📝
   		{% endif %}
 	</span>
   </span>

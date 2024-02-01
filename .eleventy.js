@@ -10,6 +10,7 @@ moment.locale("en");
 
 module.exports = function (eleventyConfig) {
   fs.cpSync(path.resolve(__dirname, "posts/img/posts"), path.resolve(__dirname, "img/posts"), { overwrite: false, recursive: true });
+  fs.cpSync(path.resolve(__dirname, "notes/img"), path.resolve(__dirname, "img/notes"), { overwrite: false, recursive: true });
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("css");
@@ -68,6 +69,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("timeToRead", (str) => {
     let mins = Math.ceil(str.split(" ").length / 200);
     return mins > 1 ? mins + " minutes read" : mins + " minute read";
+  });
+  eleventyConfig.addFilter("contains", (arr, el) => {
+    return arr.includes(el);
   });
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,

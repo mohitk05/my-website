@@ -84,4 +84,6 @@ Coming back to the practicality of visual programming, let's talk a bit about fl
 
 ![vpl-10](/img/posts/vpl-10.png)
 
-Many visual programming languages follow the flow-based paradigm to execute logic. One interesting outcome
+Many visual programming languages follow the flow-based paradigm to execute logic. One interesting outcome is that they become a great way to represent parallel programs! When represented in a visual form, programs often form a directed graph which can be topologically sorted to be executed. Every node waits for all its dependencies to execute, which execute in parallel, and then takes the results and executes itself. There has been some research to build environments to build parallel programs visually because of this characteristic.
+
+My interest in visual programming stems from an old project `unipipe` that I had tried out a few years back. It is a visual environment to build "flows" and has a node-based interface. The 
