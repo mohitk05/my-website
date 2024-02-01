@@ -9,7 +9,7 @@ layout: main.njk
 </span>
 <h1 style="text-align: left">About</h1>
 
-<img src="/img/about.jpg" height="400">
+<img src="/img/mk_profile.png" height="400">
 
 Welcome to this personal abode (or a digital garden 🌱) of mine where I document things I learn or read about, and thoughts that come to my travelling mind. I am a software engineer mainly working on full-stack JavaScript and am deeply in love with Computer Science.
 

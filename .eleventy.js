@@ -10,7 +10,6 @@ moment.locale("en");
 
 module.exports = function (eleventyConfig) {
   fs.cpSync(path.resolve(__dirname, "posts/img/posts"), path.resolve(__dirname, "img/posts"), { overwrite: false, recursive: true });
-  fs.cpSync(path.resolve(__dirname, "notes/img"), path.resolve(__dirname, "img/notes"), { overwrite: false, recursive: true });
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("css");

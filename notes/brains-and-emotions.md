@@ -1,7 +1,6 @@
 ---
 title: "Brains and Emotions - CogSci"
 tags:
-  - notes
   - cognitive-science
   - omscs
 ---
