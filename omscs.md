@@ -17,8 +17,13 @@ In 2020 I decided to apply for Georgia Tech's Online Master of Science in Comput
 
 ## Timeline
 
-| Semester    | Subject                           |
-| ----------- | --------------------------------- |
-| Fall 2021   | CS6340 Software Analysis          |
-| Spring 2022 | Break                             |
+| Semester | Subject |
+| ---- | ---- |
+| Fall 2021 | CS6340 Software Analysis |
+| Spring 2022 | Break |
 | Summer 2022 | CS6750 Human Computer Interaction |
+| Fall 2022 | Computer Networks |
+| Spring 2023 | CS8801 Compilers - Theory and Practice |
+| Summer 2023 | (Dropped) |
+| Fall 2023 | CS6200 Graduate Introduction to Operating Systems |
+| Spring 2024 | CS6795 Introduction to Cognitive Science |

@@ -4,14 +4,13 @@ tags:
   - cognitive-science
   - omscs
 ---
-
 ## Consciousness
 
 - Consciousness can be guided - meditation
 - It is subjective, based on sensory data (external)
 - Conscious of thoughts, feelings (internal)
 - Dualist view
-  - Mind and brain
+  - Mind and [[brains-and-emotions|brain]]
   - Extreme form is religion - soul/spirit
 - Materialist view
   - Nothing as consciousness
