@@ -3,6 +3,12 @@ layout: main.njk
 title: Notes
 eleventyExcludeFromCollections: true
 ---
+<head>
+    <style>
+        .grid-item { width: 200px; }
+    </style>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</head>
 <span>
     <a href="/">home</a>
     <span>/</span>
@@ -12,16 +18,30 @@ eleventyExcludeFromCollections: true
 <p>My notes are extensions of my thought - I write when I learn something new, or when I think.</p>
 <hr/>
 <div>
-{%- for post in collections.notes | reverse -%}
-    <div style="display: flex; align-items: center; margin-bottom: 10px">
-        <b>
-            {%if post.data.external %}
-                <a href="{{ post.data.external }}">{{ post.data.title }}</a>
-            {% else %}
-                <a href="{{ post.url }}">{{ post.data.title }}</a>
-            {% endif %}
-            
-        </b>
-    </div>
-{%- endfor -%}
+<div class="grid">
+  <div class="grid-item">
+    {%- for post in collections.notes | reverse -%}
+        <div style="display: flex; align-items: center; margin-bottom: 10px">
+            <b>
+                {%if post.data.external %}
+                    <a href="{{ post.data.external }}">{{ post.data.title }}</a>
+                {% else %}
+                    <a href="{{ post.url }}">{{ post.data.title }}</a>
+                {% endif %}
+                
+            </b>
+        </div>
+    {%- endfor -%}
+  </div>
+  <div class="grid-item">...</div>
+  <div class="grid-item">...</div>
 </div>
+</div>
+<script>
+    const elem = document.querySelector('.grid');
+    const msnry = new Masonry( elem, {
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 200
+    });
+</script>
