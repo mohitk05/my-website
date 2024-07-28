@@ -2,6 +2,12 @@
 layout: main.njk
 title: Posts
 ---
+<style>
+h4 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+</style>
 <span>
     <a href="/">home</a>
     <span>/</span>
@@ -12,15 +18,15 @@ title: Posts
 <hr/>
 <div>
 {%- for post in collections.posts | reverse -%}
-    <div style="display: flex; align-items: center; margin-bottom: 10px">
+    <div style="display: flex; align-items: flex-start; margin-bottom: 10px">
         <span style="flex: 0.2;font-size: 14px">{{ post.date | dateReadable }}</span>
-        <b style="flex: 0.7;margin-left:10px">
+        <h4 style="flex: 0.7;margin-left:10px">
             {%if post.data.external %}
                 <a href="{{ post.data.external }}">{{ post.data.title }}</a>
             {% else %}
                 <a href="{{ post.url }}">{{ post.data.title }}</a>
             {% endif %}
-        </b>
+        </h4>
     </div>
 {%- endfor -%}
 </div>

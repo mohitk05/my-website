@@ -5,9 +5,11 @@ eleventyExcludeFromCollections: true
 ---
 <head>
     <style>
-        .grid-item { width: 200px; }
+h4 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
     </style>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
 <span>
     <a href="/">home</a>
@@ -19,29 +21,17 @@ eleventyExcludeFromCollections: true
 <hr/>
 <div>
 <div class="grid">
-  <div class="grid-item">
     {%- for post in collections.notes | reverse -%}
-        <div style="display: flex; align-items: center; margin-bottom: 10px">
-            <b>
+        <div style="margin-bottom: 10px">
+            <h4>
                 {%if post.data.external %}
                     <a href="{{ post.data.external }}">{{ post.data.title }}</a>
                 {% else %}
                     <a href="{{ post.url }}">{{ post.data.title }}</a>
                 {% endif %}
                 
-            </b>
+            </h4>
         </div>
     {%- endfor -%}
-  </div>
-  <div class="grid-item">...</div>
-  <div class="grid-item">...</div>
 </div>
 </div>
-<script>
-    const elem = document.querySelector('.grid');
-    const msnry = new Masonry( elem, {
-        // options
-        itemSelector: '.grid-item',
-        columnWidth: 200
-    });
-</script>
