@@ -96,11 +96,11 @@ layout: with_newsletter_cta_bottom.njk
     {% endfor %}
   </span>
   <br />
-  {% if coverImage %}
+  {% if coverImage and not hideCoverImage %}
   <br />
   <div
     class="coverImage"
-    style="background-image: url('{{ coverImage }}')"
+    style="background-image: url('{{ coverImage }}');{% if hideCoverImage %}display: none;{% else %}display:block;{% endif %}"
   ></div>
   {% endif %}
   <article class="content">{{ content | safe }}</article>

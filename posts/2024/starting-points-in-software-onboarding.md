@@ -5,6 +5,8 @@ description: Why starting points in software tooling onboarding are important
 tags:
   - tools
   - software-engineering
+coverImage: /img/posts/tetris.jpg
+hideCoverImage: "true"
 ---
 <style>
 .content img {
