@@ -2,99 +2,194 @@
 layout: with_newsletter_cta_bottom.njk
 title: Mohit Karekar
 ---
-<style>
-    .cloud {
-        margin-top: 16px;
-        padding: 12px;
-        border-radius: 4px;
-        border: 2px solid;
-        font-family: Source Code Pro, Menlo, monospace;
-        font-size: 1rem;
-    }
 
-    .cloud a {
-        text-decoration: underline;
+<style>
+  .detailedBlog {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 3fr;
+  }
+  .detailedBlog:first-child {
+    border-top: 1px solid #f0f0f0;
+  }
+  .blogDate {
+    font-size: 0.8rem;
+    color: #666;
+    flex: 0.5;
+    border-right: 1px solid #f0f0f0;
+    text-align: right;
+    padding-right: 16px;
+  }
+  .blogTitle {
+    padding-left: 16px;
+  }
+  .tag {
+    margin-right: 5px;
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  .cloud {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 4px;
+    border: 2px solid;
+    font-family: Source Code Pro, Menlo, monospace;
+    font-size: 1rem;
+  }
+
+  .cloud a {
+    text-decoration: underline;
+  }
+  @media only screen and (max-width: 640px) {
+    .detailedBlog {
+      grid-template-columns: 1fr;
     }
+    .detailedBlog:first-child {
+      border-top: none;
+    }
+    .blogDate {
+      display: none;
+    }
+    .blogTitle {
+      padding-left: 0;
+      width: 100%;
+    }
+    .blogTitle:before {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      left: -20px;
+      width: 16px;
+      height: 1px;
+      background-color: #dadada;
+    }
+  }
 </style>
 <div>
-    <section>
-        <div style="display: flex; justify-content: space-between; align-items: center">
-            <div>
-                <h1 style="margin-bottom: 0; margin-right: 10px;margin-top:0; text-align: left">Mohit Karekar</h1>
-                <p style="margin: 0; margin-right: 10px; text-align: left; hyphens: none">senior software engineer <a
-                        href="https://twitter.com/zalandotech">@zalando</a>, loves creating products for humans and
-                    machines</p>
-            </div>
-            <img src="/img/mk_profile.png" width="100">
-        </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-            <div class="tabs">
-                <a class="tab" href="/posts">Blog</a>
-                •
-                <a class="tab" href="/notes">Notes</a>
-                •
-                <a class="tab" href="/work">Work</a>
-                •
-                <a class="tab" href="/life">Life</a>
-                •
-                <a class="tab" href="/about">About</a>
-                •
-                <a class="tab" target="_blank"
-                    href="https://docs.google.com/document/d/1239BbrB9jy8trrCkwhFwJuxBy8iwHrEd62rVPXk_Zrg/edit?usp=sharing">Resume</a>
-            </div>
-            <div style="display: flex">
-                <a target="_blank" href="https://github.com/mohitk05" rel="me"><img class="socialIcon" alt="github"
-                        style="width: 25px; height: auto" src="/img/github.png" /></a>
-                <a target="_blank" href="https://twitter.com/mohitkarekar"><img class="socialIcon" alt="twitter"
-                        style="width: 25px; height: auto; margin-left: 10px" src="/img/twitter.png" /></a>
-            </div>
-        </div>
-    </section>
-    <div class="cloud">
-        <p style="margin: 0; font-size: 0.9rem">Top tags</p>
-        <a href="/tags/about-computing-systems/"><span>about-computing-systems</span></a>
-        <a href="/tags/omscs/"><span>OMSCS</span></a>
-        <a href="/tags/books/"><span>books</span></a>
+  <section>
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <div>
+        <h1
+          style="
+            margin-bottom: 0;
+            margin-right: 10px;
+            margin-top: 0;
+            text-align: left;
+          "
+        >
+          Mohit Karekar
+        </h1>
+        <p
+          style="margin: 0; margin-right: 10px; text-align: left; hyphens: none"
+        >
+          senior software engineer
+          <a href="https://twitter.com/zalandotech">@zalando</a>, loves creating
+          products for humans and machines
+        </p>
+      </div>
+      <img src="/img/mk_profile.png" width="100" />
     </div>
-    <div class="down">
-        <h2>Recent posts</h2>
-        <div class="detailedBlogs">
-            {%- for post in collections.posts | reverse | slice10 -%}
-            <article class="detailedBlog">
-                <h3 style="margin-bottom: 4px">
-                    {%if post.data.external %}
-                    <a href="{{ post.data.external }}">{{ post.data.title }}</a>
-                    {% else %}
-                    <a href="{{ post.url }}">{{ post.data.title }}</a>
-                    {% endif %}
-                </h3>
-                <b>{{ post.data.date | dateReadable }}</b>
-                {%if (post.data.tags | tagFilter).length %}
-                <span>•</span>
-                {% endif %}
-                {% for tag in post.data.tags | tagFilter %}
-                <a href="/tags/{{tag}}" class="tag">{{ tag }}</a>
-                {% endfor %}
-                <br>
-                {% if post.data.excerpt %}
-                <label class="detailedBlog-description">{{ post.data.excerpt }}</label>
-                {% else %}
-                <label class="detailedBlog-description">{{ post.data.description }}</label>
-                {% endif %}
-            </article>
-            {%- endfor -%}
-        </div>
-        <h4><a href="posts">See all →</a></h4>
-        <hr>
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      "
+    >
+      <div class="tabs">
+        <a class="tab" href="/posts">Blog</a>
+        •
+        <a class="tab" href="/notes">Notes</a>
+        •
+        <a class="tab" href="/work">Work</a>
+        •
+        <a class="tab" href="/life">Life</a>
+        •
+        <a class="tab" href="/about">About</a>
+        •
+        <a
+          class="tab"
+          target="_blank"
+          href="https://docs.google.com/document/d/1239BbrB9jy8trrCkwhFwJuxBy8iwHrEd62rVPXk_Zrg/edit?usp=sharing"
+          >Resume</a
+        >
+      </div>
+      <div style="display: flex">
+        <a target="_blank" href="https://github.com/mohitk05" rel="me"
+          ><img
+            class="socialIcon"
+            alt="github"
+            style="width: 25px; height: auto"
+            src="/img/github.png"
+        /></a>
+        <a target="_blank" href="https://twitter.com/mohitkarekar"
+          ><img
+            class="socialIcon"
+            alt="twitter"
+            style="width: 25px; height: auto; margin-left: 10px"
+            src="/img/twitter.png"
+        /></a>
+      </div>
     </div>
-    <section class="interesting">
-        <h3>Interesting things I found on the Internet</h3>
-        <div class="posts">
-            {%- for c in interesting | reverse -%}
-            <div class="post">
-                <a class="postTitle" target="_blank" href="{{ c.url }}">{{ c.title }}</a>
-            </div>
-            {%- endfor -%}
+  </section>
+  <div class="cloud">
+    <p style="margin: 0; font-size: 0.9rem">Top tags</p>
+    <a href="/tags/about-computing-systems/"
+      ><span>about-computing-systems</span></a
+    >
+    <a href="/tags/omscs/"><span>OMSCS</span></a>
+    <a href="/tags/books/"><span>books</span></a>
+  </div>
+  <div class="down">
+    <h2>Recent posts</h2>
+    <div class="detailedBlogs">
+      {%- for post in collections.posts | reverse | slice_n(50) -%}
+      <article class="detailedBlog">
+        <div class="blogDate">
+          <b>{{ post.data.date | dateReadable }}</b>
         </div>
-    </section>
+        <div class="blogTitle">
+          <h3 style="margin: 0">
+            {%if post.data.external %}
+            <a href="{{ post.data.external }}">{{ post.data.title }}</a>
+            {% else %}
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            {% endif %}
+          </h3>
+          {%if (post.data.tags | tagFilter).length %} {% endif %} {% for tag in
+          post.data.tags | tagFilter %}
+          <a href="/tags/{{ tag }}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {# <br />
+        #} {# {% if post.data.excerpt %}
+        <label class="detailedBlog-description">{{ post.data.excerpt }}</label>
+        {% else %}
+        <label class="detailedBlog-description">{{
+          post.data.description
+        }}</label>
+        {% endif %} #}
+      </article>
+      {%- endfor -%}
+    </div>
+    <h4><a href="posts">See all →</a></h4>
+    <hr />
+  </div>
+  <section class="interesting">
+    <h3>Interesting things I found on the Internet</h3>
+    <div class="posts">
+      {%- for c in interesting | reverse -%}
+      <div class="post">
+        <a class="postTitle" target="_blank" href="{{ c.url }}">{{
+          c.title
+        }}</a>
+      </div>
+      {%- endfor -%}
+    </div>
+  </section>
 </div>
