@@ -27,7 +27,7 @@ In the above JavaScript example, there are three scopes: the global scope where 
 
 The symbol table can be implemented in multiple ways. In Gom, the symbol table is implemented using a tree data structure, where the root node is the global scope, and all enclosing scopes are children (and children of children and so on..). Let's take an example:
 
-```
+```text
 fn print_to_n(n: i8): i8 {
 	let i = 0;
 	for(; i<n; i = i + 1) {
@@ -40,7 +40,7 @@ fn main() {
 	print_to_n(a);
 }
 ```
-![Symboltable](img/posts/symboltable.png)
+![Symboltable](/img/posts/symboltable.png)
 The `SymbolTableNode` class holds references to its children and its parent, denoting the scope hierarchy. Each symbol table node has a value property which is a `Scope` instance that exposes methods to add new variables and types. Following is the TypeScript implementation.
 
 ```ts
