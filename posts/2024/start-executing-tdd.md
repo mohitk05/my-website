@@ -12,9 +12,13 @@ Well, my practical experience has differed from this ideal flow, and it has been
 
 I remember an early project at my current organisation when I was supposed to write a TDD (my first one), I prophesied about the solution so much that it went beyond the problem definition and straight into being a moonshot. In the end, the TDD was very big and complex and when I presented this at a review meeting, many were confused about what I wanted to achieve and I received a lot of questions as many concepts that I was suggesting were intangible.
 
+![Slow TDD](/img/posts/old-tdd.jpg)
+
 I have seen many engineers define the technical solution so well in the TDD but only move to implementation when they have all the reviews. And I have seen a similar number of TDD reviews not work process-wise because the reviewers could not get the idea or were overwhelmed by the content or just were not the right audience for the review.
 
 Recently, I have realised that writing a high-level technical design document and then moving to a prototype implementation works well for me. I cannot simply _think_ of a solution and then _prophesize_ about it in the form of text and diagrams. I need something tangible to see how the system behaves to input and what it needs to perform the desired behaviour. My cognitive science class last semester taught me that humans make mental models about concepts and one way to understand the concept is to manipulate the model mentally. The more complex the model, the harder is the manipulation. The process can be made easy by _distributing_ the cognition across mediums - paper, documents, graphics, prototypes.
+
+![Iterative TDD](/img/posts/iterative-tdd.jpg)
 
 Having a closed loop between the TDD writing phase and implementation has worked well for me. The early implementation provides important feedback that helps to write the TDD in order to add sufficient context for reviewers/readers. Short iteration loops, immediate feedback and applying the learnings back to the TDD make the entire process similar to building a product from scratch, and this works very well.
 ### How does a team fit into this approach?
