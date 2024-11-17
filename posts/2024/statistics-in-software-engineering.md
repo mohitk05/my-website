@@ -43,6 +43,6 @@ EWMA is a value for a time series which keeps track of a moving average where th
 
 The EWMA over time keeps track of the average of moving values and helps map a curve to the scattered points in the time series. The moving average values then can help us determine how the average value of the entity being measured moving over time. This eventually can be used to determine the range of "safe" values, and any values beyond this range would be anomalies.
 
-![[Screenshot 2024-11-17 at 17.17.51.png]]
+![ewma.png](/img/posts/ewma.png)
 _Source: https://itl.nist.gov/div898/handbook/pmc/section3/pmc324.htm_
 
