@@ -1,6 +1,6 @@
 ---
 title: Simple statistics in software engineering
-date: 2024-10-20
+date: 2024-11-18
 tags:
   - software-engineering
 coverImage: /img/covers/stats-engineering-cover.png
