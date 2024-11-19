@@ -79,25 +79,54 @@ func NewEWMA(lambda float64) *EWMA {
 }
 
 type EWMADropDetector struct {
-	ewma        *EWMA
-	sdThreshold float64
+	ewma              *EWMA
+	count             int
+	trainingPeriod    int
+	sdThresholdFactor float64
+	sdThresholds      []float64
 }
 
-func (e *EWMADropDetector) AddDatapoint(value float64, skipUpdate bool) bool {
-	newEWMA := e.ewma.GetNewEWMA(value)
-	sd := math.Sqrt(newEWMA * e.ewma.lambda / (2 - e.ewma.lambda))
-
-	if skipUpdate {
-		return value < newEWMA-e.sdThreshold*sd
+func NewEWMADropDetector(ewma *EWMA, sdThresholdFactor float64, trainingPeriod int) *EWMADropDetector {
+	return &EWMADropDetector{
+		ewma: ewma, sdThresholds: []float64{0.0, 0.0}, count: 0, sdThresholdFactor: sdThresholdFactor, trainingPeriod: trainingPeriod,
 	}
+}
+
+func (e *EWMADropDetector) AddDatapoint(value float64) bool {
+	oldEWMA := e.ewma.ewma
+	sd := math.Sqrt(e.ewma.ewma * e.ewma.lambda / (2 - e.ewma.lambda))
 
 	e.ewma.AddDatapoint(value)
+	e.count++
 
-	return value < e.ewma.ewma-e.sdThreshold*sd
+	if e.count < e.trainingPeriod {
+		e.sdThresholds[0] = oldEWMA - e.sdThresholdFactor*sd
+		e.sdThresholds[1] = oldEWMA + e.sdThresholdFactor*sd
+		return false
+	}
+
+	return e.ewma.ewma < e.sdThresholds[0] || e.ewma.ewma > e.sdThresholds[1]
 }
 ```
 
-The `AddDatapoint` method accepts a new data point value and returns if the resultant EWMA breaches the defined thresholds in terms of standard deviation.
+The `AddDatapoint` method accepts a new data point value and returns if the resultant EWMA breaches the defined thresholds in terms of standard deviation. It waits for the `trainingPeriod` to finish before reacting to new data points which ensures that the thresholds are stable.
+
+In k6, this can either be implemented in the script (in JavaScript) or as a [k6 extension](https://grafana.com/docs/k6/latest/extensions/) in Go. We do this at bundle time using a ESBuild plugin which injects these lines at the start and end of a script function:
+
+```js
+var __latencyDropThrottler = new ScenarioLatencyDropThrottler();
+
+export default function() {
+	const __iterStartTime = Date.now();
+	// network calls
+	__latencyDropThrottler.monitor(
+		"scenario-name",
+		Date.now() - __iterStartTime // total latency of the scenario (data point for EWMA)
+	);
+}
+```
+
+The latency throttling will happen on a virtual user level and the tool will now smoothen out any spikes or drops in latencies. It worked well for us in large load tests. As a next step, what we want to try is _recovery_, i.e. once the throttling kicks in, it stays there until the latency goes back to a value which is within thresholds. At times, the latency drop is desirable and we would want the model to gradually move to the recent latency value. This will help avoid the waste of CPUs cycles spent sleeping, essentially convert the sudden drop to a smooth curve if the latency stays at the same levels for a long time.
 
 ---
 This sprinkle of statistics has heightened my interest in the field and am imagining more areas to use these models. I'm following this great [talk](https://www.youtube.com/watch?v=awrMqCXZunc) by Heinrich Hartmann (Senior Principal SRE at Zalando) which goes over essentials of statistics every engineer should know. 
