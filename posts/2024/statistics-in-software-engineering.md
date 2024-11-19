@@ -3,7 +3,10 @@ title: Simple statistics in software engineering
 date: 2024-11-18
 tags:
   - software-engineering
+  - sre
+  - k6
 coverImage: /img/covers/stats-engineering-cover.png
+description: Using statistical models like linear regression and exponentially weighted moving average (EWMA) in SRE
 ---
 <style>
 img {
@@ -39,7 +42,7 @@ We conduct large-scale end-to-end user journey load tests in preparation for Cyb
 
 Shunting an endpoint at times would lead to a sudden drop in end-to-end latency, and a load test tool being a dumb while-loop after all, it may start executing faster than before - meaning rest of the endpoints in the script now get called more frequently. We faced such situations a few times where when a shut was applied, a sudden spike of requests was observed to the target system. This was an undesired behaviour and put the target system and customer experience stability at risk - the load test tool is a double-edged sword.
 
-We decided to write a protection mechanism, the idea was simple: **if we see a sudden drop in the total duration of a single iteration of the script, we will inject synthetic latency (by adding a dynamic sleep() call) to keep the overall rate constant.** This would ensure that the rate of requests being sent from k6 remains constant even when the virtual user can potentially generate more. We do lose some computation power, but the target system does not see a blitzkrieg of incoming requests. How do we detect a "drop" though? Well, statistics had the answer: _exponentially weighted moving average (EWMA)_.
+We decided to write a protection mechanism, the idea was simple: **if we see a sudden drop in the total duration of a single iteration of the script, we will inject synthetic latency (by adding a dynamic sleep() call) to keep the overall rate constant.** This would ensure that the rate of requests being sent from k6 remains constant even when the virtual user can potentially generate more. We do lose some computation power, but the target system does not see a blitzkrieg of incoming requests. How do we detect a "drop" though? Well, statistics had the answer: **_exponentially weighted moving average (EWMA)_**.
 
 EWMA is a value for a time series which keeps track of a moving average where the importance of past values drops exponentially. It is widely used to smoothen a set of data points to a curve and in the financial domain to analyse volatility in market. The general equation of EWMA is as follows:
 
