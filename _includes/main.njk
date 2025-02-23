@@ -58,6 +58,7 @@
       property="og:image"
       content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/meta-cover.png' }}"
     />
+    {# {% ogImage "./_includes/og-image.og.njk", { title: "Hello World!" } %} #}
     <link
       rel="preload"
       href="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/mk_profile.png' }}"
@@ -67,10 +68,10 @@
     <meta property="og:type" content="article" />
     <meta property="article:author" content="https://mohitkarekar.com/about" />
     <link rel="canonical" href="{{ 'https://mohitkarekar.com' + page.url }}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="/css/water.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     {% if page.url == '/' %} {%- for post in collections.posts | reverse |
     slice10 -%}
     <link rel="prefetch" href="{{ post.url }}" as="document" />
@@ -78,18 +79,12 @@
     <link rel="icon" href="/img/icon.jpeg" />
     <title>{{ title }}</title>
     <style>
-      a {
-      }
-
-      a:hover {
-      }
-
       table {
         width: 100%
       }
 
       body {
-        font-family: 'Source Serif 4', serif;
+        font-family: 'Inter', sans-serif;
         font-size: 1.125rem;
         max-width: 750px;
         font-optical-sizing: auto;
@@ -114,13 +109,20 @@
       h2,
       h3,
       h4 {
-        font-family: 'Source Sans 3', sans-serif;
+        {# font-family: 'Source Sans 3', sans-serif; #}
+        font-family: 'Inter Tight', sans-serif;
         font-weight: 600;
         font-style: normal;
       }
-
+      pre {
+        box-shadow: 0px 2px 0 0 rgba(0, 0, 0, 0.1);
+      }
       code {
-        font-size: 1rem;
+        {# font-size: 1rem; #}
+        box-shadow: 0px 2px 0 0 rgba(0, 0, 0, 0.1);
+      }
+      pre code {
+        box-shadow: none;
       }
 
       article pre[class*="language-"] {
