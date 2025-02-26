@@ -2,6 +2,11 @@
 title: Implementing the Raft consensus algorithm in Node.js
 date: 2025-02-24
 coverImage: /img/covers/raft.png
+tags:
+  - systems
+  - software-engineering
+  - algorithms
+description: Raft consensus algorithm in Node.js and TypeScript
 ---
 <style>
 pre {
@@ -518,3 +523,10 @@ Node 3:  AppendEntries [ { type: 'Beat', args: [], index: 1, term: 1 } ]
 Node 1:  AppendEntries [ { type: 'Beat', args: [], index: 1, term: 1 } ]
 Node 3:  AppendEntries [ { type: 'Beat', args: [], index: 1, term: 1 } ]
 ```
+
+---
+## References
+I extensively referred to the Raft paper itself and Phil Eaton's implementation in Go.
+* https://raft.github.io/raft.pdf
+* https://notes.eatonphil.com/2023-05-25-raft.html
+* https://thesecretlivesofdata.com/raft/
