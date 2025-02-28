@@ -27,11 +27,13 @@ The algorithm is described in the Raft paper and comprises of three main parts:
 1. **Leader election:** In this phase, a new leader is elected. On startup, every server is a follower and kicks off a timer for a random timeout. The server which finishes its timer first moves on to become a candidate. As soon as it moves to the candidate state, it sends an RPC call to every other server to request for a vote. When other servers are still waiting for their timeouts, and they receive this request to vote, they invalidate their timers and respond back with a vote. The candidate then checks if it has gotten a majority vote (>50% * n_servers) and if it did then moves to the leader state and announces this to all followers. With this the leader election ends and this round is called a _term_ which will last until the leader terminates due to some fault.
 2. **Log replication:** Once the leader has been elected, it starts sending heart beat requests to all other servers. These requests are sent periodically, and in case of new requests from the client, carry the log entries as payload to servers. In other cases, they are a way for followers to know that the leader is still available.
    When a client request arrives, the leader updates its log and adds the entries there. Then, it sends requests to all followers to update their entries. Once everyone responds with success, the leader applies the entry to its own state machine and responds back to the client. In case some followers fail to respond, the leader returns the result to the client but keeps asking followers to update their log entries.
-3. **Recover and safety:** ...
+3. **Recovery and safety:** Every leader has the most updated log entries in order and it is never overwritten. Leaders are chosen accordingly, candidates that have complete log entries until the time of election are chosen for becoming the leader.
 
 ## Implementation in Node.js and TypeScript
 I implemented the algorithm in Node.js and the complete code can be found on GitHub:
 https://github.com/mohitk05/raft-node
+
+<video src="/img/vid/raft.mp4" muted autoplay loop controls style="border-radius:4px;"></video>
 
 The main logic is placed in the `RaftNode` class in `src/node.ts`. Here's the complete code:
 
@@ -136,7 +138,7 @@ export class RaftNode {
     this.setupRaftHandler();
     this._expressRaft.listen(this._raftPort, () => {
       this.logToConsole("Started raft server");
-      this.scheduleLeaderElectionTimer();
+      this.resetLeaderElectionTimeout();
     });
 
     this.setupKVHandler();
@@ -261,7 +263,9 @@ export class RaftNode {
               entries,
               leaderCommit: this.commitIndex,
             }),
-          }).then((res) => res.json())
+          })
+            .then((res) => res.json())
+            .catch(() => ({ success: false }))
         )
     );
 
@@ -288,14 +292,20 @@ export class RaftNode {
               lastLogIndex: this.log.length - 1,
               lastLogTerm: this.log[this.log.length - 1].term,
             }),
-          }).then((res) => res.json())
+          })
+            .then((res) => res.json())
+            .catch(() => ({ voteGranted: null }))
         )
     );
 
+    // self vote
+    results.push({ term: this.currentTerm, voteGranted: true });
+
     this.logToConsole("rpcRequestVote", results);
     return (
-      results.filter((r) => r.voteGranted).length >
-      (this._servers.length - 1) / 2
+      results.filter((r) => r.voteGranted !== null).filter((r) => r.voteGranted)
+        .length >
+      this._servers.length / 2
     );
   }
 
@@ -314,12 +324,12 @@ export class RaftNode {
       this.moveToLeader();
     } else {
       this.state = State.Follower;
-      this.scheduleLeaderElectionTimer();
+      this.resetLeaderElectionTimeout();
       this.logToConsole("Moved back to follower");
     }
   }
 
-  private async scheduleLeaderElectionTimer() {
+  private async resetLeaderElectionTimeout() {
     if (this._leaderElectionTimeout) clearTimeout(this._leaderElectionTimeout);
     this._leaderElectionTimeout = setTimeout(() => {
       this.moveToCandidate();
@@ -337,16 +347,12 @@ export class RaftNode {
     this.logToConsole("AppendEntries", entries);
     if (term === this.currentTerm && this.state === State.Candidate) {
       this.state = State.Follower;
-      this.scheduleLeaderElectionTimer();
     }
+
+    this.resetLeaderElectionTimeout();
 
     if (term < this.currentTerm) {
       return { term: this.currentTerm, success: false };
-    }
-
-    if (this._leaderElectionTimeout) {
-      clearTimeout(this._leaderElectionTimeout);
-      this._leaderElectionTimeout = null;
     }
 
     if (
@@ -376,15 +382,24 @@ export class RaftNode {
     this.logToConsole(
       "RequestVote",
       term,
+      this.currentTerm,
       candidateId,
       lastLogIndex,
       lastLogTerm,
       this.log.length - 1
     );
+
+    if (term < this.currentTerm) {
+      return { term: this.currentTerm, voteGranted: false };
+    }
+
+    const oldTerm = this.currentTerm;
+
     if (term > this.currentTerm) {
       this.currentTerm = term;
       this.state = State.Follower;
-      this.scheduleLeaderElectionTimer();
+      if (this._leaderElectionTimeout)
+        clearTimeout(this._leaderElectionTimeout);
     }
 
     if (
@@ -401,7 +416,7 @@ export class RaftNode {
       };
     }
 
-    if (this.votedFor || this.votedFor === candidateId) {
+    if (this.votedFor && term === oldTerm) {
       return {
         term: this.currentTerm,
         voteGranted: false,
@@ -526,7 +541,7 @@ Node 3:  AppendEntries [ { type: 'Beat', args: [], index: 1, term: 1 } ]
 
 ---
 ## References
-I extensively referred to the Raft paper itself and Phil Eaton's implementation in Go.
+I extensively referred to the Raft paper itself and Phil Eaton's implementation in Go while writing mine.
 * https://raft.github.io/raft.pdf
 * https://notes.eatonphil.com/2023-05-25-raft.html
 * https://thesecretlivesofdata.com/raft/

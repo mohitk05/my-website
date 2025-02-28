@@ -68,7 +68,9 @@ module.exports = function (eleventyConfig) {
     return "Check console";
   });
   eleventyConfig.addFilter("timeToRead", (str) => {
-    let mins = Math.ceil(str.split(" ").length / 200);
+    // remove code blocks
+    const words = str.replace(/<pre[\s\S\d\w]+<\/pre>/g, "").split(" ");
+    const mins = Math.ceil(words.length / 200);
     return mins > 1 ? mins + " minutes read" : mins + " minute read";
   });
   eleventyConfig.addFilter("contains", (arr, el) => {
