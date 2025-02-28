@@ -8,10 +8,18 @@ tags:
   - algorithms
 description: Raft consensus algorithm in Node.js and TypeScript
 ---
+
 <style>
 pre {
 	max-height: 600px;
 	 overflow: scroll;
+}
+
+@media (min-width: 1024px) {
+  .raft-video {
+    max-width: 150%;
+    margin-left: -25%;
+  }
 }
 </style>
 
@@ -24,16 +32,18 @@ A replicated state machine is made possible using a _write-ahead log_. It is a s
 Servers in Raft can be in one of the 3 states: follower, candidate or leader. A follower receives log entries via RPC that should be applied to the state machine. On startup, every server starts as a follower. A candidate is a to-be leader and if enough conditions are met, it moves to the leader state. The leader is the one who directs followers to apply changes as per client requests.
 
 The algorithm is described in the Raft paper and comprises of three main parts:
-1. **Leader election:** In this phase, a new leader is elected. On startup, every server is a follower and kicks off a timer for a random timeout. The server which finishes its timer first moves on to become a candidate. As soon as it moves to the candidate state, it sends an RPC call to every other server to request for a vote. When other servers are still waiting for their timeouts, and they receive this request to vote, they invalidate their timers and respond back with a vote. The candidate then checks if it has gotten a majority vote (>50% * n_servers) and if it did then moves to the leader state and announces this to all followers. With this the leader election ends and this round is called a _term_ which will last until the leader terminates due to some fault.
+
+1. **Leader election:** In this phase, a new leader is elected. On startup, every server is a follower and kicks off a timer for a random timeout. The server which finishes its timer first moves on to become a candidate. As soon as it moves to the candidate state, it sends an RPC call to every other server to request for a vote. When other servers are still waiting for their timeouts, and they receive this request to vote, they invalidate their timers and respond back with a vote. The candidate then checks if it has gotten a majority vote (>50% \* n*servers) and if it did then moves to the leader state and announces this to all followers. With this the leader election ends and this round is called a \_term* which will last until the leader terminates due to some fault.
 2. **Log replication:** Once the leader has been elected, it starts sending heart beat requests to all other servers. These requests are sent periodically, and in case of new requests from the client, carry the log entries as payload to servers. In other cases, they are a way for followers to know that the leader is still available.
    When a client request arrives, the leader updates its log and adds the entries there. Then, it sends requests to all followers to update their entries. Once everyone responds with success, the leader applies the entry to its own state machine and responds back to the client. In case some followers fail to respond, the leader returns the result to the client but keeps asking followers to update their log entries.
 3. **Recovery and safety:** Every leader has the most updated log entries in order and it is never overwritten. Leaders are chosen accordingly, candidates that have complete log entries until the time of election are chosen for becoming the leader.
 
 ## Implementation in Node.js and TypeScript
+
 I implemented the algorithm in Node.js and the complete code can be found on GitHub:
 https://github.com/mohitk05/raft-node
 
-<video src="/img/vid/raft.mp4" muted autoplay loop controls style="border-radius:4px;"></video>
+<video src="/img/vid/raft.mp4" muted autoplay loop controls style="border-radius:4px;" class="raft-video"></video>
 
 The main logic is placed in the `RaftNode` class in `src/node.ts`. Here's the complete code:
 
@@ -467,11 +477,13 @@ new RaftCluster(Number(process.argv[2] || "3"));
 ```
 
 To start the cluster, you'd run:
+
 ```bash
 npm start
 ```
 
 By default, the cluster starts with 3 nodes, and this can be adjusted by passing an argument:
+
 ```bash
 npm start 4
 ```
@@ -540,8 +552,11 @@ Node 3:  AppendEntries [ { type: 'Beat', args: [], index: 1, term: 1 } ]
 ```
 
 ---
+
 ## References
+
 I extensively referred to the Raft paper itself and Phil Eaton's implementation in Go while writing mine.
-* https://raft.github.io/raft.pdf
-* https://notes.eatonphil.com/2023-05-25-raft.html
-* https://thesecretlivesofdata.com/raft/
+
+- https://raft.github.io/raft.pdf
+- https://notes.eatonphil.com/2023-05-25-raft.html
+- https://thesecretlivesofdata.com/raft/
