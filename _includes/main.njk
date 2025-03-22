@@ -61,7 +61,7 @@
     {# {% ogImage "./_includes/og-image.og.njk", { title: "Hello World!" } %} #}
     <link
       rel="preload"
-      href="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/mk_profile.png' }}"
+      href="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/mk_profile.webp' }}"
       as="image"
     />
     {% endif %}
@@ -76,7 +76,7 @@
     slice10 -%}
     <link rel="prefetch" href="{{ post.url }}" as="document" />
     {%- endfor -%} {%- endif -%}
-    <link rel="icon" href="/img/icon.jpeg" />
+    <link rel="icon" href="/img/icon.jpg" />
     <title>{{ title }}</title>
     <style>
       table {

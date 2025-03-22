@@ -16,7 +16,7 @@ layout: main.njk
 
 # What I am up to
 
-<img src="/img/mk_profile.png" height="300">
+<img src="/img/mk_profile.webp" height="300">
 
 Welcome to this personal abode (or a digital garden 🌱) of mine where I document things I learn or read about, and thoughts that come to my travelling mind. I am a software engineer mainly working on full-stack JavaScript and am deeply in love with Computer Science.
 
