@@ -161,5 +161,20 @@
         "Hello there! Welcome to our friendly abode, the console. Do you have a dev question? Or do you want to have a chat?\nIn any case, drop a mail to karekar.mohit@gmail.com ❤️"
       );
     </script>
+    <script>
+      function onMermaidLoad() {
+        mermaid.initialize({
+          theme: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark': 'default',
+          themeVariables: {
+            fontFamily: 'Source Code Pro, Menlo, monospace',
+          }
+        })
+      }
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js';
+      script.onload = onMermaidLoad;
+      script.async = true;
+      document.head.appendChild(script);
+    </script>
   </body>
 </html>
