@@ -327,11 +327,22 @@ class BPTree {
 ```
 
 ## Performance
-Well, until now, I did not do anything specific to make it a _fast_ B+Tree. I will measure the performance of the existing code and will continue the performance discussion in further posts. Here are some results using `benchmark.js` on my laptop for a test that inserts 1000 values and then looks up 1000.
+Well, until now, I did not do anything specific to make it a _fast_ B+Tree. I will measure the performance of the existing code and will continue the performance discussion in further posts. Here are some results using [`mitata`](https://github.com/evanwashere/mitata) on my laptop for a test that inserts 1000 values and then looks up 1000.
 
 ```txt
-B+Tree Insert x 5,846 ops/sec ±11.66% (66 runs sampled)
-B+Tree Lookup x 6,146 ops/sec ±9.53% (66 runs sampled)
+clk: ~1.87 GHz
+cpu: Apple M1
+runtime: node 20.18.3 (arm64-darwin)
+
+benchmark                   avg (min … max) p75 / p99    (min … top 1%)
+------------------------------------------- -------------------------------
+B+Tree Insert                148.45 ms/iter 146.15 ms   █ █                
+                    (143.05 ms … 171.33 ms) 157.77 ms   ███                
+                    (536.00  b …  26.95 kb)   2.89 kb █▁███▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█
+
+B+Tree Lookup                117.61 ms/iter 121.15 ms      █    █          
+                    (106.13 ms … 135.02 ms) 133.42 ms ▅▅▅▅ █    █▅▅       ▅
+                    (744.00  b …   1.50 kb) 810.00  b ████▁█▁▁▁▁███▁▁▁▁▁▁▁█
 ```
 
 I'll share more performance details and try to implement a _generic_ B+Tree in upcoming posts.
