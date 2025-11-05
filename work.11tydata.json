@@ -70,6 +70,21 @@
 					"title": "Zalando, Berlin, Germany",
 					"roles": [
 						{
+							"position": "Principal Software Engineer",
+							"tech": [
+								"web platform",
+								"observability",
+								"reliability",
+								"typescript",
+								"node",
+								"react",
+								"kubernetes",
+								"testing"
+							],
+							"description": "Part of Client Foundations, evolving and maintaining web and app platforms at Zalando",
+							"dateRange": "August, 2025 - present"
+						},
+						{
 							"position": "Senior Software Engineer",
 							"tech": [
 								"typescript",
@@ -79,7 +94,7 @@
 								"SSR"
 							],
 							"description": "Part of team rendering-engine that maintains Zalando's core web framework",
-							"dateRange": "October, 2021 - present"
+							"dateRange": "October, 2021 - July 2025"
 						}
 					]
 				}
