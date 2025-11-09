@@ -134,7 +134,7 @@ Polling for I/O events can be implemented using certain system calls and they di
 
 >Full-featured event loop backed by [epoll](https://man7.org/linux/man-pages/man7/epoll.7.html), [kqueue](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/kqueue.2.html), IOCP, event ports.
 
-Specifically, `kqueue` is a system call that lets you poll for events on macOS. The way it works is simple:
+Specifically, [`kqueue`](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/kqueue.2.html) is a system call that lets you poll for events on macOS. The way it works is simple:
 * You create a "kqueue" where you will get notified of events
 * You create an event description for what you want to get notified for (e.g. file write, file read etc.)
 * You wait for the event to happen by reading the queue
@@ -176,7 +176,7 @@ And example task using the `kqueue` looks as follows:
 ```cpp
 std::function<void()> readFileWrite(int kq)
 {
-  ################ Attaching a file change event ################
+  // ################ Attaching a file change event ################
   struct kevent event;
 
   int ret, fd;
@@ -192,14 +192,14 @@ std::function<void()> readFileWrite(int kq)
     std::cerr << "Failed to attach kevent" << std::endl;
     std::exit(1);
   }
-  ################ ############################# ################
+  // ################ ############################# ################
 
-  ############### Return the callback as a lambda ###############
+  // ############### Return the callback as a lambda ###############
   return []
   {
     std::cout << "Finally, something written to the file!" << std::endl;
   };
-  ############### ############################### ###############
+  // ############### ############################### ###############
 }
 ```
 
