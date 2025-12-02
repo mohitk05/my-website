@@ -13,7 +13,7 @@ I feel like today's observability systems have grown bigger and bigger with a se
 
 Today, a typical flow of ensuring good system health looks like:
 
-![[self-adapting-1.png]]
+![self-adapting-1](/img/posts/self-adapting-1.png)
 
 With increasing states of the system to monitor, we either increase the level of human intervention or depend on abstractions like Kubernetes or underlying systems that orchestrate for you, considering your system as a black box. These are great already and handle a lot of cases for system owners by managing availability of resources and maintaining a state of equilibrium as defined by the owners.
 
@@ -63,5 +63,5 @@ Recently, with generative AI, this topic is becoming more interesting. With enou
 
 In the future, we'll probably have systems that work as follows:
 
-![[self-adapting-2.png]]
+![self-adapting-2](/img/posts/self-adapting-2.png)
 
