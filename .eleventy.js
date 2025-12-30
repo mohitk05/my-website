@@ -69,8 +69,11 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addFilter("timeToRead", (str) => {
     // remove code blocks
+    // count code blocks
+    const bufferFactor = 1.2;
+    const codeBlocks = (str.match(/<pre[\s\S\d\w]+<\/pre>/g) || []).length;
     const words = str.replace(/<pre[\s\S\d\w]+<\/pre>/g, "").split(" ");
-    const mins = Math.ceil(words.length / 200);
+    const mins = Math.ceil(((words.length / 200) + codeBlocks * 1.5) * bufferFactor);
     return mins > 1 ? mins + " minutes read" : mins + " minute read";
   });
   eleventyConfig.addFilter("contains", (arr, el) => {
