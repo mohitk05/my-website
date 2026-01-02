@@ -8,7 +8,7 @@
   --background-body: #fff;
   --background: #efefef;
   --background-alt: #f7f7f7;
-  --selection: #9e9e9e;
+  --selection: #ffd8d8;
   --text-main: #363636;
   --text-bright: #000;
   --text-muted: #70777f;
@@ -363,10 +363,6 @@ blockquote cite {
 
 address {
   font-style: normal;
-}
-
-a[href^="mailto\:"]::before {
-  content: "📧 ";
 }
 
 a[href^="tel\:"]::before {

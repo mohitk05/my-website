@@ -86,7 +86,7 @@
       body {
         font-family: 'Inter', sans-serif;
         font-size: 1.125rem;
-        max-width: 750px;
+        max-width: 800px;
         font-optical-sizing: auto;
         line-height: 1.625;
       }
@@ -150,10 +150,36 @@
   <body>
     <div class="container main page">
       {{ content | safe }}
-      <div style="text-align: center; margin-top: 20px; font-size: 1rem">
-        © Mohit Karekar •
+      <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px; font-size: 1rem">
+        <span>© Mohit Karekar</span>
+        <span style="margin: 0 10px;">•</span>
         <a href="mailto:karekar.mohit@gmail.com">karekar.mohit@gmail.com</a>
+        <span style="margin: 0 10px;">•</span>
+        <div style="display: flex">
+          <a target="_blank" href="https://github.com/mohitk05" rel="me"
+            ><img
+              class="socialIcon"
+              alt="github"
+              style="width: 1rem; height: auto"
+              src="/img/github.png"
+          /></a>
+          <a target="_blank" href="https://twitter.com/mohitkarekar"
+            ><img
+              class="socialIcon"
+              alt="twitter"
+              style="width: 1rem; height: auto; margin-left: 10px"
+              src="/img/twitter.png"
+          /></a>
+          <a target="_blank" href="https://www.linkedin.com/in/mohit-karekar/"
+            ><img
+              class="socialIcon"
+              alt="linkedin"
+              style="width: 1rem; height: auto; margin-left: 10px"
+              src="/img/linkedin.png"
+          /></a>
+        </div>
       </div>
+      
     </div>
 
     <script>
