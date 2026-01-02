@@ -18,8 +18,10 @@ layout: main.njk
 
 <img src="/img/mk_profile.webp" height="300">
 
-Welcome to this personal abode (or a digital garden 🌱) of mine where I document things I learn or read about, and thoughts that come to my travelling mind. I am a software engineer mainly working on full-stack JavaScript and am deeply in love with Computer Science.
+Updated: 2026-01-02
 
-My love for CS matured late in college when I was studying Electrical & Electronics at VNIT, Nagpur. This website is mostly the place where I note down my learnings and findings. Currently, I am part of the web platform team at [Zalando](https://en.zalando.de), a leading e-commerce store in Europe. On the side, I'm also pursuing a part-time Masters in Computer Science from Georgia Tech through their online offering [OMSCS](https://omscs.gatech.edu).
+Welcome to this personal abode (or a digital garden 🌱) of mine where I document things I learn or read about, and thoughts that come to my travelling mind. I am a software engineer with over 8 years of experience working with large-scale web services and building platforms and developer tools. I have a strong interest in JavaScript tooling and runtimes, and compilers in general.
 
-Things that I love to do other than code include discovering new music, playing electronic keyboard, trying out photography, and well, reading books about software and its history. These hobbies come and go, but most of them have stuck for a long time now.
+In this picture, I can be seen enjoying some hot chai in Berlin winter ☕️ Currently, I am a principal engineer in the _Client Foundations Platform_ team at [Zalando](https://en.zalando.de), a leading e-commerce company in Europe. On the side, I'm also pursuing a part-time Masters in Computer Science from Georgia Tech through their online offering [OMSCS](https://omscs.gatech.edu).
+
+Things that I love to do other than code include running and reading books, my favourite genres being science fiction and history.
