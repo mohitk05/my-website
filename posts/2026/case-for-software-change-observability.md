@@ -34,7 +34,7 @@ Product pushes for fast-paced development, crucial for business to stay relevant
 
 Change is an inherent part of software systems.
 ## Today's observability picture - _change_ is an afterthought
-We are deep into observability in 2025 and OpenTelemetry is _the_ standard for observability. There were a few key themes in 2025 and going into 2026 about what observability should look like. Something that interest me, especially in context of this post (sources linked below [^1], [^2]):
+We are deep into observability in 2025 and OpenTelemetry is _the_ standard for observability. There were a few key themes in 2025 and going into 2026 about what observability should look like. Some of them that interest me, especially in context of this post (sources linked below [^1], [^2]):
 * Cost management for observability
 * Increasing push to show business impact
 * More AI-Driven Intelligence
@@ -47,7 +47,7 @@ Well there are reasons to collect as much data as possible, especially when you 
 ## Change observability
 What if we collect information about _how_ the software is changing instead of collecting everything that is happening with it? After all change is the largest contributor to software incidents and if we can solve this, we probably can solve the problems with observability.
 
-_Change_ can happen in a lot of different ways in a system, but the most common and easiest to detect is a code change, a.k.a. a _deployment_. A friend and I have been thinking about this problem, having faced it in different forms in our time building small to big software systems. We started building a solution that lets you capture change information, starting with deployments and we call it [Watchly](https://www.watchly.dev).
+_Change_ can happen in a lot of different ways in a system, but the most common and easiest to detect is a code change, a.k.a. a _deployment_. A friend of mine and I have been thinking about this problem, having faced it in different forms in our time building small to big software systems. We started building a solution that lets you capture change information, starting with deployments and we call it [Watchly](https://www.watchly.dev).
 
 It does a simple thing very well - it captures when and what has been deployed in your systems and provides a single view into _what has changed for the user_. Capturing deployments across various services is the first step to achieving true _change observability_.
 
