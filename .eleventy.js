@@ -1,5 +1,4 @@
 const moment = require("moment");
-const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -14,7 +13,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("_redirects");
-  eleventyConfig.addPlugin(lazyImagesPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
 
   let markdownLibrary = markdownIt({
