@@ -9,6 +9,7 @@ tags:
   - tools
   - rust
 gardenTag: Seedling
+eleventyExcludeFromCollections: true
 ---
 <style>.content img { max-width: 100%; }</style>
 
