@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("_redirects");
+  eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPlugin(syntaxHighlight);
 
   let markdownLibrary = markdownIt({
@@ -41,6 +42,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("dateReadable", (date) => {
     return moment(date).format("LL");
+  });
+
+  eleventyConfig.addFilter("dateISO", (date) => {
+    return moment(date).format("YYYY-MM-DD");
   });
 
   eleventyConfig.addFilter("slice2", (arr) => {
