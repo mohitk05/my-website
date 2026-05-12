@@ -1,0 +1,17 @@
+# robots.txt for mohitkarekar.com
+
+User-agent: *
+Allow: /
+
+# Block search engines from indexing editor and admin areas
+Disallow: /_editor/
+Disallow: /editor-app.js
+
+# Allow all content and posts
+Allow: /posts/
+Allow: /notes/
+Allow: /work/
+Allow: /life/
+
+# Sitemap location
+Sitemap: https://mohitkarekar.com/sitemap.xml
