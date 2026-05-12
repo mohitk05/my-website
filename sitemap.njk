@@ -9,13 +9,6 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>https://mohitkarekar.com{{ page.url | url }}</loc>
     <lastmod>{{ page.date | dateReadable }}</lastmod>
-    {%- if page.url == '/' %}
-    <priority>1.0</priority>
-    {%- elif 'posts' in page.url %}
-    <priority>0.8</priority>
-    {%- else %}
-    <priority>0.5</priority>
-    {%- endif %}
   </url>
   {%- endif %}
   {%- endfor %}
