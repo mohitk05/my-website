@@ -1,0 +1,22 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {%- for page in collections.all %}
+  {%- if not page.data.eleventyExcludeFromCollections %}
+  <url>
+    <loc>https://mohitkarekar.com{{ page.url | url }}</loc>
+    <lastmod>{{ page.date | dateReadable }}</lastmod>
+    {%- if page.url == '/' %}
+    <priority>1.0</priority>
+    {%- elif 'posts' in page.url %}
+    <priority>0.8</priority>
+    {%- else %}
+    <priority>0.5</priority>
+    {%- endif %}
+  </url>
+  {%- endif %}
+  {%- endfor %}
+</urlset>
