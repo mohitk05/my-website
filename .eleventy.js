@@ -2,6 +2,7 @@ const moment = require("moment");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const fs = require("fs");
 const path = require("path");
 
@@ -15,6 +16,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(sitemap, {
+    sitemap: {
+      hostname: "https://mohitkarekar.com",
+    },
+  });
 
   let markdownLibrary = markdownIt({
     html: true,

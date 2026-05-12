@@ -68,6 +68,66 @@
     <meta property="og:type" content="article" />
     <meta property="article:author" content="https://mohitkarekar.com/about" />
     <link rel="canonical" href="{{ 'https://mohitkarekar.com' + page.url }}" />
+
+    {# Structured Data - Person Schema for Homepage #}
+    {% if page.url == '/' %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mohit Karekar",
+      "url": "https://mohitkarekar.com",
+      "image": "https://mohitkarekar.com/img/mk_profile.webp",
+      "jobTitle": "Principal Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Zalando"
+      },
+      "sameAs": [
+        "https://github.com/mohitk05",
+        "https://twitter.com/mohitkarekar",
+        "https://www.linkedin.com/in/mohit-karekar/"
+      ],
+      "knowsAbout": ["Web Platform", "Systems Programming", "Compilers", "Software Engineering"]
+    }
+    </script>
+    {% endif %}
+
+    {# Structured Data - BlogPosting Schema for Blog Posts #}
+    {% if tags and 'posts' in tags %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ title }}",
+      "author": {
+        "@type": "Person",
+        "name": "Mohit Karekar",
+        "url": "https://mohitkarekar.com"
+      },
+      "datePublished": "{{ date | date('YYYY-MM-DD') }}",
+      "dateModified": "{{ date | date('YYYY-MM-DD') }}",
+      "description": "{% if page.excerpt %}{{ page.excerpt }}{% elif description %}{{ description }}{% endif %}",
+      "url": "{{ 'https://mohitkarekar.com' + page.url }}",
+      {% if coverImage %}
+      "image": "{% if 'http' in coverImage %}{{ coverImage }}{% else %}{{ 'https://mohitkarekar.com' + coverImage }}{% endif %}",
+      {% endif %}
+      "publisher": {
+        "@type": "Person",
+        "name": "Mohit Karekar",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mohitkarekar.com/img/mk_profile.webp"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ 'https://mohitkarekar.com' + page.url }}"
+      }
+    }
+    </script>
+    {% endif %}
+
     <link rel="stylesheet" href="/css/water.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
