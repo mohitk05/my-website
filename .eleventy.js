@@ -44,6 +44,10 @@ module.exports = function (eleventyConfig) {
     return moment(date).format("LL");
   });
 
+  eleventyConfig.addFilter("dateISO", (date) => {
+    return moment(date).format("YYYY-MM-DD");
+  });
+
   eleventyConfig.addFilter("slice2", (arr) => {
     return arr.slice(0, 2);
   });

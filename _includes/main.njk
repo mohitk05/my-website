@@ -105,8 +105,8 @@
         "name": "Mohit Karekar",
         "url": "https://mohitkarekar.com"
       },
-      "datePublished": "{{ date }}",
-      "dateModified": "{{ date }}",
+      "datePublished": "{{ date | dateISO }}",
+      "dateModified": "{{ date | dateISO }}",
       "description": "{% if page.excerpt %}{{ page.excerpt }}{% elif description %}{{ description }}{% endif %}",
       "url": "{{ 'https://mohitkarekar.com' + page.url }}",
       {% if coverImage %}
