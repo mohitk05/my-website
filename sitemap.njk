@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
   {%- if not page.data.eleventyExcludeFromCollections %}
   <url>
     <loc>https://mohitkarekar.com{{ page.url | url }}</loc>
-    <lastmod>{{ page.date | dateReadable }}</lastmod>
+    <lastmod>{{ page.date | dateISO }}</lastmod>
   </url>
   {%- endif %}
   {%- endfor %}
