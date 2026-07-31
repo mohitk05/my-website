@@ -9,7 +9,8 @@ tags:
   - systems
 description: "Opinion: Why I think good platforms are more important now than ever before and how it connects to what we do in Client Foundations at Zalando"
 ---
->_I published this post internally at Zalando, this is a public-facing version of the same. I am part of the Client Foundations (CF) organisation which owns platforms, infrastructure and tooling for everything around web and mobile clients. We enable engineers at Zalando to ship customer-facing features fast and reliably._ 
+
+> _I published this post internally at Zalando, this is a public-facing version of the same. I am part of the Client Foundations (CF) organisation which owns platforms, infrastructure and tooling for everything around web and mobile clients. We enable engineers at Zalando to ship customer-facing features fast and reliably._
 
 I recently came across a book recommendation in a video interview by The Pragmatic Engineer - [CI/CD with Robert Erez](https://www.youtube.com/watch?v=2x0eq5oDOJY) - where Erez talks about [The Phoenix Project](https://www.amazon.de/-/en/Phoenix-Project-DevOps-Helping-Business/dp/0988262592), a book about improving IT/devops processes written in a novel-like style. I haven’t read the book yet but I managed to read up on some summaries and one of the key ideas it shares is the concept of the [Three Ways](https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/).
 
@@ -67,7 +68,6 @@ Some related reads/videos:
 
 [Software engineering at the tipping point](https://www.youtube.com/watch?v=2n41YjR5QfU)
 [David Cramer (co-founder of Sentry) talks about Designing for agents](https://x.com/zeeg/status/2067386142375514354)
-[Improving deployment safety net: CloudFormation Dry Runs in CDP](https://zlife.zalando.net/pages/fbb9cb98-b775-4063-9255-f12a347f750d/apps/blog/1a485c89-d8ab-4b65-9dc5-c5b094b86a68/view/7c571091-431e-4eb1-8506-2d25353ee079)  
 [The Platform and Program Split at Uber](https://newsletter.pragmaticengineer.com/p/program-platform-split-uber)  
 [Mobile Platform Teams](https://blog.pragmaticengineer.com/mobile-platform-teams/)
 
@@ -76,5 +76,3 @@ Some related reads/videos:
 [^2]: Internal name for server-driven UI capability
 
 [^3]: Internal name for the initiative to move to React Native on mobile
-
-
