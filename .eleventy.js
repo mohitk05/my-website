@@ -1,6 +1,7 @@
 const moment = require("moment");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItFootnote = require("markdown-it-footnote");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const fs = require("fs");
 const path = require("path");
@@ -24,7 +25,7 @@ module.exports = function (eleventyConfig) {
     permalink: true,
     permalinkClass: "direct-link",
     permalinkSymbol: "#",
-  });
+  }).use(markdownItFootnote);
   const rules = {
     table_close: () => "</table>\n</div>",
     table_open: () => '<div class="table-wrapper">\n<table>\n',
