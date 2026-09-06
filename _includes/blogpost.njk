@@ -148,4 +148,489 @@ layout: with_newsletter_cta_bottom.njk
     label="blog-comment"
     async
   ></script>
+
+  <!-- AI Chatbox -->
+  <style>
+    /* Desktop: chat panel fixed in the left gutter next to content */
+    @media (min-width: 961px) {
+      #ai-chat-container {
+        position: fixed;
+        top: 80px;
+        bottom: 16px;
+        /* anchor right edge to the left edge of the content column */
+        right: calc(50% + 400px + 12px);
+        /* cap width so it never extends past the left viewport edge */
+        width: min(300px, calc(50vw - 300px - 20px));
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+        gap: 8px;
+        z-index: 1000;
+      }
+      #ai-chatbox {
+        width: 100%;
+        height: calc(100vh - 80px - 16px - 44px - 8px);
+        overflow: hidden;
+      }
+      /* Shift main content right to make room when chat opens */
+      .page {
+        transition: transform 0.25s ease;
+      }
+      .page.chat-open {
+        transform: translateX(min(300px, calc(50vw - 400px - 24px)));
+      }
+    }
+
+    /* Mobile: bottom sheet */
+    @media (max-width: 960px) {
+      #ai-chat-container {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        pointer-events: none;
+      }
+      #toggle-chat {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 1001;
+        pointer-events: all;
+      }
+      #ai-chatbox {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        bottom: 72px;
+        height: 60vh;
+        overflow: hidden;
+        pointer-events: all;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    #toggle-chat {
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      font-size: 20px;
+      flex-shrink: 0;
+      padding: 0;
+      transition: transform 0.25s ease;
+    }
+    #toggle-chat:hover { opacity: 0.85; }
+
+    #ai-chatbox {
+      display: none;
+      flex-direction: column;
+      background: var(--background-body);
+      color: var(--text-main);
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      overflow: hidden;
+    }
+    #ai-chatbox.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #ai-chatbox .chat-header {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--background);
+      color: var(--text-bright);
+      font-family: 'Source Serif 4', Georgia, serif;
+    }
+    #ai-chatbox #close-chat {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: var(--text-muted);
+      line-height: 1;
+      padding: 0;
+    }
+    #ai-chatbox #close-chat:hover { color: var(--text-bright); }
+    #chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      font-family: 'Source Serif 4', Georgia, serif;
+      display: flex;
+      flex-direction: column;
+    }
+    #ai-chatbox .chat-footer {
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    #ai-chatbox .chat-footer hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 4px;
+    }
+    #ai-chatbox #chat-input {
+      width: 100%;
+      padding: 7px 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--background);
+      color: var(--form-text);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+      resize: none;
+      min-height: 64px;
+      line-height: 1.5;
+    }
+    #ai-chatbox #chat-input::placeholder { color: var(--form-placeholder); }
+    #ai-chatbox #send-chat {
+      width: 100%;
+      padding: 7px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: var(--links);
+      color: var(--background-body);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    #ai-chatbox #send-chat:hover { opacity: 0.9; }
+    #ai-chatbox #send-chat:disabled { opacity: 0.5; cursor: not-allowed; }
+    .chat-msg {
+      margin-bottom: 10px;
+      padding: 7px 9px;
+      border-radius: 6px;
+      line-height: 1.5;
+      font-size: 0.8rem;
+    }
+    .chat-msg.user  { background: var(--selection); color: var(--text-bright); align-self: flex-end; }
+    .chat-msg.ai    { background: var(--background-alt); color: var(--text-main); align-self: flex-start; }
+    .chat-msg.loading { background: var(--background-alt); align-self: flex-start; }
+    .chat-msg.loading span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      animation: chat-bounce 1.2s infinite ease-in-out;
+    }
+    .chat-msg.loading span:nth-child(2) { animation-delay: 0.2s; margin: 0 3px; }
+    .chat-msg.loading span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes chat-bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40%            { transform: translateY(-5px); opacity: 1; }
+    }
+    .chat-msg.error { background: var(--links); color: var(--background-body); align-self: flex-start; }
+    .chat-msg.ai p  { margin: 0 0 6px; }
+    .chat-msg.ai p:last-child { margin-bottom: 0; }
+    .chat-msg.ai ul, .chat-msg.ai ol { margin: 0 0 6px; padding-left: 1.2em; }
+    .chat-msg.ai code { font-family: 'Source Code Pro', monospace; font-size: 0.85em; }
+    .chat-msg.ai pre  { margin: 6px 0; font-size: 0.8rem; }
+    .chat-msg.ai a    { color: var(--links); }
+    .chat-jump-link {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--links);
+      text-decoration: none;
+      border-top: 1px solid var(--border);
+      padding-top: 6px;
+    }
+    .chat-jump-link:hover { text-decoration: underline; }
+  </style>
+
+  <script>
+    // Injected into body (not inside .page) so position:fixed is relative to viewport,
+    // not affected by the transform on .page.chat-open
+    (function() {
+      const container = document.createElement('div');
+      container.id = 'ai-chat-container';
+      container.innerHTML = `
+        <button id="toggle-chat">💬</button>
+        <div id="ai-chatbox">
+          <div id="chat-messages"></div>
+          <div class="chat-footer">
+            <hr />
+            <textarea id="chat-input" placeholder="Ask a question…" rows="3"></textarea>
+            <button id="send-chat">Send</button>
+          </div>
+        </div>`;
+      document.body.appendChild(container);
+    })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it@14/dist/markdown-it.min.js"></script>
+  <script>
+    (async function() {
+      const md = window.markdownit({ linkify: true, breaks: true });
+      const chatbox = document.getElementById('ai-chatbox');
+      const toggleBtn = document.getElementById('toggle-chat');
+      const sendBtn = document.getElementById('send-chat');
+      const chatInput = document.getElementById('chat-input');
+      const chatMessages = document.getElementById('chat-messages');
+
+      let session = null;
+      let isSupported = false;
+
+      function showStatus(message) {
+        toggleBtn.textContent = '⏳';
+        toggleBtn.title = message;
+      }
+
+      function showError(message) {
+        toggleBtn.style.opacity = '0.5';
+        toggleBtn.title = message;
+        toggleBtn.style.cursor = 'not-allowed';
+      }
+
+      // Get blog content for context
+      const blogTitle = "{{ title }}";
+      const blogDate = "{{ page.date | dateReadable }}";
+      const blogReadTime = document.querySelector('span + span')?.textContent.trim() || '';
+      const blogTags = "{{ tags | tagFilter | join(', ') }}";
+      const relatedPostsData = [...document.querySelectorAll('.related a')].map(a => ({ title: a.textContent.trim(), url: a.href }));
+      const relatedPosts = relatedPostsData.map(p => `${p.title} (${p.url})`).join(', ');
+      const blogContent = document.querySelector('.content')?.textContent.substring(0, 4000) || '';
+
+      // Check if Chrome Prompt API is available
+      if (!("LanguageModel" in window)) {
+        showError('AI features require Chrome 127+ with Prompt API enabled');
+        return;
+      }
+
+      // Collect heading IDs from the article for the model to reference
+      const headingIds = [...document.querySelectorAll('.content h1, .content h2, .content h3')]
+        .map(h => h.id)
+        .filter(Boolean);
+
+      const sessionOptions = {
+        initialPrompts: [
+          {
+            role: 'system',
+            content: `You are a helpful assistant answering questions about this blog post. Only use the information provided below. Do not make up or infer details not present in the content.
+
+Always respond with a JSON object in this exact format (no markdown fences, raw JSON only):
+{"response": "<your answer in Markdown>", "sectionId": "<id or null>"}
+
+- "response": your answer using Markdown formatting
+- "sectionId": if your answer relates to a specific section of the post, set this to one of the heading IDs listed below (without the #). Otherwise null.
+
+Available section IDs: ${headingIds.join(', ') || 'none'}
+
+Title: ${blogTitle}
+Published: ${blogDate}
+Read time: ${blogReadTime}
+Tags: ${blogTags}
+Related posts: ${relatedPosts}
+
+Content:
+${blogContent}`
+          }
+        ]
+      };
+
+      async function createSession() {
+        session = await LanguageModel.create(sessionOptions);
+      }
+
+      try {
+        const availability = await LanguageModel.availability({
+          expectedInputs: [{type: 'text', languages: ['en']}],
+          expectedOutputs: [{type: 'text', languages: ['en']}]
+        });
+
+        if (availability === 'unavailable') {
+          showError('AI features not supported on this device');
+          return;
+        } else if (availability === 'downloadable') {
+          showStatus('AI model needs to be downloaded. Click to start...');
+          toggleBtn.style.opacity = '1';
+          toggleBtn.style.cursor = 'pointer';
+
+          toggleBtn.addEventListener('click', async () => {
+            showStatus('Downloading AI model...');
+            try {
+              session = await LanguageModel.create({
+                ...sessionOptions,
+                monitor(m) {
+                  m.addEventListener('downloadprogress', (e) => {
+                    const percent = Math.round(e.loaded * 100);
+                    showStatus(`Downloading: ${percent}%`);
+                  });
+                }
+              });
+              isSupported = true;
+              toggleBtn.textContent = '💬';
+              toggleBtn.title = 'Ask questions about this post';
+              setupChatHandlers();
+            } catch (e) {
+              console.error('Error downloading model:', e);
+              showError('Failed to download AI model');
+            }
+          }, { once: true });
+          return;
+        } else if (availability === 'downloading') {
+          showStatus('AI model is downloading...');
+          const checkInterval = setInterval(async () => {
+            const status = await LanguageModel.availability({
+              expectedInputs: [{type: 'text', languages: ['en']}],
+              expectedOutputs: [{type: 'text', languages: ['en']}]
+            });
+            if (status === 'available') {
+              clearInterval(checkInterval);
+              await createSession();
+              isSupported = true;
+              toggleBtn.textContent = '💬';
+              toggleBtn.title = 'Ask questions about this post';
+              setupChatHandlers();
+            }
+          }, 1000);
+          return;
+        } else if (availability === 'available') {
+          await createSession();
+          isSupported = true;
+          setupChatHandlers();
+        }
+      } catch (e) {
+        console.error('Error initializing AI:', e);
+        showError('Error initializing AI');
+        return;
+      }
+
+      function setupChatHandlers() {
+        const page = document.querySelector('.page');
+
+        const chatShift = 'min(300px, calc(50vw - 400px - 24px))';
+        const isDesktop = () => window.matchMedia('(min-width: 961px)').matches;
+        function openChat() {
+          page?.classList.add('chat-open');
+          if (isDesktop()) {
+            toggleBtn.style.transform = `translateX(${chatShift})`;
+            chatbox.style.transform = `translateX(${chatShift})`;
+          }
+          setTimeout(() => {
+            chatbox.style.display = 'flex';
+            requestAnimationFrame(() => chatbox.classList.add('visible'));
+            chatInput.focus();
+          }, 250);
+        }
+        function closeChat() {
+          chatbox.classList.remove('visible');
+          page?.classList.remove('chat-open');
+          toggleBtn.style.transform = '';
+          chatbox.style.transform = '';
+          chatbox.addEventListener('transitionend', () => {
+            chatbox.style.display = 'none';
+          }, { once: true });
+        }
+
+        toggleBtn.addEventListener('click', () => {
+          chatbox.style.display === 'flex' ? closeChat() : openChat();
+        });
+
+        const chatOpenParam = new URLSearchParams(window.location.search).get('chat');
+        if (chatOpenParam === 'open') openChat();
+
+        async function sendMessage() {
+          const message = chatInput.value.trim();
+          if (!message || !session) return;
+
+          const userMsg = document.createElement('div');
+          userMsg.className = 'chat-msg user';
+          userMsg.textContent = message;
+          chatMessages.appendChild(userMsg);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+
+          chatInput.value = '';
+          chatInput.disabled = true;
+          sendBtn.disabled = true;
+
+          const loadingMsg = document.createElement('div');
+          loadingMsg.className = 'chat-msg loading';
+          loadingMsg.innerHTML = '<span></span><span></span><span></span>';
+          chatMessages.appendChild(loadingMsg);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+
+          try {
+            const raw = await session.prompt(message);
+            loadingMsg.remove();
+
+            let responseText, sectionId = null;
+            // Try strict JSON parse first
+            const jsonMatch = raw.trim().match(/\{[\s\S]*\}/);
+            if (!jsonMatch) throw new Error('Model returned an invalid response. Please try again.');
+            try {
+              const parsed = JSON.parse(jsonMatch[0]);
+              if (!parsed.response) throw new Error();
+              responseText = parsed.response;
+              sectionId = (parsed.sectionId && parsed.sectionId !== 'null') ? parsed.sectionId : null;
+            } catch (_) {
+              // Fallback: extract values with regex in case the JSON is malformed
+              const responseMatch = jsonMatch[0].match(/"response"\s*:\s*"([\s\S]*?)"\s*,?\s*"sectionId"/);
+              const sectionMatch = jsonMatch[0].match(/"sectionId"\s*:\s*"?([^",}]+)"?/);
+              if (!responseMatch) throw new Error('Model returned an invalid response. Please try again.');
+              responseText = responseMatch[1].replace(/\\n/g, '\n').replace(/\\"/g, '"');
+              const sid = sectionMatch?.[1]?.trim();
+              sectionId = (sid && sid !== 'null') ? sid : null;
+            }
+
+            const aiMsg = document.createElement('div');
+            aiMsg.className = 'chat-msg ai';
+            aiMsg.innerHTML = md.render(responseText);
+
+            if (sectionId && document.getElementById(sectionId)) {
+              const target = document.getElementById(sectionId);
+              const jumpLink = document.createElement('a');
+              jumpLink.className = 'chat-jump-link';
+              jumpLink.textContent = `↓ Jump to "${target.textContent.trim()}"`;
+              jumpLink.href = '#' + sectionId;
+              jumpLink.addEventListener('click', e => {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              });
+              aiMsg.appendChild(jumpLink);
+              // Auto-scroll to the section after a short delay so the user sees the message first
+              setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 800);
+            }
+
+            chatMessages.appendChild(aiMsg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          } catch (e) {
+            loadingMsg.remove();
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'chat-msg error';
+            errorMsg.textContent = 'Error: ' + e.message;
+            chatMessages.appendChild(errorMsg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          } finally {
+            chatInput.disabled = false;
+            sendBtn.disabled = false;
+            chatInput.focus();
+          }
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+        });
+      }
+
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', () => {
+        if (session) session.destroy();
+      });
+    })();
+  </script>
 </main>
