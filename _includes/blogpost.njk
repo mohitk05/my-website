@@ -390,9 +390,8 @@ layout: with_newsletter_cta_bottom.njk
       }
 
       function showError(message) {
-        toggleBtn.style.opacity = '0.5';
-        toggleBtn.title = message;
-        toggleBtn.style.cursor = 'not-allowed';
+        toggleBtn.style.display = 'none';
+        console.warn('AI chat unavailable:', message);
       }
 
       // Get blog content for context
