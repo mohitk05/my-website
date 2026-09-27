@@ -14,13 +14,6 @@ pre {
 	max-height: 600px;
 	 overflow: scroll;
 }
-
-@media (min-width: 1024px) {
-  .raft-video {
-    max-width: 150%;
-    margin-left: -25%;
-  }
-}
 </style>
 
 > The implementation can be found here: [raft-node](https://github.com/mohitk05/raft-node)
@@ -43,7 +36,7 @@ The algorithm is described in the Raft paper and comprises of three main parts:
 I implemented the algorithm in Node.js and the complete code can be found on GitHub:
 https://github.com/mohitk05/raft-node
 
-<video src="/img/vid/raft.mp4" muted autoplay loop controls style="border-radius:4px;" class="raft-video"></video>
+<video src="/img/vid/raft.mp4" muted autoplay loop controls style="border-radius:4px;" class="big-video"></video>
 
 The main logic is placed in the `RaftNode` class in `src/node.ts`. Here's the complete code:
 
@@ -226,14 +219,14 @@ export class RaftNode {
       (req, res) => {
         const result = this.AppendEntries(req.body);
         res.send(result);
-      }
+      },
     );
     this._expressRaft.post<{}, {}, RequestVoteParams>(
       REQUEST_VOTE_PATH,
       (req, res) => {
         const result = this.RequestVote(req.body);
         res.send(result);
-      }
+      },
     );
   }
 
@@ -275,8 +268,8 @@ export class RaftNode {
             }),
           })
             .then((res) => res.json())
-            .catch(() => ({ success: false }))
-        )
+            .catch(() => ({ success: false })),
+        ),
     );
 
     return results.every((r) => r.success);
@@ -304,8 +297,8 @@ export class RaftNode {
             }),
           })
             .then((res) => res.json())
-            .catch(() => ({ voteGranted: null }))
-        )
+            .catch(() => ({ voteGranted: null })),
+        ),
     );
 
     // self vote
@@ -341,9 +334,12 @@ export class RaftNode {
 
   private async resetLeaderElectionTimeout() {
     if (this._leaderElectionTimeout) clearTimeout(this._leaderElectionTimeout);
-    this._leaderElectionTimeout = setTimeout(() => {
-      this.moveToCandidate();
-    }, 1000 + Math.random() * 500);
+    this._leaderElectionTimeout = setTimeout(
+      () => {
+        this.moveToCandidate();
+      },
+      1000 + Math.random() * 500,
+    );
   }
 
   private AppendEntries({
@@ -396,7 +392,7 @@ export class RaftNode {
       candidateId,
       lastLogIndex,
       lastLogTerm,
-      this.log.length - 1
+      this.log.length - 1,
     );
 
     if (term < this.currentTerm) {
@@ -466,8 +462,8 @@ export class RaftCluster {
           {
             execArgv: ["-r", "ts-node/register"],
             stdio: "inherit",
-          }
-        )
+          },
+        ),
       );
     });
   }

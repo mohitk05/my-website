@@ -5,3 +5,6 @@ _editor/dist
 _editor/.parcel-cache
 posts/.obsidian
 .obsidian
+manim-scenes/**/media
+manim-scenes/**/__pycache__
+/media
