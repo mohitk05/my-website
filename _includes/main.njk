@@ -43,25 +43,25 @@
       content="Hello! I am Mohit Karekar. Watch my work and read blog posts I occassionaly write. I am a software engineer and a curious reader. I currently work on the web platform at Zalando in Berlin, Germany."
       {% endif %}
     />
-    {% if coverImage and 'http' in coverImage %}
+    {% set effectiveImage = ogImage if ogImage else coverImage %}
+    {% if effectiveImage and 'http' in effectiveImage %}
     <meta
       property="og:image"
-      content="{{ coverImage if coverImage else '/mohit.jpg' }}"
+      content="{{ effectiveImage if effectiveImage else '/mohit.jpg' }}"
     />
     <link
       rel="preload"
-      href="{{ coverImage if coverImage else '/mohit.jpg' }}"
+      href="{{ effectiveImage if effectiveImage else '/mohit.jpg' }}"
       as="image"
     />
     {% else %}
     <meta
       property="og:image"
-      content="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/meta-cover.png' }}"
+      content="{{ 'https://mohitkarekar.com' + effectiveImage if effectiveImage else 'https://mohitkarekar.com/img/meta-cover.png' }}"
     />
-    {# {% ogImage "./_includes/og-image.og.njk", { title: "Hello World!" } %} #}
     <link
       rel="preload"
-      href="{{ 'https://mohitkarekar.com' + coverImage if coverImage else 'https://mohitkarekar.com/img/mk_profile.webp' }}"
+      href="{{ 'https://mohitkarekar.com' + effectiveImage if effectiveImage else 'https://mohitkarekar.com/img/mk_profile.webp' }}"
       as="image"
     />
     {% endif %}
@@ -109,8 +109,8 @@
       "dateModified": "{{ date | dateISO }}",
       "description": "{% if page.excerpt %}{{ page.excerpt }}{% elif description %}{{ description }}{% endif %}",
       "url": "{{ 'https://mohitkarekar.com' + page.url }}",
-      {% if coverImage %}
-      "image": "{% if 'http' in coverImage %}{{ coverImage }}{% else %}{{ 'https://mohitkarekar.com' + coverImage }}{% endif %}",
+      {% if effectiveImage %}
+      "image": "{% if 'http' in effectiveImage %}{{ effectiveImage }}{% else %}{{ 'https://mohitkarekar.com' + effectiveImage }}{% endif %}",
       {% endif %}
       "publisher": {
         "@type": "Person",

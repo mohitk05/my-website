@@ -5,11 +5,15 @@ const markdownItFootnote = require("markdown-it-footnote");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const fs = require("fs");
 const path = require("path");
+const { generateMissingOgImages } = require("./_og-image/generate");
 
 moment.locale("en");
 
 module.exports = function (eleventyConfig) {
   fs.cpSync(path.resolve(__dirname, "posts/img/posts"), path.resolve(__dirname, "img/posts"), { overwrite: false, recursive: true });
+  eleventyConfig.on("eleventy.before", async () => {
+    await generateMissingOgImages();
+  });
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("css");

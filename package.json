@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "npx @11ty/eleventy --serve",
+		"preview:og": "node _og-image/preview.js",
 		"build:editor": "cd _editor && npm run build && cd ..",
 		"start:editor": "STATIC_PATH=_editor/dist node editor-app.js",
 		"start": "npm run build:editor && npm run dev & npm run start:editor"
@@ -16,10 +17,15 @@
 	"devDependencies": {
 		"@11ty/eleventy-plugin-rss": "^3.0.0",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^3.0.0",
+		"@resvg/resvg-js": "^2.6.2",
+		"chokidar": "^3.6.0",
+		"gray-matter": "^4.0.3",
 		"markdown-it": "^10.0.0",
 		"markdown-it-anchor": "^5.2.5",
 		"markdown-it-highlightjs": "^3.2.0",
-		"moment": "^2.24.0"
+		"moment": "^2.24.0",
+		"satori": "^0.33.5",
+		"satori-html": "^0.3.2"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^2.0.0",
