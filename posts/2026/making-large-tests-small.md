@@ -1,6 +1,6 @@
 ---
 title: Making large tests small
-date: 2026-10-26
+date: 2026-11-05
 tags:
   - testing
   - software-engineering
