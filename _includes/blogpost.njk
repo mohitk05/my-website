@@ -13,6 +13,9 @@ layout: with_newsletter_cta_bottom.njk
   media="(prefers-color-scheme: dark)"
 />
 <style>
+  body {
+    max-width: 720px;
+  }
   p code {
     font-family: 'Source Code Pro', Menlo, monospace;
     font-size: 1rem;
@@ -407,7 +410,7 @@ layout: with_newsletter_cta_bottom.njk
         top: 80px;
         bottom: 16px;
         /* anchor right edge to the left edge of the content column */
-        right: calc(50% + 400px + 12px);
+        right: calc(50% + 360px + 12px);
         /* cap width so it never extends past the left viewport edge */
         width: min(300px, calc(50vw - 300px - 20px));
         display: none;
@@ -427,7 +430,7 @@ layout: with_newsletter_cta_bottom.njk
         transition: transform 0.25s ease;
       }
       .page.chat-open {
-        transform: translateX(min(300px, calc(50vw - 400px - 24px)));
+        transform: translateX(min(300px, calc(50vw - 360px - 24px)));
       }
     }
 
@@ -767,7 +770,7 @@ ${blogContent}`
       function setupChatHandlers() {
         const page = document.querySelector('.page');
 
-        const chatShift = 'min(300px, calc(50vw - 400px - 24px))';
+        const chatShift = 'min(300px, calc(50vw - 360px - 24px))';
         const isDesktop = () => window.matchMedia('(min-width: 961px)').matches;
         function openChat() {
           page?.classList.add('chat-open');

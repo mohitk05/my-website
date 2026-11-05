@@ -131,7 +131,7 @@
     <link rel="stylesheet" href="/css/water.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     {% if page.url == '/' %} {%- for post in collections.posts | reverse |
     slice10 -%}
     <link rel="prefetch" href="{{ post.url }}" as="document" />
@@ -139,16 +139,61 @@
     <link rel="icon" href="/img/icon.jpg" />
     <title>{{ title }}</title>
     <style>
+      @font-face {
+        font-family: 'Standard';
+        src: url('/fonts/standard-book.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Standard';
+        src: url('/fonts/standard-book-italic.woff2') format('woff2');
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Standard';
+        src: url('/fonts/standard-bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Standard';
+        src: url('/fonts/standard-bold-italic.woff2') format('woff2');
+        font-weight: 700;
+        font-style: italic;
+        font-display: swap;
+      }
+
       table {
         width: 100%
       }
 
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Standard', sans-serif;
         font-size: 1.125rem;
         max-width: 800px;
         font-optical-sizing: auto;
-        line-height: 1.625;
+        line-height: 1.5;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      h4 {
+        font-size: 1rem;
       }
 
       td {
@@ -170,7 +215,7 @@
       h3,
       h4 {
         {# font-family: 'Source Sans 3', sans-serif; #}
-        font-family: 'Inter Tight', sans-serif;
+        font-family: 'Standard', sans-serif;
         font-weight: 600;
         font-style: normal;
       }
