@@ -1,6 +1,6 @@
 ---
 title: Making large tests small
-date: 2026-11-05
+date: 2026-10-26
 tags:
   - testing
   - software-engineering
@@ -52,16 +52,26 @@ test("View product detail screen", async ({ phone }) => {
 }
 ```
 
-Each step here either starts a real app, interacts with it through tools like ADB or navigates through real screens. To write a _small test_ for this scenario, we'd use a shallow, headless testing approach that does not render the entire screen but rather only a virtual one. In this case [`@testing-library/react-native`](https://github.com/callstack/react-native-testing-library) is perfect for implementing shallow E2Es, a.k.a. integration tests.
+Each step here either starts a real app, interacts with it through tools like ADB or navigates through real screens. To write a _small test_ for this scenario, we'd use a light-weight, headless testing approach that does not render the entire screen but rather only a virtual one. In this case [`@testing-library/react-native`](https://github.com/callstack/react-native-testing-library) is perfect for implementing headless E2Es, a.k.a. integration tests.
 
 ```ts
-it("view product details screen", async () => {
-  const traitStore = pdpTraitStore();
-  await openPdp(traitStore).open("zalando://PDS?sku=ABC12A00B-K11");
-  click(screen.getByLabelText("mobile.app.wardrobe.product.add_to_bag.content_description", { hidden: true }));
-  expect(traitStore.cart.addToCart).not.toHaveBeenCalled();
-  await waitFor(() => expect(traitStore.productSizePickerControl.openSizePicker).toHaveBeenCalled());
-})
+it("selects a size in the size picker and adds that size to the cart", async () => {
+	const { app, traitStore } = setup();
+	await app.open(PDP);
+	
+	await addSizeToCart(traitStore);
+	
+	expect(
+		traitStore.productSizeSelection.selectSizeAndOffer,
+	).toHaveBeenCalledWith("ABC12A00B-K110M", "MERCHANT1");
+	expect(traitStore.cart.addToCart).toHaveBeenCalledWith(
+		expect.objectContaining({
+		sku: CART_PRODUCT.sku,
+		simpleSku: "ABC12A00B-K110M",
+		}),
+		expect.anything(),
+	);
+});
 ```
 
 I tasked Copilot to port 10 of the E2E tests to `@testing-library/react-native` (RNTL) by simulating the app setup flows and providing mocked dependencies. Well, it took some time to perfect the test harness it created to simulate close-to-real setup while still limiting to just RNTL.
@@ -78,7 +88,7 @@ How does it compare to the original E2E tests?
 |                                      | E2E test                                                                                    | Small-sized integration test                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | _Number of processes to run 1 test_  | ~4                                                                                          | 1                                                                                                                                       |
-| _Runtime on my Mac M4 with 14 cores_ | 1-2 minutes                                                                                 | 1-5 seconds                                                                                                                             |
+| _Runtime on my Mac M4 with 14 cores_ | 40-50 seconds                                                                               | 2-5 seconds                                                                                                                             |
 | _Resources needed to execute_        | A real/virtual device, app build, test driver                                               | A test framework and mocking capabilities                                                                                               |
 | _Ideal for_                          | Catching backend contract regressions, native integration bugs, "full" user journeys issues | Regressions in screen-level features and interactions, rendering rules, deeplinks, module logic, event handlers, tracking events issues |
 | _Strengths_                          | Testing in real-environment, real end-to-end behaviours                                     | Fast feedback, easy to run, deterministic                                                                                               |
@@ -86,7 +96,7 @@ The idea is not to compare them to choose one, but rather to choose the right on
 1. _During active development_, use tests that run as fast as possible while testing fairly widely. This is achieved by adding more of small-sized tests to cover various scenarios and running them often, i.e. per commit or step in the harness/agent loop.
 2. _When it is time to ship_ changes to a stage which expects stability (I intentionally avoid saying _production_ because there may be multiple stages before where this is expected), run the wider, more expensive tests.
 
-This is almost what the [_testing trophy_](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) describes, as coined by Kent C. Dodds in 2021 and I'm just sad/amazed that we (or, I) keep re-discovering this every year.
+This is almost what the [_testing trophy_](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) describes, as coined by Kent C. Dodds in 2018 and I'm just sad/amazed that we (or, I) keep re-discovering this every year.
 
 I would rephrase this model in terms of the concept of _test size_:
 >**_Have more of small-sized tests, make large tests small as much as possible, and keep a tiny set of important large tests._**
@@ -113,7 +123,7 @@ The hypothesis is that if your tests are good and cover all such scenarios, they
 | **Total** | 60      | **2**          | **6**               | **5**              | **47**        |
 I also kind of agree with these results as the tests are quite high level and may miss out on some granular changes in the code which may not reflect on the overall screen rendering. A "good" thing though is that the scores for both kinds of tests are almost the same, meaning the RNTL tests are already proving to be similar to E2Es in terms of coverage.
 
-A problem with stryker though is that by default it makes changes randomly in your source code. There are ways to direct it to change specific parts, but I did not explore this yet. An easier way was to ask Copilot to detect areas in code that may be related to what the tests cover and try to mutate them.
+A problem with stryker though is that by default it makes changes without context of the code, i.e. it is purely syntactic. I wanted to design mutants that may in fact cause issues that should never pass regression checks. An easier way was to ask an agent to detect areas in code that may be related to what the tests cover and try to mutate them.
 ### Mutating with an agent
 In this round, Copilot identified 11 mutants and ran the same process manually without stryker (i.e. test -> record -> mutate -> test -> compare). Results:
 
@@ -139,7 +149,7 @@ What these exercises highlight:
 1. **RNTL integration tests cover similar product features as E2E tests**, and in case a regression was introduced they would successfully catch it. That said, they cannot detect an issue caused by an underlying dependency e.g. native or data API layers. This highlights a key fact: **_integration tests can replace E2E tests when the chance of a regression due to code change is high_**.
 2. **It is extremely cheap to extend the RNTL tests** as compared to E2Es run with Appium. They detect issues faster - almost 5-10 times faster than E2Es.
 ## New possibilities
-Being able to simulate the entire app creation and screen loading flow in a shallow format like RNTL invites new domains that do not need a full device for testing. A great example where we've often struggled is tracking events. In a distributed setup, ensuring that screens emit the right tracking data across hundreds of modules they load is important. We've had many incidents in the past where this contract broke and led to crucial data being missing which eventually led to impact on ad allocation and spending.
+Being able to simulate the entire app creation and screen loading flow in a headless format like RNTL invites new domains that do not need a full device for testing. A great example where we've often struggled is tracking events. In a distributed setup, ensuring that screens emit the right tracking data across hundreds of modules they load is important. We've had many incidents in the past where this contract broke and led to crucial data being missing which eventually led to impact on ad allocation and spending.
 
 With RNTL _integration_ tests, verifying tracking data is extremely easy. A new harness wraps runtime code and intercepts calls to APIs that emit tracking events and a test can then verify if an interaction leads to the right schema for tracking being used in the emitted data.
 
@@ -167,4 +177,4 @@ it("emits only schema-valid events", async () => {
 });
 ```
 ## Next steps from here
-I wrote a testing strategy a month ago for my org at Zalando and one of key points there is _use more of small tests and make large tests small_ and I am going to double down on this. This exercise is part of a larger idea to make testing mobile experiences fast, deterministic and easy to maintain with agents. As agentic engineering and the concept of _software factories_ becomes more commonplace, testing and verifying software works is going to be the most challenging and interesting puzzle to solve!
+I wrote a testing strategy a month ago for my org at Zalando and one of key points there is _use more of small tests and make large tests small_ and I am going to double down on this. This exercise is part of a larger idea to make testing mobile experiences fast, deterministic and easy to maintain with agents. As agentic engineering and the concept of _software factories_ becomes more commonplace, testing and verifying software works is going to be the most challenging and interesting 
