@@ -108,7 +108,7 @@ layout: with_newsletter_cta_bottom.njk
       z-index: 900;
     }
     /* Shift main content right to make room for TOC */
-    main {
+    html:not(.no-toc) main {
       transform: translateX(15%);
     }
     #toc-toggle {
@@ -157,6 +157,10 @@ layout: with_newsletter_cta_bottom.njk
     #toc-nav.visible {
       display: block;
     }
+  }
+
+  html.no-toc #toc-container {
+    display: none;
   }
 
   #toc-nav h3 {
@@ -374,6 +378,12 @@ layout: with_newsletter_cta_bottom.njk
   ></div>
   {% endif %}
   <article class="content">{{ content | safe }}</article>
+  <script>
+    // No headings -> no table of contents: hide it and keep the content centered
+    if (!document.querySelector('.content h2, .content h3')) {
+      document.documentElement.classList.add('no-toc');
+    }
+  </script>
   <div>
     {% set meaningfulTags = tags | tagFilter %}
     {% set combinedPosts = collections | groupTags(meaningfulTags) %}
