@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const moment = require("moment");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
@@ -10,6 +12,14 @@ const { generateMissingOgImages } = require("./_og-image/generate");
 moment.locale("en");
 
 module.exports = function (eleventyConfig) {
+  const posthogHost = process.env.POSTHOG_HOST || "";
+  eleventyConfig.addGlobalData("posthog", {
+    projectToken: JSON.stringify(process.env.POSTHOG_PROJECT_TOKEN || ""),
+    host: JSON.stringify(posthogHost),
+    scriptUrl: JSON.stringify(`${posthogHost.replace(".i.posthog.com", "-assets.i.posthog.com")}/static/array.js`),
+    isDevelopment: process.env.NODE_ENV !== "production",
+  });
+
   fs.cpSync(path.resolve(__dirname, "posts/img/posts"), path.resolve(__dirname, "img/posts"), { overwrite: false, recursive: true });
   eleventyConfig.on("eleventy.before", async () => {
     await generateMissingOgImages();
