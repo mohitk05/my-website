@@ -137,6 +137,27 @@
     <link rel="prefetch" href="{{ post.url }}" as="document" />
     {%- endfor -%} {%- endif -%}
     <link rel="icon" href="/img/icon.jpg" />
+    {% if posthog.projectToken != '""' and posthog.host != '""' %}
+    <script src={{ posthog.scriptUrl | safe }}></script>
+    <script>
+      posthog.init({{ posthog.projectToken | safe }}, {
+        api_host: {{ posthog.host | safe }},
+        defaults: "2026-08-30",
+        capture_exceptions: true,
+        logs: {
+          serviceName: 'mohitkarekar-website'
+        }
+      });
+    </script>
+    {% elif posthog.isDevelopment and posthog.projectToken == '""' %}
+    <script>
+      throw new Error("POSTHOG_PROJECT_TOKEN variable required by PostHog is missing or un-configured, this causes events to be silently missed. This error stops appearing once POSTHOG_PROJECT_TOKEN is configured");
+    </script>
+    {% elif posthog.isDevelopment %}
+    <script>
+      throw new Error("POSTHOG_HOST variable required by PostHog is missing or un-configured, this causes events to be silently missed. This error stops appearing once POSTHOG_HOST is configured");
+    </script>
+    {% endif %}
     <title>{{ title }}</title>
     <style>
       @font-face {
@@ -298,6 +319,15 @@
       console.log(
         "Hello there! Welcome to our friendly abode, the console. Do you have a dev question? Or do you want to have a chat?\nIn any case, drop a mail to karekar.mohit@gmail.com ❤️"
       );
+    </script>
+    <script>
+      document.querySelectorAll('.formkit-form, #mc-embedded-subscribe-form').forEach((form) => {
+        form.addEventListener('submit', () => {
+          const provider = form.matches('.formkit-form') ? 'convertkit' : 'mailchimp';
+          window.posthog?.capture('newsletter_subscription_submitted', { provider });
+          window.posthog?.logger?.info('newsletter subscription submitted', { provider });
+        });
+      });
     </script>
     <script>
       function onMermaidLoad() {

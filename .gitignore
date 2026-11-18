@@ -9,3 +9,4 @@ manim-scenes/**/media
 manim-scenes/**/__pycache__
 /media
 img/og
+.env
