@@ -55,6 +55,8 @@ This is what I did next: **Nano Banana is not allowed to draw/invent pixels**. I
 
 And it does a very good job! I love these. And as a bonus, Nano Banana also upscales the image to a very high quality.
 
+![building-blocks-9](/img/posts/building-blocks-9.png)
+
 The prompt for the second image, as suggested by Pi:
 >_Edit the first image (a painted portrait of a man with a wide-brimmed hat and white ruffled collar). Apply the accessory from the second image: a distressed, frayed charcoal-gray and black gauze hooded face wrap (Dune-style stillsuit scarf). Wrap it cleanly around the man's head and lower face, covering his nose, mouth and beard, leaving his eyes visible, with the loose frayed ends draping over the collar and shoulder. Fit it naturally to the face geometry with consistent lighting and shadows. Do NOT change the art style: keep the same oil-painting look, brushwork, colors, palette, grain/noise texture, composition, and framing as the original 1:1 image; the wrap must be painted in that same style._
 
