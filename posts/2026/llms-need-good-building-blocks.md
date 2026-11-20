@@ -6,6 +6,7 @@ tags:
   - agentic-engineering
 description: AI agents are as good as the building blocks available to them
 coverImage: /img/posts/building-blocks-cover.jpg
+coverImageSize: cover
 ---
 <style>
 .content img {
