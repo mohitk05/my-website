@@ -6,6 +6,7 @@ const path = require('path');
 const dirTree = require('directory-tree');
 const { readFileSync } = require('fs');
 const { NodeHtmlMarkdown } = require('node-html-markdown');
+const { posthogLogger } = require('./posthog-logs');
 
 const app = express();
 
@@ -23,6 +24,11 @@ app.use(express.static(process.env.STATIC_PATH))
 app.post('/image-upload', (req, res) => {
     const file = req.files.image, name = `img_${Date.now()}.${file.mimetype.split('/')[1]}`;
     fsPromise.writeFile(path.resolve(__dirname, 'img', 'uploads', name), file.data).then(() => {
+        posthogLogger.emit({
+            severityText: 'INFO',
+            body: 'editor image upload completed',
+            attributes: { event: 'editor_image_upload_completed', outcome: 'success' }
+        });
         res.send({
             success: 1,
             file: {
@@ -64,6 +70,11 @@ app.post('/content/:path', (req, res) => {
             res.status(500).send('Could not save, no delimitter found in file');
         } else {
             fsPromise.writeFile(pth, `${frontMatter}\n${MD_DELIM}\n${markdown}`).then(() => {
+                posthogLogger.emit({
+                    severityText: 'INFO',
+                    body: 'editor content save completed',
+                    attributes: { event: 'editor_content_save_completed', outcome: 'success' }
+                });
                 res.send({ success: 1 })
             }).catch(e => {
                 console.log(e);
@@ -79,4 +90,10 @@ app.post('/content/:path', (req, res) => {
     res.send('Ok');
 });
 
-app.listen(5000);
+app.listen(5000, () => {
+    posthogLogger.emit({
+        severityText: 'INFO',
+        body: 'editor service started',
+        attributes: { event: 'editor_service_started', port: 5000 }
+    });
+});
