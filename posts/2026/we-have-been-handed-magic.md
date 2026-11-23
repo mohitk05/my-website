@@ -8,12 +8,14 @@ coverImage: /img/posts/magic-cover.png
 coverImageHeight: 300px
 coverImageSize: contain
 ---
+
 <style>
 .content img {
 	max-width: 100%;
 	width: 100%;
 }
 </style>
+
 Recently on a day off I was putting the dishes in the dishwasher, while I saw Claude reply and work on a message I sent it just before. It was for a game I'm building called [Aboard](https://aboard.karekar-mohit.workers.dev/story). It suddenly struck to me how things have changed with LLMs over just a few months and how normal it has become so quickly! I have the power to create things out of thin air at my fingertips, it feels like magic.
 
 Since early this year, I have been extensively working with agents and becoming more "AI-pilled" if that's the appropriate term, both at work and on my personal projects. I have tried so many new ideas, revived a bunch of my old (dead) projects and tried to improve my work and the setup around it with agents.
@@ -40,3 +42,9 @@ I know this is probably very simple as compared to what people have been doing o
 
 We've been handed magic ✨
 
+---
+
+<figure style="margin: 20px 0;">
+  <img src="/img/posts/shaka-laka-boom-boom.png" alt="A still from Shaka Laka Boom Boom: a boy holding the magic pencil">
+  <figcaption style="font-size:0.9rem;">An enhanced version of a still from a Hindi series called <em>Shaka Laka Boom Boom</em> which we used to watch as kids. The guy finds this magic pencil - anything you draw with it gets real! I was reminded of this, and ended up watching a couple of <a href="https://www.youtube.com/watch?v=QrIfagdfCts">episodes</a>.</figcaption>
+</figure>
