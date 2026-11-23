@@ -7,8 +7,8 @@ tags:
 coverImage: /img/posts/magic-cover.png
 coverImageHeight: 300px
 coverImageSize: contain
+description: Appreciating what LLMs have made possible over the last months
 ---
-
 <style>
 .content img {
 	max-width: 100%;
